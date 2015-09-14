@@ -9,7 +9,6 @@ def contenido_de_archivo(ruta):
 	return contenido
 
 #Index de la pagina
-import index_v1
 @app.route("/")
 def index():
     return contenido_de_archivo("demos/fixed/index2.html")
