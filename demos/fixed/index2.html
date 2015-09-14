@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Blockly Demo: Fixed Blockly</title>
+  <script src="../../blockly_compressed.js"></script>
+  <script src="../../blocks_compressed.js"></script>
+  <script src="../../javascript_compressed.js"></script>
+  <script src="../../msg/js/es.js"></script>
+  <script src="../../blocks/movimiento.js"></script>
+  <script src="../../generators/javascript/movimiento.js"></script>
+  <style>
+    body {
+      background-color: #fff;
+      font-family: sans-serif;
+    }
+    h1 {
+      font-weight: normal;
+      font-size: 140%;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    <button onclick="mostrar_javascript()">Mostrar JavaScript</button>
+    <button onclick="ejecutar_javascript()">Ejecutar JavaScript</button>
+  </p>
+
+  <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+
+  <xml id="toolbox" style="display: none">
+    <block type="avanzar"></block>
+    <block type="controls_repeat_ext">
+	  <value name="TIMES">
+	    <block type="math_number">
+		  <field name="NUM">10</field>
+		</block>
+	  </value>
+	</block>
+	<block type="math_number"></block>
+	<block type="text_print"></block>
+	<block type="text"></block>
+  </xml>
+
+  <xml id="startBlocks" style="display: none">
+    <block type="controls_repeat_ext">
+	  <value name="TIMES">
+	    <block type="math_number">
+		  <field name="NUM">10</field>
+		</block>
+	  </value>
+	</block>
+  </xml>
+  
+  <script>
+    var workspace = Blockly.inject('blocklyDiv',
+        {media: '../../media/',
+         toolbox: document.getElementById('toolbox')});
+	Blockly.Xml.domToWorkspace(workspace,
+		document.getElementById('startBlocks'));
+		
+	function mostrar_javascript() {
+		Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+		var codigo = Blockly.JavaScript.workspaceToCode(workspace);
+		alert(codigo);
+	}
+	
+	function ejecutar_javascript() {
+		window.LoopTrap = 1000;
+		Blockly.JavaScript.INFINITE_LOOP_TRAP =
+			'if (--window.LoopTrap == 0) throw "Loop infinito.";\n';
+		var codigo = Blockly.JavaScript.workspaceToCode(workspace);
+		Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+		try {
+			eval(codigo);
+		} catch (e) {
+			alert(e);
+		}
+	}
+  </script>
+
+</body>
+</html>
