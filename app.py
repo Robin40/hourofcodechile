@@ -11,7 +11,7 @@ def contenido_de_archivo(ruta):
 #Index de la pagina
 @app.route("/")
 def index():
-    return contenido_de_archivo("demos/fixed/index2.html")
+    return contenido_de_archivo("demos/fixed/index3.html")
 
 #Esto ejecuta la aplicacion
 if __name__ == "__main__":
