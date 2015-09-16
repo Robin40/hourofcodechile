@@ -1,0 +1,103 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+header > div{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.l-title{
+	font-size: 22px;
+}
+
+#logo-container{
+	width: 120px;
+	height: 120px;
+	margin: 10px 40px;
+	background-image:url(../media/hoc-logo.png);
+	vertical-align: middle;
+	
+}
+
+#levels-bar{
+	width: 700px;
+	height: 100px;
+	display: inline-table;
+	vertical-align: middle;
+	cursor: default;
+	border-top: 2px solid #bbb;
+	border-bottom: 2px solid #bbb;
+}
+
+#levels-bar > div{
+	display: table-cell;
+	vertical-align: middle;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#levels-bar li{
+	height: 10px;
+	width: 10px;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+	border: solid 2px #777;
+	background: #ddd;
+	border-radius: 10px;
+}
+
+#levels-bar li:not(.current-level):hover{
+	height: 12px;
+	width: 12px;
+	margin-left: -2px;
+	margin-top: -1px;
+	cursor: pointer;
+}
+
+#levels-bar li.current-level{
+	height: 30px;
+	width: 30px;
+	font-size: 16px;
+	border-radius: 20px;
+}
+
+#levels-bar li.lcolor0{
+	background-color: #777777;
+}
+
+#levels-bar li.lcolor1{
+	background-color: #d2ff52;
+}
+
+#buttons{
+	width: 250px;
+}
+
+#buttons > button{
+	width: 200px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-radius: 2px;
+	display: block;
+	color: #FFFFFF;
+	font-size: 15px;
+	margin-top: 5px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#buttons > button:hover{
+	cursor: pointer;
+}
+
+#js-button{
+	background-color: #26ABB7;
+}
+
+#exec-button{
+	background-color: #26B55F;
+}
