@@ -1,0 +1,29 @@
+level: 3
+grid:
+	dimensiones: 8 8
+	###P##%#
+	####V#P#
+	##%PTL#%
+	VL...V##
+	#PTL.%#%
+	#V%#V###
+	####V%L#
+	PP###%##
+end
+personaje: pajaro 3 2 derecha
+meta: cerdo 4 4
+obstaculos:
+	tnt: 2 4
+	tnt: 4 2
+end
+mensaje: "Cuidado con la TNT!"
+minimo-bloques: 5
+bloques-disponibles:
+	avanzar
+	girar: antihorario
+	girar: horario
+end
+bloques-iniciales:
+	* al_ejecutar
+	avanzar
+end

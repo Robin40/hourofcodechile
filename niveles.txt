@@ -1,0 +1,122 @@
+level: 1
+grid:
+	dimensiones: 8 8
+	########
+	########
+	###.####
+	###.####
+	###.####
+	########
+	########
+	########
+end
+personaje: pajaro 2 3 abajo
+meta: cerdo 4 3
+mensaje: "Ay&uacute;dame a llegar a la meta"
+minimo-bloques: 3
+bloques-disponibles:
+	avanzar
+	girar: antihorario
+	girar: horario
+end
+bloques-iniciales:
+	* al_ejecutar
+	avanzar
+end
+
+level: 3
+grid:
+	dimensiones: 8 8
+	###P##%#
+	####V#P#
+	##%PTL#%
+	VL...V##
+	#PTL.%#%
+	#V%#V###
+	####V%L#
+	PP###%##
+end
+personaje: pajaro 3 2 derecha
+meta: cerdo 4 4
+obstaculos:
+	tnt: 2 4
+	tnt: 4 2
+end
+mensaje: "Cuidado con la TNT!"
+minimo-bloques: 5
+bloques-disponibles:
+	avanzar
+	girar: antihorario
+	girar: horario
+end
+bloques-iniciales:
+	* al_ejecutar
+	avanzar
+end
+
+level: 6
+grid:
+	dimensiones: 8 8
+	####%#P#
+	#L#V###P
+	###V%##P
+	#%VLPL%#
+	L......P
+	#L%%%%%#
+	########
+	#L%#####
+end
+personaje: pajaro 4 1 derecha
+meta: cerdo 4 6
+mensaje: "Usa solo 2 bloques"
+maximo-bloques: 3
+bloques-disponibles:
+	avanzar
+	girar: antihorario
+	girar: horario
+	repetir:
+		veces: 5
+	end
+end
+bloques-iniciales:
+	* al_ejecutar
+end
+
+level: 14
+grid:
+	dimensiones: 8 8
+	AO......
+	...OOi..
+	OO..A|..
+	AA...|O.
+	.....|..
+	..AOO|..
+	A..--1..
+	.A.O.'..
+end
+personaje: zombie 6 3 derecha
+meta: flor 1 5
+obstaculos:
+	planta-carnivora: 7 5
+end
+mensaje: "Usa el \"if\""
+minimo-bloques: 5
+bloques-disponibles:
+	avanzar
+	girar: antihorario
+	girar: horario
+	repetir_hasta_flor:
+	end
+	si_hay_camino:
+		sentido: antihorario
+	end
+end
+bloques-iniciales:
+	* al_ejecutar
+	* repetir_hasta_flor:
+		* avanzar
+		* si_hay_camino:
+			sentido: antihorario
+		end
+	end
+end

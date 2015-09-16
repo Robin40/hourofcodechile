@@ -1,0 +1,25 @@
+level: 1
+grid:
+	dimensiones: 8 8
+	########
+	########
+	###.####
+	###.####
+	###.####
+	########
+	########
+	########
+end
+personaje: pajaro 2 3 abajo
+meta: cerdo 4 3
+mensaje: "Ay&uacute;dame a llegar a la meta"
+minimo-bloques: 3
+bloques-disponibles:
+	avanzar
+	girar: antihorario
+	girar: horario
+end
+bloques-iniciales:
+	* al_ejecutar
+	avanzar
+end

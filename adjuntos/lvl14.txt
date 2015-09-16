@@ -1,0 +1,38 @@
+level: 14
+grid:
+	dimensiones: 8 8
+	AO......
+	...OOi..
+	OO..A|..
+	AA...|O.
+	.....|..
+	..AOO|..
+	A..--1..
+	.A.O.'..
+end
+personaje: zombie 6 3 derecha
+meta: flor 1 5
+obstaculos:
+	planta-carnivora: 7 5
+end
+mensaje: "Usa el \"if\""
+minimo-bloques: 5
+bloques-disponibles:
+	avanzar
+	girar: antihorario
+	girar: horario
+	repetir_hasta_flor:
+	end
+	si_hay_camino:
+		sentido: antihorario
+	end
+end
+bloques-iniciales:
+	* al_ejecutar
+	* repetir_hasta_flor:
+		* avanzar
+		* si_hay_camino:
+			sentido: antihorario
+		end
+	end
+end

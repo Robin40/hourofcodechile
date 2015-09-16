@@ -1,0 +1,27 @@
+level: 6
+grid:
+	dimensiones: 8 8
+	####%#P#
+	#L#V###P
+	###V%##P
+	#%VLPL%#
+	L......P
+	#L%%%%%#
+	########
+	#L%#####
+end
+personaje: pajaro 4 1 derecha
+meta: cerdo 4 6
+mensaje: "Usa solo 2 bloques"
+maximo-bloques: 3
+bloques-disponibles:
+	avanzar
+	girar: antihorario
+	girar: horario
+	repetir:
+		veces: 5
+	end
+end
+bloques-iniciales:
+	* al_ejecutar
+end
