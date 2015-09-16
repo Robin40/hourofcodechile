@@ -2,12 +2,9 @@ Blockly.JavaScript['avanzar'] = function(block) {
 	return "avanzar();\n";
 };
 
-Blockly.JavaScript['girar_antihorario'] = function(block) {
-	return "girar_antihorario();\n";
-};
-
-Blockly.JavaScript['girar_horario'] = function(block) {
-	return "girar_horario();\n";
+Blockly.JavaScript['girar'] = function(block) {
+	var sentido = block.getFieldValue('sentido');
+	return "girar_" + sentido + "();\n";
 };
 
 function avanzar() {
