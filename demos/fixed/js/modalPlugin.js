@@ -68,8 +68,9 @@ $.fn.modalDisplay = function() {
 	if(modal.length == 0){
 		createFullModal();
 	}
-	console.log("asdasd");
-	console.log(modal.length);
+	else{
+		modal.show();
+	}
     $('#hoc-fm-content').text(this.text());
 };
 
