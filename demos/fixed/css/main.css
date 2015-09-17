@@ -1,0 +1,40 @@
+body{
+	background-color: #eeeeee;
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+}
+
+section{
+	width: 1070px;
+	margin: 0 auto;
+}
+
+section > *{
+	display: inline-table;
+	vertical-align: middle;
+}
+
+#blocklyDiv{
+	height: 480px;
+	width: 600px;
+}
+
+
+#gameDiv{
+	width: 450px;
+	height: 476px;
+	border: 2px solid #bbbbbb;
+}
+
+#block-table-header > div{
+	display: inline-block;
+	float: left;
+}
+
+#block-table-header > div:first-child{
+	width: 197px;
+}
+
+#block-table-header > div:last-child{
+	width: 197px;
+}
+
