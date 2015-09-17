@@ -38,3 +38,7 @@ section > *{
 	width: 197px;
 }
 
+.modelWindowMessages{
+	display: none;
+}
+
