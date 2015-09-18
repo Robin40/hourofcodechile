@@ -45,7 +45,6 @@ function setFullCss(){
 
 function setSizedCss(model, elemId, offx, offy){
 	var absPosition = $('#'+elemId).offset();
-	//alert('#'+elemId);
 	model.css("left", absPosition.left+offx+"px");
 	model.css("top", absPosition.top+offy+"px");
 }
