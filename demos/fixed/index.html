@@ -3,45 +3,187 @@
 <head>
   <meta charset="utf-8">
   <title>Blockly Demo: Fixed Blockly</title>
+  
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/main.css">
+  
   <script src="../../blockly_compressed.js"></script>
   <script src="../../blocks_compressed.js"></script>
-  <script src="../../msg/js/en.js"></script>
-  <style>
-    body {
-      background-color: #fff;
-      font-family: sans-serif;
-    }
-    h1 {
-      font-weight: normal;
-      font-size: 140%;
-    }
-  </style>
+  <script src="../../javascript_compressed.js"></script>
+  <script src="../../msg/js/es.js"></script>
+  <script src="../../blocks/movimiento.js"></script>
+  <script src="../../generators/javascript/movimiento.js"></script>
+  <script src="../../jsinterpreter/acorn_interpreter.js"></script>
 </head>
 <body>
-  <h1><a href="https://developers.google.com/blockly/">Blockly</a> &gt;
-    <a href="../index.html">Demos</a> &gt; Fixed Blockly</h1>
+	<header>
+		<div id="logo-container"></div>
+		<div id="levels-bar"></div>
+		<div id="buttons">
+			<button id="js-button" onclick="mostrar_javascript()">Mostrar JavaScript</button>
+    		<button id="exec-button" onclick="ejecutar_javascript()">Ejecutar JavaScript</button>
+    	</div>
+	</header>
+	<section>
+		<table>
+			<thead>
+				<tr>
+					<th><span id="current-level">Nivel X</span></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr><td>
+					<div id="gameDiv"></div>
+					<script src="../../crafty/crafty-min.js"></script>
+					<script src="../../juego/juego.js"></script>
+				</td></tr>
+			</tbody>
+		</table>
+		<table>
+			<thead>
+				<tr>
+					<th id="block-table-header"><div>Acciones disponibles</div><div>Acciones a realizar</div></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><div id="blocklyDiv"></div></td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+	<div class="modelWindowMessages">
+		<div id="msg" >Un mensaje un poco largo que quiero que ocupe harto espacio xD.</div>
+	</div>
+	<!-- <p>
+		<button onclick="parseCode()">Parse JavaScript</button>
+		<button onclick="stepCode()" id="stepButton" disabled="disabled">Step JavaScript</button>
+    </p> -->
 
-  <p>This is a simple demo of injecting Blockly into a fixed-sized 'div' element.</p>
-
-  <p>&rarr; More info on <a href="https://developers.google.com/blockly/installation/injecting-fixed-size">injecting fixed-sized Blockly</a>...</p>
-
-  <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+  <!--<div id="blocklyDiv"></div>-->
 
   <xml id="toolbox" style="display: none">
-    <block type="controls_if"></block>
-    <block type="logic_compare"></block>
-    <block type="controls_repeat_ext"></block>
-    <block type="math_number"></block>
-    <block type="math_arithmetic"></block>
-    <block type="text"></block>
-    <block type="text_print"></block>
+    <block type="avanzar"></block>
+	<block type="girar">
+		<field name="sentido">antihorario</field>
+	</block>
+	<block type="girar">
+		<field name="sentido">horario</field>
+	</block>
+    <block type="controls_repeat_ext">
+	  <value name="TIMES">
+	    <block type="math_number">
+		  <field name="NUM">10</field>
+		</block>
+	  </value>
+	</block>
+	<block type="math_number"></block>
+	<!-- <block type="text_print"></block>
+	<block type="text"></block> -->
   </xml>
 
+  <xml id="startBlocks" style="display: none">
+    <block type="controls_repeat_ext">
+	  <value name="TIMES">
+	    <block type="math_number">
+		  <field name="NUM">10</field>
+		</block>
+	  </value>
+	</block>
+  </xml>
+  
   <script>
     var workspace = Blockly.inject('blocklyDiv',
         {media: '../../media/',
          toolbox: document.getElementById('toolbox')});
-  </script>
+	Blockly.Xml.domToWorkspace(workspace,
+		document.getElementById('startBlocks'));
+	
+	var interprete = null;
 
+	function initApi(interpreter, scope) {
+		var wrapper;		
+		
+		wrapper = function() {
+			interpreter.createPrimitive(avanzar());
+		};
+		interpreter.setProperty(scope, "avanzar",
+			interpreter.createNativeFunction(wrapper));
+			
+		wrapper = function() {
+			interpreter.createPrimitive(girar_antihorario());
+		};
+		interpreter.setProperty(scope, "girar_antihorario",
+			interpreter.createNativeFunction(wrapper));
+			
+		wrapper = function() {
+			interpreter.createPrimitive(girar_horario());
+		};
+		interpreter.setProperty(scope, "girar_horario",
+			interpreter.createNativeFunction(wrapper));
+			
+		wrapper = function(id) {
+			id = id ? id.toString() : '';
+			return interpreter.createPrimitive(highlightBlock(id));
+		};
+		interpreter.setProperty(scope, "highlightBlock",
+			interpreter.createNativeFunction(wrapper));
+	}
+	
+	var highlightPause = false;
+	function highlightBlock(id) {
+		workspace.highlightBlock(id);
+		highlightPause = true;
+	}
+	
+	function parseCode() {
+		Blockly.JavaScript.STATEMENT_PREFIX = "highlightBlock(%1);\n";
+		Blockly.JavaScript.addReservedWords("highlightBlock");
+		var codigo = Blockly.JavaScript.workspaceToCode(workspace);
+		interprete = new Interpreter(codigo, initApi);
+		
+		//alert("Listo para ejecutar este código:\n\n" + codigo);
+		//document.getElementById('stepButton').disabled = '';
+		highlightPause = false;
+		workspace.traceOn(true);
+		workspace.highlightBlock(null);
+	}
+	
+	function stepCode() {
+		try {
+			var ok = interprete.step();
+		} finally {
+			if (!ok) {
+				//document.getElementById('stepButton').disabled = 'disabled';
+				return;
+			}
+		}
+		if (highlightPause) {
+			highlightPause = false;
+		} else {
+			stepCode();
+		}
+	}
+	
+	function mostrar_javascript() {
+		Blockly.JavaScript.STATEMENT_PREFIX = "";
+		var codigo = Blockly.JavaScript.workspaceToCode(workspace);
+		alert(codigo);
+	}
+	
+	function ejecutar_javascript() {
+		parseCode();
+		personaje.trigger("resetear");
+		personaje.estado = 'listo';
+		document.getElementById('js-button').disabled = 'disabled';
+		document.getElementById('exec-button').disabled = 'disabled';
+		stepCode();
+		document.getElementById('js-button').disabled = '';
+		document.getElementById('exec-button').disabled = '';
+	}
+  </script>
+	<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+	<script src="js/content.js"></script>
+	<script src="js/modalPlugin.js"></script>
 </body>
 </html>
