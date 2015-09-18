@@ -1,4 +1,4 @@
-function setCss(){
+function setFullCss(){
 	
 	var fm = $('#hoc-fullmodal');
 	fm.css("position", "fixed");
@@ -6,6 +6,7 @@ function setCss(){
 	fm.css("left", "0");
 	fm.css("right", "0");
 	fm.css("bottom", "0");
+	fm.css("z-index", "2");
 	
 	var trans = $('#hoc-trans');
     trans.css("width", "100%");
@@ -40,9 +41,12 @@ function setCss(){
 	
 	btn.css("padding", "10px 20px");
 	btn.css("float", "right");
-	
-	
-	
+}
+
+function setSizedCss(model, elemId, offx, offy){
+	var absPosition = $('#'+elemId).offset();
+	model.css("left", absPosition.left+offx+"px");
+	model.css("top", absPosition.top+offy+"px");
 }
 
 function createFullModal(){
@@ -57,10 +61,31 @@ function createFullModal(){
 	
 	$('#hoc-fm-accept').append('<button>Aceptar</button>');
 	
-	setCss();
+	setFullCss();
 	$('#hoc-fm-accept button').click(function(){
 		fm.hide();
 	});
+}
+
+function createSizedModalContainer(){
+	$('body').append('<div id=\'hoc-sizedmodal-container\'></div>');
+}
+
+function createSizedModal(container, elemId, id, offx, offy){
+	container.append('<div id=\''+id+'\' class=\'hoc-sizedmodal\'></div>');
+	
+	var sm  = $('#'+id);
+	
+	sm.append('<div class=\'hoc-sm-content\'></div>');
+	sm.append('<div class=\'hoc-sm-accept\'></div>');
+	
+	var accept = sm.find('.hoc-sm-accept');
+	accept.append('<button>Aceptar</button>');
+	
+	sm.find('button').click(function(){
+		sm.hide();
+	});
+	setSizedCss(sm, elemId, offx, offy);
 }
 
 $.fn.modalDisplay = function() {
@@ -74,7 +99,21 @@ $.fn.modalDisplay = function() {
     $('#hoc-fm-content').text(this.text());
 };
 
-$.fn.modalSmallDisplay = function() {
-    this.css( "display", "block" );
+$.fn.modalSmallDisplay = function(relElemId, offx, offy) {
+    var container = $('#hoc-sizedmodal-container');
+    if(container.length == 0){
+		createSizedModalContainer();
+		container = $('#hoc-sizedmodal-container');
+	}
+	var id = $(this).attr("id");
+	var modalId = "hoc-sm-"+id;
+	var modal = $('#'+modalId);
+	if(modal.length == 0){
+		createSizedModal(container, relElemId, modalId, offx, offy);
+		modal = $('#'+modalId);
+	}
+	$('#'+modalId+' .hoc-sm-content').text(this.text());
+	modal.show();
+	
 };
 

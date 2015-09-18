@@ -189,5 +189,13 @@
 	<script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
 	<script src="js/content.js"></script>
 	<script src="js/modalPlugin.js"></script>
+	<script>
+		//Ejemplo de ventana de mensajes y sub-ventanas
+		//modalSmallDisplay recibe el ID del elemento relativo y el offset a este para poner el mensaje.
+		$("#sizedMessages #hoc-sm1").modalSmallDisplay("gameDiv", 10, 10);
+		$("#sizedMessages #hoc-sm2").modalSmallDisplay("blocklyDiv", 370, 0);
+		$("#sizedMessages #hoc-sm3").modalSmallDisplay("buttons", 200, -10);
+		$("#hoc-fm1").modalDisplay();
+	</script>
 </body>
 </html>

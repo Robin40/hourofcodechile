@@ -1,0 +1,37 @@
+#hoc-sizedmodal-container{
+	font-size: 14px;
+	color: #ffffff;
+	position: absolute;
+	top: 0;
+}
+
+.hoc-sizedmodal{
+	width: 220px;
+	padding: 5px;
+	background-color: #B23525;
+	border: 1px solid #AF1908;
+	border-radius: 2px;
+	position: absolute;
+	z-index: 1;
+	cursor: default;
+}
+
+
+.hoc-sm-content{
+	
+}
+
+.hoc-sm-accept{
+	
+}
+
+.hoc-sm-accept button{
+	padding: 10px 20px;
+	color: #ffffff;
+	background-color: #26B55F;
+	float: right;
+}
+
+.hoc-sm-accept button:hover{
+	cursor: pointer;
+}
