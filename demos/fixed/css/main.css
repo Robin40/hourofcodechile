@@ -8,7 +8,7 @@ section{
 	margin: 0 auto;
 }
 
-section > *{
+section table{
 	display: inline-table;
 	vertical-align: middle;
 }
@@ -42,3 +42,70 @@ section > *{
 	display: none;
 }
 
+#game-header > div{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#game-info{
+	width: 450px;
+	padding: 8px;
+	border: 2px solid #008E99;
+	background-color: #26ABB7;
+	color: #ffffff;
+	cursor: default;
+}
+
+#game-info-title{
+	padding-bottom: 2px;
+	font-weight: bold;
+	border-bottom: 1px solid #008E99;
+}
+
+#game-info-desc{
+	padding-top: 2px;
+}
+
+#buttons{
+}
+
+#buttons > button{
+	width: 200px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	border-radius: 2px;
+	display: block;
+	color: #FFFFFF;
+	font-size: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#buttons > button:hover{
+	cursor: pointer;
+}
+
+#js-button{
+	background-color: #26ABB7;
+}
+
+#exec-button{
+	background-color: #26B55F;
+	margin-top: 5px;
+}
+
+#lines-info{
+	text-align: center;
+	font-weight: bold;
+	color: #ffffff;
+	border: 1px solid #bbbbbb;
+	padding: 4px;
+	border-radius: 2px;
+	cursor: default;
+	background-color: #AF3E24;
+}
+
+#lines-count{
+	font-size: 30px;
+	
+}
