@@ -1,5 +1,5 @@
 var storageName = 'hoc-stage'
-var htmlLevelPrefix = 'level';
+var htmlLevelPrefix = 'index';
 function initLevels(i){
 	var clean = localStorage[storageName];
 	if(!clean){
@@ -18,18 +18,25 @@ function isLevelCompleted(i){
 	return val;
 }
 
+function setLevelAsCompleted(i){
+	var mask = 1;
+	while(i > 1){
+		mask = mask << 1;
+		i--;
+	}
+	localStorage[storageName] = mask | localStorage[storageName];
+}
+
 function applyColor(level,  i){
 	level.addClass("lcolor"+isLevelCompleted(i));
 }
 
-$('#levels-bar').load('include/levelList.html', function(){
-	initLevels()
-	$('#levels-bar li').each(function (i){
-		applyColor($(this), i+1);
-		$(this).click(function(){
-			window.location.href = htmlLevelPrefix+(i+1)+'.html';
-		});	
-	})
+initLevels();
+$('#levels-bar li').each(function (i){
+	applyColor($(this), i+1);
+	$(this).click(function(){
+		window.location.href = htmlLevelPrefix+'.php?level='+(i+1);
+	});	
 });
 
 
