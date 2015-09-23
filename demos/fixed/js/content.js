@@ -40,5 +40,6 @@ $('#levels-bar li').each(function (i){
 });
 
 
+$("#game-info-desc").html(HOC_LEVEL.descripcion);
 
 
