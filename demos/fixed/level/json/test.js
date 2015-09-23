@@ -25,6 +25,7 @@ var HOC_LEVEL = {
 		"fila": 4,
 		"columna": 3
 	},
+	"nombre": "Sopapiglobo",
 	"descripcion": "Ay&uacute;dame a llegar a la meta",
 	"minimoBloques": 3,
 	"bloquesDisponibles": [
