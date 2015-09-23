@@ -2,16 +2,23 @@ var idir = [0, -1, 0, 1];
 var jdir = [1, 0, -1, 0];
 var personaje;
 
+function addSpriteObj(nombre, subimgsAnim) {
+	var spriteObj = {
+		tile: 32, tileh: 32,
+		map: {}
+	}
+	for (var i = 0; i < 4; ++i)
+		obj.map[nombre + "_o" + i] = [subimgsAnim*i, 0];
+	
+	assetsObj.sprites[nombre + varianteSprite + ".png"] = spriteObj;
+}
+
+alert(JSON.stringify(spriteObj("mariohugo", 8)));
+
+var varianteSprite = "_smooth";
 var assetsObj = {
 	"sprites": {
-		"pjtest.png": {
-			tile: 32, tileh: 32,
-			map: {
-				"pjtest_o0": [0, 0],
-				"pjtest_o1": [8, 0],
-				"pjtest_o2": [16, 0],
-				"pjtest_o3": [24, 0]
-			}
+		"mariohugo" + varianteSprite + ".png": spriteObj("mariohugo", 8)
 		}
 	}
 };
@@ -22,7 +29,7 @@ window.onload = function() {
 }
 
 function go() {
-	var spritePersonaje = "pjtest";
+	var spritePersonaje = "mariohugo";
 	var subimgsAnim = 8;
 	var orientacionInicial = 0;
 	var duracionAnim = 800;
