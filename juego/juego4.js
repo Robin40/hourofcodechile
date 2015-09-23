@@ -2,23 +2,27 @@ var idir = [0, -1, 0, 1];
 var jdir = [1, 0, -1, 0];
 var personaje;
 
-function addSpriteObj(nombre, subimgsAnim) {
-	var spriteObj = {
-		tile: 32, tileh: 32,
-		map: {}
-	}
-	for (var i = 0; i < 4; ++i)
-		obj.map[nombre + "_o" + i] = [subimgsAnim*i, 0];
-	
-	assetsObj.sprites[nombre + varianteSprite + ".png"] = spriteObj;
-}
-
-alert(JSON.stringify(spriteObj("mariohugo", 8)));
-
-var varianteSprite = "_smooth";
 var assetsObj = {
 	"sprites": {
-		"mariohugo" + varianteSprite + ".png": spriteObj("mariohugo", 8)
+		"pjtest.png": {
+			tile: 32, tileh: 32,
+			map: {
+				"pjtest_o0": [0, 0],
+				"pjtest_o1": [8, 0],
+				"pjtest_o2": [16, 0],
+				"pjtest_o3": [24, 0],
+				
+				"mariohugo_o0": [0, 1],
+				"mariohugo_o1": [8, 1],
+				"mariohugo_o2": [16, 1],
+				"mariohugo_o3": [24, 1],
+			}
+		},
+		"escenariotest.png": {
+			tile: 32, tileh: 32,
+			map: {
+				"pasto": [0, 0]
+			}
 		}
 	}
 };
@@ -28,11 +32,21 @@ window.onload = function() {
 	Crafty.load(assetsObj, go);
 }
 
+function crear_escenario() {
+	var escenario = [[]];
+	for (var i = 0; i < 12; ++i)
+		for(var j = 0; j < 12; ++j)
+			escenario[i][j] = Crafty.e("2D, Canvas, pasto")
+				.attr({x: j*32, y: i*32, w: 32, h: 32})
+			;
+}
+
 function go() {
 	var spritePersonaje = "mariohugo";
 	var subimgsAnim = 8;
 	var orientacionInicial = 0;
 	var duracionAnim = 800;
+	var escenario = crear_escenario();
 	personaje = Crafty.e("2D, Canvas, " +
 			spritePersonaje + "_o" + orientacionInicial + ", SpriteAnimation")
 		.attr({
@@ -44,13 +58,19 @@ function go() {
 		.reel("caminando_o1", duracionAnim, subimgsAnim, 0, subimgsAnim)
 		.reel("caminando_o2", duracionAnim, subimgsAnim*2, 0, subimgsAnim)
 		.reel("caminando_o3", duracionAnim, subimgsAnim*3, 0, subimgsAnim)
-		.bind("resetear", function(e) {
+		.bind("inicializar", function(e) {
 			this.attr({
-				x: 32, y: 32, w: 32, h: 32,
-				igrid: 1, jgrid: 1,
-				orientacion: 0,
+				w:32, h:32,
 				estado: "esperando",
 				duracionAnimacion: duracionAnim
+			});
+		})
+		.bind("setear", function(sprite, fila, columna, orientacionInicial) {
+			this.attr({
+				x: columna*32, y: fila*32,
+				igrid: fila, jgrid: columna,
+				orientacion: orientacionInicial,
+				estado: "esperando"
 			});
 		})
 		.bind("EnterFrame", function(e) {
@@ -101,7 +121,8 @@ function go() {
 		})
 	;
 
-	personaje.trigger("resetear");
+	personaje.trigger("inicializar");
+	personaje.trigger("setear", "pjtest", 3, 4, 0);
 }
 
 function avanzar() {
