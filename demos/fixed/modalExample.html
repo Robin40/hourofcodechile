@@ -190,7 +190,7 @@
 	
 	function ejecutar_javascript() {
 		parseCode();
-		personaje.trigger("resetear");
+		personaje.trigger("setear", "pjtest", 3, 4, 0);
 		personaje.estado = 'listo';
 		document.getElementById('js-button').disabled = 'disabled';
 		document.getElementById('exec-button').disabled = 'disabled';
