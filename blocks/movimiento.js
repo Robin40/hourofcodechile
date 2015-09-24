@@ -1,5 +1,3 @@
-ayuda = "https://dl.dropboxusercontent.com/u/37550073/hourofcodechile/ayuda/";
-
 Blockly.Blocks['avanzar'] = {
   init: function() {
     this.appendDummyInput()
@@ -9,7 +7,6 @@ Blockly.Blocks['avanzar'] = {
     this.setNextStatement(true);
     this.setColour(20);
     this.setTooltip('Avanza un paso');
-    this.setHelpUrl(ayuda + 'ayuda.html');
   }
 };
 
@@ -23,6 +20,16 @@ Blockly.Blocks['girar'] = {
     this.setNextStatement(true);
     this.setColour(20);
     this.setTooltip('Gira a la izquierda o a la derecha en 90 grados');
-    this.setHelpUrl(ayuda + 'ayuda.html');
+  }
+};
+
+Blockly.Blocks['al_ejecutar'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("cuando se ejecuta");
+    this.setNextStatement(true);
+    this.setColour(210);
+    this.setTooltip('');
+    this.setMovable(false);
   }
 };
