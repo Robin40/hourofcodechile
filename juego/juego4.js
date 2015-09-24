@@ -1,6 +1,23 @@
 var idir = [0, -1, 0, 1];
 var jdir = [1, 0, -1, 0];
 var personaje;
+var escenario;
+var meta;
+var s = 32;
+
+function cambiar_zoom()
+{
+	if (s == 32)
+		s = 32*1.2;
+	else
+		s = 32;
+	
+	personaje.attr({x: personaje.jgrid*s, y: personaje.igrid*s, w: s, h: s});
+	meta.attr({x: meta.jgrid*s, y: meta.igrid*s, w: s, h: s});
+	for (var i = 0; i < HOC_LEVEL.grid.filas; ++i)
+		for (var j = 0; j < HOC_LEVEL.grid.columnas; ++j)
+			escenario[i][j].attr({x: j*s, y: i*s, w: s, h: s});
+}
 
 var assetsObj = {
 	"sprites": {
@@ -85,12 +102,12 @@ var jgridMeta = 11;
 var orientacionMeta = 0;
 
 function crear_escenario() {
-	var escenario = [];
+	escenario = [];
 	for (var i = 0; i < HOC_LEVEL.grid.filas; ++i) {
 		escenario[i] = [];
 		for(var j = 0; j < HOC_LEVEL.grid.columnas; ++j)
 			escenario[i][j] = Crafty.e("2D, Canvas, " + tileSimbolo[HOC_LEVEL.grid.matriz[i][j]])
-				.attr({x: j*32, y: i*32, w: 32, h: 32})
+				.attr({x: j*s, y: i*s, w: s, h: s})
 			;
 	}
 	
@@ -108,14 +125,8 @@ function crear_escenario() {
 	jgridMeta = HOC_LEVEL.meta.columna;
 	orientacionMeta = orientacionNumerica[HOC_LEVEL.meta.orientacion];
 	
-	var meta = Crafty.e("2D, Canvas, " + spriteMeta + "_o" + orientacionMeta)
-		.attr({x: jgridMeta*32, y: igridMeta*32, w: 32, h: 32})
-	;
-}
-
-function crear_test() {
-	var test = Crafty.e("2D, Canvas, mariohugo_o0, SpriteAnimation")
-		.attr({x: 32, y: 32, w: 32, h: 32})
+	meta = Crafty.e("2D, Canvas, " + spriteMeta + "_o" + orientacionMeta)
+		.attr({igrid: igridMeta, jgrid: jgridMeta, x: jgridMeta*s, y: igridMeta*s, w: s, h: s})
 	;
 }
 
@@ -127,8 +138,7 @@ function simbolo_en(igrid, jgrid) {
 }
 
 function go() {
-	var escenario = crear_escenario();
-	//var test = crear_test();
+	crear_escenario();
 	personaje = Crafty.e("2D, Canvas, " +
 			spritePersonaje + "_o" + orientacionInicial + ", SpriteAnimation")
 		.attr({
@@ -144,13 +154,13 @@ function go() {
 			this.attr(atributos);
 			this.attr({
 				igrid: igridInicial, jgrid: jgridInicial,
-				w: 32, h: 32,
+				w: s, h: s,
 				orientacion: orientacionInicial,
 				estado: "esperando",
 				duracionAnimacion: duracionAnim
 			});
-			this.x = this.jgrid*32;
-			this.y = this.igrid*32;
+			this.x = this.jgrid*s;
+			this.y = this.igrid*s;
 			this.animate("caminando_o" + this.orientacion).pauseAnimation();
 		})
 		.bind("resetear", function() {
@@ -167,14 +177,14 @@ function go() {
 			switch (this.estado) {
 				case "avanzando":
 					if (tAnim < 1) {
-						this.x = (this.jgrid + tAnim*jdir[this.orientacion])*32;
-						this.y = (this.igrid + tAnim*idir[this.orientacion])*32;
+						this.x = (this.jgrid + tAnim*jdir[this.orientacion])*s;
+						this.y = (this.igrid + tAnim*idir[this.orientacion])*s;
 					} else {
 						
 						this.igrid += idir[this.orientacion];
 						this.jgrid += jdir[this.orientacion];
-						this.x = this.jgrid*32;
-						this.y = this.igrid*32;
+						this.x = this.jgrid*s;
+						this.y = this.igrid*s;
 						this.estado = "descansando";
 					}
 				break;
