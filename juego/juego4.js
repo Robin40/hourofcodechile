@@ -187,7 +187,7 @@ function go() {
 						this.y = this.igrid*s;
 						this.estado = "descansando";
 					}
-				break;
+					break;
 				case "girando":
 					if (tAnim < 0.5) {
 						
@@ -197,21 +197,21 @@ function go() {
 						this.orientacion = this.orientacionDespues;
 						this.estado = "descansando";
 					}
-				break;
+					break;
 				case "descansando":
 					this.animate("caminando_o" + this.orientacion).pauseAnimation();
 					if (this.igrid != igridMeta || this.jgrid != jgridMeta)
 						this.estado = "listo";
 					else
 						this.estado = "celebrando";
-				break;
+					break;
 				case "listo":
 					stepCode();
-				break;
+					break;
 				case "celebrando":
 					alert("has pasado el nivel\nmovimiento abortado");
 					this.estado = "muerto";
-				break;
+					break;
 			}
 		})
 		.bind("avanzar", function() {			

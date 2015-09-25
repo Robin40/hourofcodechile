@@ -1,6 +1,10 @@
-    var workspace = Blockly.inject('blocklyDiv',
-        {media: '../../media/',
-         toolbox: document.getElementById('toolbox')});
+var maximoBloques = 32;
+    var workspace = Blockly.inject('blocklyDiv', {
+		media: '../../media/',
+        toolbox: document.getElementById('toolbox'),
+		trashcan: true,
+		maxBlocks: maximoBloques
+	});
 	Blockly.Xml.domToWorkspace(workspace,
 		document.getElementById('startBlocks'));
 	
@@ -47,7 +51,7 @@
 		var codigo = Blockly.JavaScript.workspaceToCode(workspace);
 		interprete = new Interpreter(codigo, initApi);
 		
-		//alert("Listo para ejecutar este cÃ³digo:\n\n" + codigo);
+		//alert("Listo para ejecutar este código:\n\n" + codigo);
 		//document.getElementById('stepButton').disabled = '';
 		highlightPause = false;
 		workspace.traceOn(true);
@@ -58,8 +62,10 @@
 		try {
 			var ok = interprete.step();
 		} finally {
-			if (!ok) {
+			if (!ok || personaje.estado == "muerto") {
+				
 				//document.getElementById('stepButton').disabled = 'disabled';
+				console.log("asdasd222");
 				return;
 			}
 		}
@@ -76,13 +82,27 @@
 		alert(codigo);
 	}
 	
+	var gameRunning = false;
+	var execbtn = document.getElementById('exec-button');
 	function ejecutar_javascript() {
-		parseCode();
-		personaje.trigger("resetear");
-		personaje.estado = 'listo';
-		document.getElementById('js-button').disabled = 'disabled';
-		document.getElementById('exec-button').disabled = 'disabled';
-		stepCode();
-		document.getElementById('js-button').disabled = '';
-		document.getElementById('exec-button').disabled = '';
+		if(!gameRunning){
+			gameRunning = true;
+			parseCode();
+			personaje.trigger("resetear");
+			personaje.estado = 'listo';
+			document.getElementById('js-button').disabled = 'disabled';
+			execbtn.innerHTML = 'Detener';
+			console.log("asdasd");
+			stepCode();
+			
+			//gameRunning = false;
+			//execbtn.innerHTML = 'Reiniciar';
+			//document.getElementById('js-button').disabled = '';
+		}
+		else{
+			gameRunning = false;
+			execbtn.innerHTML = 'Reiniciar';
+			personaje.estado = 'muerto';
+			
+		}
 	}

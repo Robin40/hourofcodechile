@@ -17,17 +17,17 @@ if(isset($_GET['level']) && $_GET['level'] > 0 && $_GET['level'] <= $GLOBALS['LE
   
 	<?php
 	/*Bloques y mensajes para el modo prueba*/
-	include_once 'level/block/test.php';
-	include_once 'level/modal/test.php';
+	//include_once 'level/block/test.php';
+	//include_once 'level/modal/test.php';
 	?>
 	
 	
 	<?php
 	/*Bloques disponibles e iniciales para $level*/
-	//include_once "level/block/block_$level.php";
+	include_once "level/block/block_$level.php";
 	
 	/*Mensajes utilizados para $level*/
-	//include_once "level/modal/modal_$level.php";
+	include_once "level/modal/modal_$level.php";
 	?>
 	
 	<script src="js/jquery.min.js"></script>
@@ -35,9 +35,9 @@ if(isset($_GET['level']) && $_GET['level'] > 0 && $_GET['level'] <= $GLOBALS['LE
 	
 	<!-- 
 		IMPORTANTE: Para Robinson
-		Json del nivel actual 
-	<script src="level/json/level<?= $level ?>.js"></script> -->
-	<script src="level/json/test.js"></script>
+		Json del nivel actual  -->
+	<script src="level/json/level_<?= $level ?>.js"></script>
+	<!--<script src="level/json/test.js"></script>--!>
 	
 	<!-- 
 		IMPORTANTE: Para Robinson

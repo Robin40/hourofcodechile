@@ -5,7 +5,7 @@
 			</div>
 			<div id="buttons">
 				<button id="js-button" onclick="mostrar_javascript()">Mostrar JavaScript</button>
-	    		<button id="exec-button" onclick="ejecutar_javascript()">Ejecutar JavaScript</button>
+	    		<button id="exec-button" onclick="ejecutar_javascript()">Iniciar</button>
 	    	</div>
 	    	<div id="lines-info">
 	    		<div>Llevas</div>

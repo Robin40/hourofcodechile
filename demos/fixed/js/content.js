@@ -44,3 +44,5 @@ $("#game-info-title").html(HOC_LEVEL.nombre);
 $("#game-info-desc").html(HOC_LEVEL.descripcion);
 
 
+
+
