@@ -90,8 +90,15 @@ section table{
 }
 
 #exec-button{
-	background-color: #26B55F;
 	margin-top: 5px;
+}
+
+#exec-button:not(.running){
+	background-color: #26B55F;
+}
+
+.running{
+	background-color: #AF3E24;
 }
 
 #lines-info{

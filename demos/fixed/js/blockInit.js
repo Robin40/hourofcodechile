@@ -58,21 +58,34 @@ var maximoBloques = 32;
 		workspace.highlightBlock(null);
 	}
 	
+	var gameRunning = false;
+	var execbtn = document.getElementById('exec-button');
 	function stepCode() {
 		try {
 			var ok = interprete.step();
 		} finally {
-			if (!ok || personaje.estado == "muerto") {
-				
+			if (!ok) {
 				//document.getElementById('stepButton').disabled = 'disabled';
-				console.log("asdasd222");
+				personaje.estado == "muerto";
+				gameRunning = false;
+				execbtn.innerHTML = 'Reiniciar';
+				execbtn.className = '';
 				return;
+			}
+			else{
+				if(personaje.estado == "muerto"){
+					gameRunning = false;
+					execbtn.innerHTML = 'Reiniciar';
+					execbtn.className = '';
+					return;
+				}
 			}
 		}
 		if (highlightPause) {
 			highlightPause = false;
 		} else {
-			stepCode();
+			//stepCode();
+			//console.log("rec");
 		}
 	}
 	
@@ -82,8 +95,7 @@ var maximoBloques = 32;
 		alert(codigo);
 	}
 	
-	var gameRunning = false;
-	var execbtn = document.getElementById('exec-button');
+	
 	function ejecutar_javascript() {
 		if(!gameRunning){
 			gameRunning = true;
@@ -92,6 +104,7 @@ var maximoBloques = 32;
 			personaje.estado = 'listo';
 			document.getElementById('js-button').disabled = 'disabled';
 			execbtn.innerHTML = 'Detener';
+			execbtn.className = 'running';
 			console.log("asdasd");
 			stepCode();
 			
@@ -102,6 +115,7 @@ var maximoBloques = 32;
 		else{
 			gameRunning = false;
 			execbtn.innerHTML = 'Reiniciar';
+			execbtn.className = '';
 			personaje.estado = 'muerto';
 			
 		}
