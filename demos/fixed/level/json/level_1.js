@@ -1,6 +1,6 @@
 var HOC_LEVEL = {
-	"nombre": "Nombre del nivel",
-	"descripcion": "Descripción del nivel",
+	"nombre": "Mario Hugo",
+	"descripcion": "Ay&uacute;dame a llegar a la meta!",
 	"grid": {
 		"filas": 12,
 		"columnas": 12,

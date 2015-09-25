@@ -9,11 +9,16 @@ if(isset($_GET['level']) && $_GET['level'] > 0 && $_GET['level'] <= $GLOBALS['LE
 <html>
 <?php include_once 'include/head.php'; ?> 
 <body>
-	<?php include_once 'include/header.php'; ?> 
-	<section>
-		<?php include_once 'include/game_header.php'; ?>
-		<?php include_once 'include/game_content.php'; ?> 
-	</section>
+	<div id="wrap">
+		<?php include_once 'include/game_content.php'; ?>
+		<div>
+			<?php include_once 'include/header.php'; ?>
+			<?php include_once 'include/block_content.php'; ?>
+		</div>
+	</div>
+	
+
+		<?php $a = 'include/game_header.php'; ?>
   
 	<?php
 	/*Bloques y mensajes para el modo prueba*/

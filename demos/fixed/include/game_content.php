@@ -1,28 +1,17 @@
-		<div id="game-content">
-			<table>
-				<thead>
-					<tr>
-						<th><span id="current-level">Nivel <?= $GLOBALS['level']; ?></span></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr><td>
-						<div id="gameDiv"></div>
-						<script src="../../crafty/crafty-min.js"></script>
-						<script src="../../juego/juego4.js"></script>
-					</td></tr>
-				</tbody>
-			</table>
-			<table>
-				<thead>
-					<tr>
-						<th id="block-table-header"><div>Acciones disponibles</div><div>Acciones a realizar</div></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><div id="blocklyDiv"></div></td>
-					</tr>
-				</tbody>
-			</table>
+		<div>
+			<div id="gameContainer">
+				<div id="gameDiv"></div>
+				<div id="buttons">
+					<button id="js-button" onclick="mostrar_javascript()">Mostrar JavaScript</button>
+		    		<button id="exec-button" onclick="ejecutar_javascript()">Iniciar</button>
+		    	</div>
+			</div>
+			
+			<!--<div id="current-level"><div>Nivel <?= $GLOBALS['level']; ?></div></div>-->
+			<div id="game-info">
+				<div id="game-info-title"></div>
+				<div id="game-info-desc">Descripci&oacute;n del nivel actual (este texto es para rellenar la descripci&oacute;n)</div>
+			</div>
+			<script src="../../crafty/crafty-min.js"></script>
+			<script src="../../juego/juego4.js"></script>
 		</div>

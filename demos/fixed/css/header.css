@@ -5,43 +5,47 @@
 }
 
 header{
+	width: 630px;
 	text-align: center;
 }
 
 header > div{
 	display: inline-block;
 	vertical-align: middle;
+	height: 75px;
+	text-align: center;
+	font-weight: bold;
+	color: #ffffff;
+	padding: 4px;
+	border-radius: 2px;
+	cursor: default;
 
 }
 
 .l-title{
 	font-size: 22px;
+	margin-top: 10px;
 }
 
 #logo-container{
-	width: 90px;
-	height: 90px;
-	margin: 10px 40px;
+	width: 250px;
+	height: 85px;
+	padding: 0;
 	background-image:url(../media/hoc-logo.png);
-	vertical-align: middle;
 	
 }
 
 #levels-bar{
-	width: 700px;
-	height: 70px;
-	display: inline-table;
-	vertical-align: middle;
-	cursor: default;
-	border-top: 2px solid #bbb;
-	border-bottom: 2px solid #bbb;
+	background-color: #AF3E24;
 }
 
+#lines-info{
+	background-color: #AF3E24;
+}
 #levels-bar > div{
 	display: table-cell;
 	vertical-align: middle;
 	margin: 0 auto;
-	text-align: center;
 }
 
 #levels-bar li{
@@ -51,8 +55,8 @@ header > div{
 	text-align: center;
 	display: inline-block;
 	vertical-align: middle;
-	border: solid 2px #777;
-	background: #ddd;
+	border: solid 2px #ccc;
+	background: #333;
 	border-radius: 10px;
 }
 
@@ -80,4 +84,9 @@ header > div{
 
 #levels-bar li.lcolor1{
 	background-color: #d2ff52;
+}
+
+#lines-count{
+	font-size: 30px;
+	
 }

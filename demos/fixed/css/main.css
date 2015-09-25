@@ -3,14 +3,15 @@ body{
 	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
 }
 
-section{
-	width: 1070px;
+#wrap{
+	width: 1090px;
 	margin: 0 auto;
+	padding: 10px;
 }
 
-section table{
-	display: inline-table;
-	vertical-align: middle;
+#wrap > div{
+	display: inline-block;
+	vertical-align: top;
 }
 
 #blocklyDiv{
@@ -18,11 +19,19 @@ section table{
 	width: 600px;
 }
 
+#gameContainer{
+	position: relative;
+}
 
 #gameDiv{
 	width: 450px;
-	height: 476px;
-	border: 2px solid #bbbbbb;
+	height: 450px;
+	background-color: #f00;
+}
+
+#current-level{
+	font-weight: bold;
+	padding: 4px;
 }
 
 #block-table-header > div{
@@ -48,7 +57,7 @@ section table{
 }
 
 #game-info{
-	width: 450px;
+	margin-top: 5px;
 	padding: 8px;
 	border: 2px solid #008E99;
 	background-color: #26ABB7;
@@ -67,22 +76,34 @@ section table{
 }
 
 #buttons{
+	position: absolute;
+	bottom: 0px;
+	right: 0;
+	padding: 5px;
 }
+
 
 #buttons > button{
 	width: 200px;
 	padding-top: 12px;
 	padding-bottom: 12px;
 	border-radius: 2px;
-	display: block;
 	color: #FFFFFF;
 	font-size: 15px;
-	margin-left: auto;
-	margin-right: auto;
+	display: inline-block;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	-webkit-transition: opacity .15s ease-in-out;
+    -moz-transition: opacity .15s ease-in-out;
+    -ms-transition: opacity .15s ease-in-out;
+    -o-transition: opacity .15s ease-in-out;
+    transition: opacity .15s ease-in-out;
 }
 
 #buttons > button:hover{
 	cursor: pointer;
+    opacity: 1;
+    
 }
 
 #js-button{
@@ -91,28 +112,23 @@ section table{
 
 #exec-button{
 	margin-top: 5px;
+    background-position: right;
+    background-repeat: no-repeat;
 }
 
 #exec-button:not(.running){
+	background-image: url(../media/play-icon.png);
 	background-color: #26B55F;
 }
 
+#exec-button.running{
+	opacity: 1;
+}
+
 .running{
+	background-image: url(../media/stop-icon.png);
 	background-color: #AF3E24;
 }
 
-#lines-info{
-	text-align: center;
-	font-weight: bold;
-	color: #ffffff;
-	border: 1px solid #bbbbbb;
-	padding: 4px;
-	border-radius: 2px;
-	cursor: default;
-	background-color: #AF3E24;
-}
 
-#lines-count{
-	font-size: 30px;
-	
-}
+

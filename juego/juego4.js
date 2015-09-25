@@ -3,7 +3,7 @@ var jdir = [1, 0, -1, 0];
 var personaje;
 var escenario;
 var meta;
-var s = 32;
+var s = 45;
 
 function cambiar_zoom()
 {
@@ -57,7 +57,7 @@ var assetsObj = {
 };
 
 window.onload = function() {
-	Crafty.init(450, 476, document.getElementById("gameDiv"));
+	Crafty.init(450, 450, document.getElementById("gameDiv"));
 	Crafty.load(assetsObj, go);
 }
 
