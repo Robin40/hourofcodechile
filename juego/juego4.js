@@ -4,7 +4,7 @@ var personaje;
 var escenario;
 var meta;
 var s = 45;
-
+/*
 function cambiar_zoom()
 {
 	if (s == 32)
@@ -18,7 +18,7 @@ function cambiar_zoom()
 		for (var j = 0; j < HOC_LEVEL.grid.columnas; ++j)
 			escenario[i][j].attr({x: j*s, y: i*s, w: s, h: s});
 }
-
+*/
 var assetsObj = {
 	"sprites": {
 		"personajes.png": {
@@ -59,14 +59,6 @@ var assetsObj = {
 window.onload = function() {
 	Crafty.init(450, 450, document.getElementById("gameDiv"));
 	Crafty.load(assetsObj, go);
-}
-
-var tileSimbolo = {
-	"X": "pasto_oscuro",
-	"Y": "pasto_claro",
-	".": "tierra",
-	"R": "bloque_muralla",
-	"?": "missing_tile"
 }
 
 var simbolosMurallas = new Set("R?".split(''));

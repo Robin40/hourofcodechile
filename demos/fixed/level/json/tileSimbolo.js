@@ -4,4 +4,4 @@ var tileSimbolo = {
 	".": "tierra",
 	"R": "bloque_muralla",
 	"?": "missing_tile"
-}
+};

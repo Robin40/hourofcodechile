@@ -33,3 +33,17 @@ Blockly.Blocks['al_ejecutar'] = {
     this.setMovable(false);
   }
 };
+
+Blockly.Blocks['if_caca'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("si")
+        .appendField(new Blockly.FieldDropdown([["veo", "ver"], ["no veo", "no_ver"]]), "condicion")
+        .appendField(new Blockly.FieldImage("https://www.gstatic.com/codesite/ph/images/star_on.gif", 24, 24, "caca"))
+        .appendField(new Blockly.FieldDropdown([["al frente", "derecho"], ["a la izquierda", "antihorario"], ["a la derecha", "horario"]]), "sentido");
+    this.appendStatementInput("if_true")
+        .appendField("hacer");
+    this.setColour(160);
+    this.setTooltip('Realiza algunas acciones si se cumple una condición');
+  }
+};
