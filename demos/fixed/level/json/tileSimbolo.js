@@ -2,6 +2,9 @@ var tileSimbolo = {
 	"X": "pasto_oscuro",
 	"Y": "pasto_claro",
 	".": "tierra",
-	"R": "bloque_muralla",
+	"R": "reja_horizontal_oscuro",
+	"S": "reja_horizontal_claro",
+	"T": "reja_vertical_oscuro",
+	"U": "reja_muralla_vertical_claro",
 	"?": "missing_tile"
-};
+}
