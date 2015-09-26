@@ -92,7 +92,10 @@ var maximoBloques = 32;
 	function mostrar_javascript() {
 		Blockly.JavaScript.STATEMENT_PREFIX = "";
 		var codigo = Blockly.JavaScript.workspaceToCode(workspace);
-		alert(codigo);
+		var jsModal = $('#jsModal');
+		jsModal.html(codigo);
+		$('#jsModal').modalDisplay();
+		//alert(codigo);
 	}
 	
 	

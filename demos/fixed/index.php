@@ -34,6 +34,9 @@ if(isset($_GET['level']) && $_GET['level'] > 0 && $_GET['level'] <= $GLOBALS['LE
 	/*Mensajes utilizados para $level*/
 	include_once "level/modal/modal_$level.php";
 	?>
+	<div class="ModalWindowMessages">
+		<div id="jsModal"></div>
+	</div>
 	
 	<script src="js/jquery.min.js"></script>
 	<script src="js/modalPlugin.js"></script>

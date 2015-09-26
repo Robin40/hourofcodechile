@@ -10,6 +10,7 @@ body{
 }
 
 #wrap > div{
+	width: 450px;
 	display: inline-block;
 	vertical-align: top;
 }
@@ -26,7 +27,6 @@ body{
 #gameDiv{
 	width: 450px;
 	height: 450px;
-	background-color: #f00;
 }
 
 #current-level{
@@ -57,6 +57,7 @@ body{
 }
 
 #game-info{
+	height: 42px;
 	margin-top: 5px;
 	padding: 8px;
 	border: 2px solid #008E99;
@@ -68,7 +69,6 @@ body{
 #game-info-title{
 	padding-bottom: 2px;
 	font-weight: bold;
-	border-bottom: 1px solid #008E99;
 }
 
 #game-info-desc{
@@ -76,33 +76,22 @@ body{
 }
 
 #buttons{
-	position: absolute;
-	bottom: 0px;
-	right: 0;
-	padding: 5px;
+	margin-top: 5px;
 }
 
 
 #buttons > button{
-	width: 200px;
+	width: 222px;
 	padding-top: 12px;
 	padding-bottom: 12px;
 	border-radius: 2px;
 	color: #FFFFFF;
 	font-size: 15px;
 	display: inline-block;
-	opacity: 0.6;
-	filter: alpha(opacity=60);
-	-webkit-transition: opacity .15s ease-in-out;
-    -moz-transition: opacity .15s ease-in-out;
-    -ms-transition: opacity .15s ease-in-out;
-    -o-transition: opacity .15s ease-in-out;
-    transition: opacity .15s ease-in-out;
 }
 
 #buttons > button:hover{
 	cursor: pointer;
-    opacity: 1;
     
 }
 
@@ -111,7 +100,6 @@ body{
 }
 
 #exec-button{
-	margin-top: 5px;
     background-position: right;
     background-repeat: no-repeat;
 }
@@ -121,13 +109,24 @@ body{
 	background-color: #26B55F;
 }
 
-#exec-button.running{
-	opacity: 1;
-}
-
 .running{
 	background-image: url(../media/stop-icon.png);
 	background-color: #AF3E24;
+}
+
+#game-tutorial{
+	margin-top: 5px;
+	background-color: #AF3E24;
+	border-radius: 2px;
+	font-size: 22px;
+	color: #fff;
+	padding: 5px;
+	cursor: default;
+}
+
+#game-tutorial:hover{
+	cursor: pointer;
+	text-decoration: underline;
 }
 
 

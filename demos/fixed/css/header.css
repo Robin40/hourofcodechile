@@ -12,24 +12,24 @@ header{
 header > div{
 	display: inline-block;
 	vertical-align: middle;
-	height: 75px;
 	text-align: center;
 	font-weight: bold;
 	color: #ffffff;
-	padding: 4px;
+	padding: 17px 4px;
+	font-size: 20px;
 	border-radius: 2px;
 	cursor: default;
 
 }
 
 .l-title{
-	font-size: 22px;
-	margin-top: 10px;
+	font-size: 29px;
+	margin: 9px 0;
 }
 
 #logo-container{
-	width: 250px;
-	height: 85px;
+	width: 120px;
+	height: 120px;
 	padding: 0;
 	background-image:url(../media/hoc-logo.png);
 	

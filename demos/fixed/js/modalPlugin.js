@@ -96,7 +96,7 @@ $.fn.modalDisplay = function() {
 	else{
 		modal.show();
 	}
-    $('#hoc-fm-content').text(this.text());
+    $('#hoc-fm-content').html('<pre>'+this.text()+'</pre>');
 };
 
 $.fn.modalSmallDisplay = function(relElemId, offx, offy) {
