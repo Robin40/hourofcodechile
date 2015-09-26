@@ -51,6 +51,8 @@ var assetsObj = {
 				"pasto_claro": [1, 0],
 				"bloque_muralla": [2, 0],
 				"tierra": [3, 0]
+				"missing_tile": [4, 0],
+				"caca": [5, 0]
 			}
 		}
 	}
@@ -239,4 +241,16 @@ function girar_antihorario() {
 
 function girar_horario() {
 	personaje.trigger("girar", -1);
+}
+
+function veo_caca_derecho() {
+	return true;
+}
+
+function veo_caca_antihorario() {
+	return true;
+}
+
+function veo_caca_horario() {
+	return true;
 }

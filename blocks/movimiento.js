@@ -43,6 +43,8 @@ Blockly.Blocks['if_caca'] = {
         .appendField(new Blockly.FieldDropdown([["al frente", "derecho"], ["a la izquierda", "antihorario"], ["a la derecha", "horario"]]), "sentido");
     this.appendStatementInput("if_true")
         .appendField("hacer");
+	this.setPreviousStatement(true);
+    this.setNextStatement(true);
     this.setColour(160);
     this.setTooltip('Realiza algunas acciones si se cumple una condición');
   }
