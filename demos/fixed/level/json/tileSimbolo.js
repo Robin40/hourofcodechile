@@ -15,5 +15,9 @@ var tileSimbolo = {
 	"w": "reja_superior_derecha",
 	"a": "reja_inferior_izquierda",
 	"s": "reja_inferior_derecha",
+	"u": "reja_superior_izquierda_i",
+	"i": "reja_superior_derecha_i",
+	"j": "reja_inferior_izquierda_i",
+	"k": "reja_inferior_derecha_i",
 	"?": "missing_tile"
 };

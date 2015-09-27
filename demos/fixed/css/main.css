@@ -4,20 +4,21 @@ body{
 }
 
 #wrap{
-	width: 1090px;
-	margin: 0 auto;
-	padding: 10px;
+	width: 100%;
+	margin: auto;
+        text-align: center;
 }
 
 #wrap > div{
-	width: 450px;
+	/*width: 450px;*/
 	display: inline-block;
 	vertical-align: top;
+        text-align: center;
 }
 
 #blocklyDiv{
 	height: 480px;
-	width: 600px;
+	width: 450px;
 }
 
 #gameContainer{
@@ -175,3 +176,13 @@ body{
 	margin: 0 auto;
 }
 
+.game_content {
+    padding: 25px 0px 20px 20px;
+    margin: 0 auto;
+}
+
+.block_content {
+    padding: 25px 20px 20px 0;
+    margin: 0 auto;
+
+}

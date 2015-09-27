@@ -5,7 +5,7 @@
 }
 
 header{
-	width: 600px;
+	width: 100%;
 }
 
 
@@ -19,7 +19,7 @@ header{
 }
 
 .l-title{
-	font-size: 24px;
+	font-size: 20px;
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -28,15 +28,10 @@ header{
 	text-align: center;
 	font-weight: bold;
 	color: #ffffff;
-	/*padding: 17px 4px;*/
 	font-size: 20px;
-	border-radius: 2px;
 	cursor: default;
-	background-color: #AF3E24;
-}
-
-#levels-bar > div{
-	display: inline-block;
+	background-color: #0094CA;
+        height: 40px;
 }
 
 #levels-bar ul{
@@ -93,4 +88,23 @@ header{
 #lines-count{
 	font-size: 30px;
 	
+}
+
+.niveles {
+    position:absolute;
+    width: 100%;
+    top: 5px;
+}
+
+.logo {
+    position: absolute;
+    top: 2px;
+    float:left;
+    left: 15%;
+}
+
+.options {
+    float:right;
+    padding-right: 100px;
+    padding-top: 5px;
 }

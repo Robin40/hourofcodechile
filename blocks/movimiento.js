@@ -43,7 +43,7 @@ Blockly.Blocks['if_caca'] = {
         .appendField("si veo")
         //.appendField(new Blockly.FieldDropdown([["veo", "ver"], ["no veo", "no_ver"]]), "condicion")
         .appendField(new Blockly.FieldImage("media/caca.png", 24, 24, "caca"))
-        .appendField(new Blockly.FieldDropdown([["al frente", "derecho"], ["a la izquierda", "antihorario"], ["a la derecha", "horario"]]), "sentido");
+        .appendField(new Blockly.FieldDropdown([["al frente", "al_frente"], ["a la izquierda", "izquierda"], ["a la derecha", "derecha"]]), "sentido");
     this.appendStatementInput("if_true")
 	this.setPreviousStatement(true);
     this.setNextStatement(true);
@@ -59,7 +59,7 @@ Blockly.Blocks['if_no_caca'] = {
         .appendField("si no veo")
         //.appendField(new Blockly.FieldDropdown([["veo", "ver"], ["no veo", "no_ver"]]), "condicion")
         .appendField(new Blockly.FieldImage("media/caca.png", 24, 24, "caca"))
-        .appendField(new Blockly.FieldDropdown([["al frente", "derecho"], ["a la izquierda", "antihorario"], ["a la derecha", "horario"]]), "sentido");
+        .appendField(new Blockly.FieldDropdown([["al frente", "al_frente"], ["a la izquierda", "izquierda"], ["a la derecha", "derecha"]]), "sentido");
     this.appendStatementInput("if_true")
 	this.setPreviousStatement(true);
     this.setNextStatement(true);
