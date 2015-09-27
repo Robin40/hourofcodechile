@@ -41,6 +41,13 @@ var maximoBloques = 32;
 			interpreter.createNativeFunction(wrapper));
 		*/
 		eval(str);
+		
+		wrapper = function(id) {
+			var r = no_mas_caca();
+			return interpreter.createPrimitive(r);
+		};
+		interpreter.setProperty(scope, "no_mas_caca",
+			interpreter.createNativeFunction(wrapper));
 			
 		wrapper = function(id) {
 			id = id ? id.toString() : '';
@@ -147,7 +154,7 @@ var maximoBloques = 32;
 		if (parseCode() != "success")
 			return;
 		
-		personaje.trigger("resetear");
+		resetear_nivel();
 	    personaje.estado = 'listo';
 	    //document.getElementById('js-button').disabled = 'disabled';
 	    execbtn.innerHTML = 'Detener';

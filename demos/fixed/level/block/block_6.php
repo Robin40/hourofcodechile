@@ -1,10 +1,10 @@
 <xml id="toolbox" style="display: none">
     <block type="avanzar"></block>
 	<block type="girar">
-		<field name="sentido">izquierda</field>
+		<field name="sentido">antihorario</field>
 	</block>
 	<block type="girar">
-		<field name="sentido">derecha</field>
+		<field name="sentido">horario</field>
 	</block>
     <block type="controls_repeat"></block>
   </xml>
