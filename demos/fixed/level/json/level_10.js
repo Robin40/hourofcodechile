@@ -34,12 +34,16 @@ var HOC_LEVEL = {
 		]
 	},
 	"stackeables": {
-		"cantidad": 4,
+		"cantidad": 8,
 		"s": [
 			{"tipo": "piedra", "fila": 8, "columna": 3},
 			{"tipo": "piedra", "fila": 8, "columna": 4},
 			{"tipo": "piedra", "fila": 8, "columna": 5},
-			{"tipo": "piedra", "fila": 8, "columna": 6}
+			{"tipo": "piedra", "fila": 8, "columna": 6},
+			{"tipo": "piedra", "fila": 6, "columna": 4},
+			{"tipo": "piedra", "fila": 4, "columna": 5},
+			{"tipo": "piedra", "fila": 3, "columna": 3},
+			{"tipo": "piedra", "fila": 5, "columna": 3},
 		]
 	}
 };
