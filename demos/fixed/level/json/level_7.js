@@ -10,18 +10,12 @@ var HOC_LEVEL = {
 		   	"XXXXXXXXXX",
 			"XXqRRRRwXX",
 			"XXT....GXX",
-			"XXT.F..GXX",
-			"XXT.F..GXX",
-			"XXT.F..GXX",
+			"XXT....GXX",
+			"XXT....GXX",
+			"XXT....GXX",
 			"XXaFFFFsXX",
 			"XXXXXXXXXX",
 			"XXXXXXXXXX"]
-	},
-	"personaje": {
-		"tipo": "mariohugo",
-		"fila": 3,
-		"columna": 3,
-		"orientacion": "derecha"
 	},
 	"metas": {
 		"cantidad": 1,
@@ -31,6 +25,20 @@ var HOC_LEVEL = {
 				"fila": 6, "columna": 6,
 				"orientacion":"izquierda"
 			}
+		]
+	},
+	"personaje": {
+		"tipo": "mariohugo",
+		"fila": 6,
+		"columna": 3,
+		"orientacion": "arriba"
+	},
+	"stackeables": {
+		"cantidad": 3,
+		"s": [
+			{"tipo": "piedra", "fila": 4, "columna": 4},
+			{"tipo": "piedra", "fila": 5, "columna": 4},
+			{"tipo": "piedra", "fila": 6, "columna": 4}
 		]
 	}
 };
