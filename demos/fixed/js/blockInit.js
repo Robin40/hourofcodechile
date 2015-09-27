@@ -9,7 +9,7 @@ var maximoBloques = 32;
 		document.getElementById('startBlocks'));
 	
 	var interprete = null;
-	
+	/*
 	function updateLines(){
 		Blockly.JavaScript.STATEMENT_PREFIX = "";
 		var codigo = Blockly.JavaScript.workspaceToCode(workspace);
@@ -18,51 +18,29 @@ var maximoBloques = 32;
 		lineCount.innerHTML = codigo.split(/\r\n|\r|\n/).length-1;
 	}
 	workspace.addChangeListener(updateLines);
-
-	function initApi(interpreter, scope) {		
+*/
+	function initApi(interpreter, scope) {
 		var wrapper;		
-		
+		var func = [
+			"avanzar", "girar_izquierda", "girar_derecha",
+			"veo_caca_al_frente", "veo_caca_izquierda", "veo_caca_derecha"
+		];
+		var str = "";
+		for (var i = 0; i < func.length; ++i) {
+			str += "wrapper = function() {\n" +
+				"interpreter.createPrimitive(" + func[i] + "());\n" +
+			"};\n" +
+			"interpreter.setProperty(scope, '" + func[i] + "',\n" +
+				"interpreter.createNativeFunction(wrapper));\n\n";
+		}
+		/*
 		wrapper = function() {
 			interpreter.createPrimitive(avanzar());
 		};
 		interpreter.setProperty(scope, "avanzar",
 			interpreter.createNativeFunction(wrapper));
-			
-		wrapper = function() {
-			interpreter.createPrimitive(girar_antihorario());
-		};
-		interpreter.setProperty(scope, "girar_antihorario",
-			interpreter.createNativeFunction(wrapper));
-			
-		wrapper = function() {
-			interpreter.createPrimitive(girar_horario());
-		};
-		interpreter.setProperty(scope, "girar_horario",
-			interpreter.createNativeFunction(wrapper));
-			
-		wrapper = function() {
-			interpreter.createPrimitive(no_mas_caca());
-		};
-		interpreter.setProperty(scope, "no_mas_caca",
-			interpreter.createNativeFunction(wrapper));
-			
-		wrapper = function() {
-			interpreter.createPrimitive(veo_caca_derecho());
-		};
-		interpreter.setProperty(scope, "veo_caca_derecho",
-			interpreter.createNativeFunction(wrapper));
-			
-		wrapper = function() {
-			interpreter.createPrimitive(veo_caca_antihorario());
-		};
-		interpreter.setProperty(scope, "veo_caca_antihorario",
-			interpreter.createNativeFunction(wrapper));
-			
-		wrapper = function() {
-			interpreter.createPrimitive(veo_caca_horario());
-		};
-		interpreter.setProperty(scope, "veo_caca_horario",
-			interpreter.createNativeFunction(wrapper));
+		*/
+		eval(str);
 			
 		wrapper = function(id) {
 			id = id ? id.toString() : '';

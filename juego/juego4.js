@@ -342,11 +342,11 @@ function avanzar() {
 	personaje.trigger("avanzar");
 }
 
-function girar_antihorario() {
+function girar_izquierda() {
 	personaje.trigger("girar", 1);
 }
 
-function girar_horario() {
+function girar_derecha() {
 	personaje.trigger("girar", -1);
 }
 
@@ -361,14 +361,20 @@ function veo_caca_en_orientacion(orientacion) {
 	return false;
 }
 
-function veo_caca_derecho() {
+function veo_caca_al_frente() {
 	return veo_caca_en_orientacion(personaje.orientacion);
 }
 
-function veo_caca_antihorario() {
+function veo_caca_izquierda() {
 	return veo_caca_en_orientacion((personaje.orientacion + 1)%4);
 }
 
-function veo_caca_horario() {
+function veo_caca_derecha() {
 	return veo_caca_en_orientacion((personaje.orientacion + 3)%4);
+}
+
+function no_mas_caca() {
+	var r = (cacasRecogidas >= caca.length);
+	alert(r);
+	return r;
 }
