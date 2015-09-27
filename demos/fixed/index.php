@@ -36,6 +36,7 @@ if(isset($_GET['level']) && $_GET['level'] > 0 && $_GET['level'] <= $GLOBALS['LE
 	?>
 	<div class="modalWindowMessages">
 		<div id="jsModal"></div>
+		<div id="errorModal"></div>
 	</div>
 	
 	<script src="js/jquery.min.js"></script>

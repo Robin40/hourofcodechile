@@ -103,7 +103,7 @@ var maximoBloques = 32;
 		var codigo = Blockly.JavaScript.workspaceToCode(workspace);
 		var jsModal = $('#jsModal');
 		jsModal.html(codigo);
-		$('#jsModal').modalCodeDisplay();
+		jsModal.modalCodeDisplay();
 		//alert(codigo);
 	}
 	
