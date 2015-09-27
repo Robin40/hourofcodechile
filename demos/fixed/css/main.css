@@ -165,6 +165,11 @@ body{
 	float: right;
 }
 
+.completed-help-btn{
+	background-color: #43B945;
+	float: right;
+}
+
 .centered{
 	display: block;
 	margin: 0 auto;

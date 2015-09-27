@@ -55,7 +55,8 @@ if(isset($_GET['level']) && $_GET['level'] > 0 && $_GET['level'] <= $GLOBALS['LE
 			<div>Intenta utilizar tus bloques de manera diferente o agregar m&aacute;s para alcanzar los objetivos.</div>
 			<br />
 			<div class="completed-buttons">
-				<button class="completed-repeat-btn centered">Volver a intentarlo</button>
+				<button class="completed-repeat-btn">Reintentar</button>
+				<button class="completed-help-btn">Necesito ayuda</button>
 			</div>
 		</div>
 		<div id="failedModal"><b>
@@ -64,7 +65,8 @@ if(isset($_GET['level']) && $_GET['level'] > 0 && $_GET['level'] <= $GLOBALS['LE
 			<br />
 			
 			<div class="completed-buttons">
-				<button class="completed-repeat-btn centered">Repetir nivel</button>
+				<button class="completed-repeat-btn">Reintentar</button>
+				<button class="completed-help-btn">Necesito ayuda</button>
 			</div>
 		</div>
 	</div>
