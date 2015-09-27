@@ -6,7 +6,7 @@
 	<block type="girar">
 		<field name="sentido">derecha</field>
 	</block>
-    <block type="controls_repeat"></block>
+    <block type="controls_repeat"><field name="TIMES">5</field></block>
   </xml>
 
   <xml id="startBlocks" style="display: none">

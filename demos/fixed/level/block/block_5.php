@@ -6,7 +6,6 @@
 	<block type="girar">
 		<field name="sentido">derecha</field>
 	</block>
-    <block type="controls_repeat"></block>
   </xml>
 
   <xml id="startBlocks" style="display: none">
