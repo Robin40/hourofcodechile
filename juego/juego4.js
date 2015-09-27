@@ -306,14 +306,16 @@ function go() {
 				case "finalizando":
 					if (condicion_de_victoria_final())
 						this.estado = "celebrando";
-					else
+					else {
+						incompletedStage();
 						this.estado = "muerto";
+					}
 					break;
 				case "celebrando":
 					if (bloques_usados() <= bloquesNecesarios)
 						completedStage();
 					else
-						incompletedStage(5);
+						semiCompletedStage(5);
 					this.estado = "muerto";
 					break;
 			}
