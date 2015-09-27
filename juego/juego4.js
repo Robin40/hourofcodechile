@@ -3,7 +3,7 @@ var jdir = [1, 0, -1, 0];
 var personaje;
 var escenario;
 var meta, metaEn;
-var caca, cacaEn, cacasRecogidas, cacasRequeridas;
+var caca, indiceCacaEn, cacasRecogidas, cacasRequeridas;
 var stackeable, stackeableEn;
 var bloquesNecesarios;
 var s = 45;
@@ -56,6 +56,9 @@ var assetsObj = {
 				"reja_abajo": [17, 0]
 			}
 		}
+	},
+	"audio": {
+		"beep": ["beep4.wav"]
 	}
 };
 
@@ -93,22 +96,28 @@ var duracionAnim = 800;
 
 function cargar_cacas() {
 	cacasRequeridas = 10000;
-	if (typeof caca === 'undefined')
-		caca = [];
+	caca = [];
 	if (typeof HOC_LEVEL.cacas !== 'undefined') {
 		for (var i = 0; i < HOC_LEVEL.cacas.cantidad; ++i) {
 			var igridCaca = HOC_LEVEL.cacas.c[i].fila;
 			var jgridCaca = HOC_LEVEL.cacas.c[i].columna;
-			if (typeof caca[i] !== 'undefined')
-				caca[i].destroy();
+
 			caca[i] = Crafty.e("2D, Canvas, caca")
 				.attr({igrid: igridCaca, jgrid: jgridCaca,
 					x: jgridCaca*s, y: igridCaca*s, w: s, h: s})
 			;
-			cacaEn[igridCaca][jgridCaca] = caca[i];
+			indiceCacaEn[igridCaca][jgridCaca] = i;
 		}
 		if (typeof HOC_LEVEL.cacas.requeridas !== 'undefined')
 			cacasRequeridas = HOC_LEVEL.cacas.requeridas;
+	}
+}
+
+function recargar_cacas() {
+	cacasRecogidas = 0;
+	for (var i = 0; i < caca.length; ++i) {
+		caca[i].visible = true;
+		indiceCacaEn[caca[i].igrid][caca[i].jgrid] = i;
 	}
 }
 
@@ -120,12 +129,12 @@ function tile_simbolo(simbolo) {
 
 function crear_escenario() {
 	escenario = [];
-	cacaEn = [];
+	indiceCacaEn = [];
 	metaEn = [];
 	stackeableEn = [];
 	for (var i = 0; i < HOC_LEVEL.grid.filas; ++i) {
 		escenario[i] = [];
-		cacaEn[i] = [];
+		indiceCacaEn[i] = [];
 		metaEn[i] = [];
 		stackeableEn[i] = [];
 		for (var j = 0; j < HOC_LEVEL.grid.columnas; ++j) {
@@ -133,7 +142,7 @@ function crear_escenario() {
 					tile_simbolo(HOC_LEVEL.grid.matriz[i][j]))
 				.attr({x: j*s, y: i*s, w: s, h: s})
 			;
-			cacaEn[i][j] = false;
+			indiceCacaEn[i][j] = -1;
 			metaEn[i][j] = false;
 			stackeableEn[i][j] = false;
 		}
@@ -278,10 +287,12 @@ function go() {
 				case "descansando":
 					this.animate("caminando_o" + this.orientacion).pauseAnimation();
 					
-					if (cacaEn[this.igrid][this.jgrid]) {
+					if (indiceCacaEn[this.igrid][this.jgrid] != -1) {
 						++cacasRecogidas;
-						cacaEn[this.igrid][this.jgrid].destroy();
-						cacaEn[this.igrid][this.jgrid] = false;
+						caca[indiceCacaEn[this.igrid][this.jgrid]].visible = false;
+						indiceCacaEn[this.igrid][this.jgrid] = -1;
+						
+						Crafty.audio.play("beep");
 					}
 					
 					if (!condicion_de_victoria_inmediata())
@@ -295,7 +306,7 @@ function go() {
 				case "finalizando":
 					if (condicion_de_victoria_final())
 						this.estado = "celebrando";
-					else{
+					else {
 						incompletedStage();
 						this.estado = "muerto";
 					}
@@ -336,7 +347,7 @@ function go() {
 
 function resetear_nivel() {
 	personaje.trigger("resetear");
-	cargar_cacas();
+	recargar_cacas();
 	cacasRecogidas = 0;
 }
 
@@ -355,7 +366,7 @@ function girar_derecha() {
 function veo_caca_en_orientacion(orientacion) {
 	var igrid = personaje.igrid, jgrid = personaje.jgrid;
 	while (!simbolosMurallasAltas.has(simbolo_en(igrid, jgrid))) {
-		if (hayCaca[igrid][jgrid])
+		if (indiceCacaEn[igrid][jgrid] != -1)
 			return true;
 		igrid += idir[orientacion];
 		jgrid += jdir[orientacion];
@@ -376,7 +387,5 @@ function veo_caca_derecha() {
 }
 
 function no_mas_caca() {
-	var r = (cacasRecogidas >= caca.length);
-	alert(r);
-	return r;
+	return (cacasRecogidas >= caca.length);
 }

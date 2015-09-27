@@ -5,22 +5,23 @@ var HOC_LEVEL = {
 	"grid": {
 		"filas": 10,
 		"columnas": 10,
-		"matriz": 
+		"matriz":
 		   ["XXXXXXXXXX",
-			"XXXXXXXXXX",
-			"qRRRRRRRRw",
-			"T........G",
-			"T........G",
-			"T........G",
-			"T........G",
-			"aFFFFFFFFs",
-			"XXXXXXXXXX",
-			"XXXXXXXXXX"]
+			"XXXXXXXRwX",
+			"XXXXXXR.GX",
+			"XXXXXR..RX",
+			"XXXXR..RXX",
+			"XXXR..RXXX",
+			"XXR..RXXXX",
+			"XR..RXXXXX",
+			"XaFsXXXXXX",
+			"XXXXXXXXXX"
+		]
 	},
 	"personaje": {
 		"tipo": "mariohugo",
-		"fila": 5,
-		"columna": 1,
+		"fila": 7,
+		"columna": 2,
 		"orientacion": "derecha"
 	},
 	"metas": {
@@ -28,7 +29,7 @@ var HOC_LEVEL = {
 		"m": [
 			{
 				"tipo": "perro",
-				"fila": 5, "columna": 8,
+				"fila": 2, "columna": 7,
 				"orientacion":"izquierda"
 			}
 		]

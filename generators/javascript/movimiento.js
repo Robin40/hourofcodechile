@@ -29,9 +29,15 @@ Blockly.JavaScript['if_no_caca'] = function(block) {
 
 
 Blockly.JavaScript['repetir_hasta'] = function(block) {
-  var dropdown_until_opt = block.getFieldValue('until_opt');
   var statements_until_body = Blockly.JavaScript.statementToCode(block, 'until_body');
+  
+  var code = 'while(!no_mas_caca()) {\n' + statements_until_body + '}\n';
+  return code;
+};
 
-  var code = 'while (!' + dropdown_until_opt + '()) {\n' + statements_until_body + '}\n';
+Blockly.JavaScript['repetir_hasta_perro'] = function(block) {
+  var statements_until_body = Blockly.JavaScript.statementToCode(block, 'until_body');
+  
+  var code = 'while(!llegue_al_perro()) {\n' + statements_until_body + '}\n';
   return code;
 };

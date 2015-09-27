@@ -2,33 +2,32 @@ var HOC_LEVEL = {
 	"nombre": "Nombre del nivel",
 	"descripcion": "Descripción del nivel",
 	"grid": {
-		"filas": 12,
-		"columnas": 12,
+		"filas": 10,
+		"columnas": 10,
 		"matriz": [
-			"XYXYXYXYXYXY",
-			"YXYXYXYXYXYX",
-			"XYXYXYRYXYXY",
-			"YXYXYR.RYXYX",
-			"XYRRRR.RRYXY",
-			"YR.....RRRYX",
-			"XYRR.RRRRYXY",
-			"YXYXYXYXYXYX",
-			"XYXYXYXYXYXY",
-			"YXYXYXYXYXYX",
-			"XYXYXYXYXYXY",
-			"YXYXYXYXYXYX"
+			"XXXXXXXXXX",
+			"XXXXXXXXXX",
+			"XqRRRRRRwX",
+			"XT......GX",
+			"XT......GX",
+			"XaFFFFw.GX",
+			"XXXXXXT.GX",
+			"XXXXXXT.GX",
+			"XXXXXXaFsX",
+			"XXXXXXXXXX",
 		]
 	},
 	"personaje": {
 		"tipo": "mariohugo",
-		"fila": 5,
+		"fila": 4,
 		"columna": 2,
 		"orientacion": "derecha"
 	},
-	"meta": {
-		"tipo": "perro",
-		"fila": 6,
-		"columna": 4,
-		"orientacion": "izquierda"
-	}
+    "cacas": {
+        "cantidad": 1,
+        "requeridas": 1,
+        "c": [
+            {"fila": 6, "columna": 7},
+        ]
+    },
 };
