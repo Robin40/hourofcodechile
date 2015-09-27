@@ -24,7 +24,6 @@ function initApi(interpreter, scope) {
   var wrapper;		
   var func = [
     "avanzar", "girar_izquierda", "girar_derecha",
-    "veo_caca_al_frente", "veo_caca_izquierda", "veo_caca_derecha"
   ];
   var str = "";
   for (var i = 0; i < func.length; ++i) {
@@ -43,12 +42,28 @@ function initApi(interpreter, scope) {
   */
   eval(str);
   
-  wrapper = function(id) {
+  var func2 = [
+    "no_mas_caca", "llegue_al_perro",
+    "veo_caca_al_frente", "veo_caca_derecha", "veo_caca_izquierda"
+  ];
+  var str2 = "";
+  for (var i = 0; i < func2.length; ++i) {
+    str2 += "wrapper = function() {\n" +
+      "var r = " + func2[i] + "();\n" +
+      "return interpreter.createPrimitive(r);\n" +
+      "};\n" +
+      "interpreter.setProperty(scope, '" + func2[i] + "',\n" +
+      "interpreter.createNativeFunction(wrapper));\n\n";
+  }
+  /*
+    wrapper = function() {
     var r = no_mas_caca();
     return interpreter.createPrimitive(r);
-  };
-  interpreter.setProperty(scope, "no_mas_caca",
-			  interpreter.createNativeFunction(wrapper));
+    };
+    interpreter.setProperty(scope, "no_mas_caca",
+    interpreter.createNativeFunction(wrapper));
+  */
+  eval(str2);
   
   wrapper = function(id) {
     id = id ? id.toString() : '';
@@ -142,8 +157,7 @@ function mostrar_javascript() {
 }
 
 
-function ejecutar_javascript() {
-  
+function ejecutar_javascript() {		
   if (hay_bloques_sueltos()) {
     $("#errorModal").modalDisplay();
     return;
@@ -160,6 +174,7 @@ function ejecutar_javascript() {
     //document.getElementById('js-button').disabled = 'disabled';
     execbtn.innerHTML = 'Detener';
     execbtn.className = 'running';
+
 
     stepCode();
     

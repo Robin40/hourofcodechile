@@ -53,7 +53,11 @@ var assetsObj = {
 				"reja_superior_izquierda": [14, 0],
 				"reja_inferior_derecha": [15, 0],
 				"reja_inferior_izquierda": [16, 0],
-				"reja_abajo": [17, 0]
+				"reja_abajo": [17, 0],
+				"reja_superior_derecha_i": [18, 0],
+				"reja_superior_izquierda_i": [19, 0],
+				"reja_inferior_derecha_i": [20, 0],
+				"reja_inferior_izquierda_i": [21, 0]
 			}
 		}
 	},
@@ -68,7 +72,8 @@ window.onload = function() {
 }
 
 var simbolosMurallasAltas = new Set("M?".split(''));
-var simbolosMurallasBajas = new Set("RSFTUGJqwasP".split(''));
+var simbolosMurallasBajas = new Set("RSFTUGJqwas".split(''));
+var stackeablesSolidos = new Set(["piedra"]);
 /*
 var indiceTipoPersonaje = {
 	"pjtest": 0,
@@ -172,7 +177,7 @@ function crear_escenario() {
 			
 			meta[i] = Crafty.e("2D, Canvas, " + spriteMeta + "_o" + orientacionMeta)
 				.attr({igrid: igridMeta, jgrid: jgridMeta,
-					x: jgridMeta*s, y: igridMeta*s, w: s, h: s})
+					x: jgridMeta*s, y: igridMeta*s, w: s, h: s, tipo: spriteMeta})
 			;
 			
 			metaEn[igridMeta][jgridMeta] = meta[i];
@@ -190,8 +195,11 @@ function crear_escenario() {
 			
 			stackeable[i] = Crafty.e("2D, Canvas, " + spriteStackeable)
 				.attr({igrid: igridStackeable, jgrid: jgridStackeable,
-					x: jgridStackeable*s, y: igridStackeable*s, w: s, h: s})
+					x: jgridStackeable*s, y: igridStackeable*s, w: s, h: s,
+					tipo: spriteStackeable})
 			;
+			
+			stackeableEn[igridStackeable][jgridStackeable] = stackeable[i];
 		}
 	}
 	
@@ -320,12 +328,13 @@ function go() {
 					break;
 			}
 		})
-		.bind("avanzar", function() {	
-			var simbolo = simbolo_en(
-					this.igrid + idir[this.orientacion],
-					this.jgrid + jdir[this.orientacion]);
+		.bind("avanzar", function() {
+			var igridDespues = this.igrid + idir[this.orientacion];
+			var jgridDespues = this.jgrid + jdir[this.orientacion];
+			var simbolo = simbolo_en(igridDespues, jgridDespues);
 			if (!simbolosMurallasAltas.has(simbolo) &&
-				!simbolosMurallasBajas.has(simbolo)) {
+				!simbolosMurallasBajas.has(simbolo) &&
+				!stackeablesSolidos.has(stackeableEn[igridDespues][jgridDespues].tipo)) {
 				this.inicioAnimacion = Date.now();
 				this.animate("caminando_o" + this.orientacion);
 				this.estado = "avanzando";
@@ -388,4 +397,9 @@ function veo_caca_derecha() {
 
 function no_mas_caca() {
 	return (cacasRecogidas >= caca.length);
+}
+
+function llegue_al_perro() {
+	var m = metaEn[personaje.igrid][personaje.jgrid];
+	return (m && m.tipo == "perro");
 }

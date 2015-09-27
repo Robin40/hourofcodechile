@@ -10,7 +10,7 @@ var HOC_LEVEL = {
 			"qRSRSRSRSw",
 			"T........G",
 			"T........G",
-			"T....qFFFs",
+			"T....uFFFs",
 			"T....GXXXX",
 			"aFFFFsXXXX",
 			"XXXXXXXXXX",
