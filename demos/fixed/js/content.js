@@ -13,7 +13,7 @@ function isLevelCompleted(i){
 	var data = localStorage[completeStorage];
 	var idata = localStorage[incompleteStorage];
 	var val;
-	while(i>0){
+	while(i>1){
 		idata = idata>>1;
 		data = data>>1;
 		i--;
@@ -38,8 +38,8 @@ function setLevelAsIncompleted(i){
 		mask = mask << 1;
 		i--;
 	}
-	localStorage[completeStorage] = mask | localStorage[completeStorage];
-	localStorage[incompleteStorage] = ~mask & localStorage[incompleteStorage];
+	localStorage[incompleteStorage] = mask | localStorage[incompleteStorage];
+	localStorage[completeStorage] = ~mask & localStorage[completeStorage];
 }
 
 function applyColor(level,  i){
@@ -77,6 +77,7 @@ function completedStage(){
 	$(".completedExtra").hide();
 	var lv = parseInt($('#i-level').val());
 	setLevelAsCompleted(lv);
+	console.log("level "+lv+ " completed");
 	$(".completed-repeat-btn").click(function(){
 			$('#hoc-fullmodal').hide();
 		});
@@ -87,7 +88,7 @@ function completedStage(){
 	);
 }
 
-function incompletedStage(n){
+function semiCompletedStage(n){
 	$("#completedModal").modalContentDisplay(500);
 	$(".blockNumber").html(n);
 	$(".completedExtra").show();
@@ -103,8 +104,21 @@ function incompletedStage(n){
 	);
 }
 
-function failedStage(){
+function incompletedStage(){
 	$("#incompletedModal").modalContentDisplay(500);
+	$(".completed-repeat-btn").click(function(){
+			$('#hoc-fullmodal').hide();
+		});
+	
+	$(".completed-next-btn").click(function(){
+			var lv = parseInt($('#i-level').val());
+			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
+		}
+	);
+}
+
+function failedStage(){
+	$("#failedModal").modalContentDisplay(500);
 	$(".completed-repeat-btn").click(function(){
 			$('#hoc-fullmodal').hide();
 		});

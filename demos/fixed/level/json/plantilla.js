@@ -2,6 +2,9 @@ var HOC_LEVEL = {
 	"nombre": "Nombre del nivel",
 	"descripcion": "Descripción del nivel",
 	"tutorial": url_video_EMBEBIDO,
+	"titulo_ayuda": "Ciclo REPETIR",
+	"imagen_ayuda": "if_help.png", //debe estar en fixed/media/help
+	"comentario_ayuda": "ciclo qlo",
 	"maximoBloques": n,
 	"bloquesNecesarios": k,
 	"grid": {
