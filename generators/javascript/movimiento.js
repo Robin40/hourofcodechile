@@ -41,3 +41,5 @@ Blockly.JavaScript['repetir_hasta_perro'] = function(block) {
   var code = 'while (!llegue_al_perro()) {\n' + statements_until_body + '}\n';
   return code;
 };
+
+Blockly.JavaScript['controls_repeat_inamovible'] = Blockly.JavaScript['controls_repeat'];

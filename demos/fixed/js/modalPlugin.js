@@ -1,6 +1,8 @@
 function setFullCss(){
 	
 	var fm = $('#hoc-fullmodal');
+	fm.css("width", "100%");
+	fm.css("height", "100%");
 	fm.css("position", "fixed");
 	fm.css("top", "0");
 	fm.css("left", "0");
@@ -11,8 +13,8 @@ function setFullCss(){
 	var trans = $('#hoc-trans');
     trans.css("width", "100%");
     trans.css("height", "100%");
-	trans.css("opacity", "0.5");
-	trans.css("filter", "alpha(opacity=50)");
+	trans.css("opacity", "0.7");
+	trans.css("filter", "alpha(opacity=70)");
 	trans.css("background-color", "#444444");
 	trans.css("z-index", "-1");
 	trans.css("position", "absolute");
@@ -20,20 +22,28 @@ function setFullCss(){
 	trans.css("top", "0px");
 	
 	var fm = $('#hoc-div');
+	fm.css("display", "table");
 	fm.css("width", "420px");
-	//fm.css("height", "200px");
-	fm.css("border", "1px solid #cccccc");
-	fm.css("background-color", "#ffffff");
+	fm.css("height", "100%");
 	fm.css("padding", "10px");
-	fm.css("margin", "150px auto");
+	fm.css("margin", "0 auto");
+	
+	var div = $('#hoc-intr');
+	div.css("display", "table-cell");
+	div.css("vertical-align", "middle");
+	
+	var cell = $('#hoc-cell');
+	cell.css("padding", "10px");
+	cell.css("border", "1px solid #cccccc");
+	cell.css("background-color", "#ffffff");
 	
 	var content = $('#hoc-fm-content');
-	content.css("font-size", "16");
+	content.css("font-size", "16px");
 	content.css("width", "400px");
 	content.css("height", "150px");
 	
 	var accept = $('#hoc-fm-accept');
-	accept.css("font-size", "16");
+	accept.css("font-size", "16px");
 	//accept.css("width", "380px");
 	accept.css("height", "50px");
 	
@@ -57,6 +67,12 @@ function createFullModal(){
 	fm.append('<div id=\'hoc-div\'></div>');
 	
 	var div = $("#hoc-div");
+	div.append('<div id="hoc-intr"></div>');
+	
+	div = div.find('div');
+	div.append('<div id="hoc-cell"></div>');
+	
+	div = div.find('div');
 	div.append('<div id=\'hoc-fm-content\'></div>');
 	div.append('<div id=\'hoc-fm-accept\'></div>');
 	
@@ -126,7 +142,7 @@ $.fn.modalVideoDisplay = function(url) {
 	$('#hoc-fm-accept').show();
 	var fm = $('#hoc-div');
 	fm.css("width", "854px");
-	fm.css("margin", "50px auto");
+	//fm.css("margin", "50px auto");
 	
 	var content = $('#hoc-fm-content');
 	content.css("font-size", "16");
@@ -151,7 +167,7 @@ $.fn.modalContentDisplay = function(w) {
 	$('#hoc-fm-accept').hide();
 	var fm = $('#hoc-div');
 	fm.css("width", w+"px");
-	fm.css("margin", "150px auto");
+	//fm.css("margin", "150px auto");
 	
 	var content = $('#hoc-fm-content');
 	content.css("width", w+"px");
