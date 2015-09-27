@@ -5,21 +5,31 @@ var HOC_LEVEL = {
 		"filas": 10,
 		"columnas": 10,
 		"matriz": 
-		   ["YXYXYXYXYX",
-			"XYXYXYXYXY",
+		   ["XXXXXXXXXX",
+			"XXXXXXXXXX",
 			"qRSRSRSRSw",
 			"T........G",
 			"T........G",
-			"T........G",
-			"T........G",
-			"aFFFFFFFFs",
-			"YXYXYXYXYX",
-			"XYXYXYXYXY"]
+			"T....qFFFs",
+			"T....GXXXX",
+			"aFFFFsXXXX",
+			"XXXXXXXXXX",
+			"XXXXXXXXXX"]
 	},
 	"personaje": {
 		"tipo": "mariohugo",
-		"fila": 5,
+		"fila": 6,
 		"columna": 2,
 		"orientacion": "derecha"
+	},
+	"metas": {
+		"cantidad": 1,
+		"m": [
+			{
+				"tipo": "perro",
+				"fila": 4, "columna": 6,
+				"orientacion":"izquierda"
+			}
+		]
 	}
 };
