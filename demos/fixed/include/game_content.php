@@ -13,7 +13,7 @@
 				<span id="game-info-desc">Descripci&oacute;n del nivel actual (este texto es para rellenar la descripci&oacute;n)</span>
 			</div>
 			<div id="game-tutorial">
-				<div>¿Necesitas ayuda? &excl;Haz clic aqu&iacute;!</div>
+				<div>&iquest;Necesitas ayuda? &excl;Haz clic aqu&iacute;!</div>
 			</div>
 			<script src="../../crafty/crafty-min.js"></script>
 			<script src="../../juego/juego4.js"></script>
