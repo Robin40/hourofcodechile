@@ -1,7 +1,12 @@
 var HOC_LEVEL = {
 	"nombre": "Mario Hugo",
 	"descripcion": "Ay&uacute;dame a llegar a la meta!",
+	"mensaje_inicial": "Recoje la caca!",
+	"imagen_inicial": "caca.png",
 	"tutorial": "https://www.youtube.com/embed/injrqPi050I",
+	"titulo_ayuda": "Bloque AVANZAR",
+	"imagen_ayuda": "test.jpeg",
+	"comentario_ayuda": "Utiliza este bloque para que tu personaje avance una posición hacia donde está mirando.",
 	"maximoBloques": 2,
 	"grid": {
 		"filas": 10,
