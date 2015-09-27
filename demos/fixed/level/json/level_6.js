@@ -1,49 +1,43 @@
 var HOC_LEVEL = {
-	"nombre": "Nombre del nivel",
-	"descripcion": "Descripción del nivel",
-	"maximoBloques": 5,
+	"nombre": "Mario Hugo",
+	"descripcion": "Ay&uacute;dame a llegar a la meta!",
+	"tutorial": "https://www.youtube.com/embed/injrqPi050I",
+	"maximoBloques": 2,
 	"grid": {
 		"filas": 10,
 		"columnas": 10,
-		"matriz": 
-		   ["XXXXXXXXXX",
-			"XRRRRRRRRX",
-			"T........G",
-			"T........G",
-			"T........G",
-			"T........G",
-			"T........G",
-			"T........G",
-			"XFFFFFFFFX",
-			"XXXXXXXXXX"]
+		"matriz": [
+            "XXXXXXXXXX",
+			"XXXXXXXXXX",
+			"XqSRSRSRwX",
+			"XU......GX",
+			"XU......GX",
+			"XT......GX",
+			"XU......GX",
+			"XaFFFFFFsX",
+			"XXXXXXXXXX",
+			"XXXXXXXXXX"
+		]
 	},
 	"personaje": {
 		"tipo": "mariohugo",
-		"fila": 2,
-		"columna": 1,
+		"fila": 5,
+		"columna": 2,
 		"orientacion": "derecha"
 	},
-	"metas": {
-		"cantidad": 1,
-		"m": [
-			{
-				"tipo": "perro",
-				"fila": 7, "columna": 8,
-				"orientacion":"izquierda"
-			}
-		]
-	},
-	"stackeables": {
-		"cantidad": 8,
-		"s": [
-			{"tipo": "piedra", "fila": 4, "columna": 3},
-			{"tipo": "piedra", "fila": 4, "columna": 4},
-			{"tipo": "piedra", "fila": 4, "columna": 5},
-			{"tipo": "piedra", "fila": 4, "columna": 6},
-			{"tipo": "piedra", "fila": 5, "columna": 3},
-			{"tipo": "piedra", "fila": 5, "columna": 4},
-			{"tipo": "piedra", "fila": 5, "columna": 5},
-			{"tipo": "piedra", "fila": 5, "columna": 6}
-		]
-	}
+	"cacas": {
+        "cantidad": 3,
+        "requeridas": 3,
+        "c": [
+            {"fila": 4, "columna": 4},
+            {"fila": 5, "columna": 5},
+            {"fila": 5, "columna": 3},
+        ]
+    },
+    "stackeables": {
+        "cantidad": 1,
+        "s": [
+            {"tipo": "piedra", "fila": 6, "columna": 4},
+        ]
+    }
 };

@@ -11,7 +11,7 @@ var HOC_LEVEL = {
 			"XXqRRRRwXX",
 			"XXT....GXX",
 			"XXT....GXX",
-			"XXaFFw.GXX",
+			"XXaFFi.GXX",
 			"XXXXXaFsXX",
 			"XXXXXXXXXX",
 			"XXXXXXXXXX"
