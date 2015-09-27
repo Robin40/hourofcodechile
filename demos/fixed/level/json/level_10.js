@@ -27,7 +27,7 @@ var HOC_LEVEL = {
 		"cantidad": 1,
 		"requeridas": 1,
 		"c": [
-			{"fila": 7, "columna": 6}
+			{"fila": 6, "columna": 6}
 		]
 	}
 };
