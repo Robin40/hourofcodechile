@@ -1,6 +1,7 @@
 var HOC_LEVEL = {
 	"nombre": "Nombre del nivel",
 	"descripcion": "Descripción del nivel",
+	"maximoBloques": 5,
 	"grid": {
 		"filas": 10,
 		"columnas": 10,

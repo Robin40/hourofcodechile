@@ -2,6 +2,7 @@ var HOC_LEVEL = {
 	"nombre": "Mario Hugo",
 	"descripcion": "Ay&uacute;dame a llegar a la meta!",
 	"tutorial": "https://www.youtube.com/embed/injrqPi050I",
+	"maximoBloques": 2,
 	"grid": {
 		"filas": 10,
 		"columnas": 10,
