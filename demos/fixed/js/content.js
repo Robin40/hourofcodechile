@@ -57,6 +57,8 @@ $('#levels-bar li').each(function (i){
 
 $("#game-info-title").html(HOC_LEVEL.nombre+': ');
 $("#game-info-desc").html(HOC_LEVEL.descripcion);
+$(".welcome-image img").attr('src', 'media/welcome/'+HOC_LEVEL.imagen_inicial);
+$(".welcome-message").html(HOC_LEVEL.mensaje_inicial);
 
 var t_c = 0;
 $("#game-tutorial div").click(function(){
@@ -128,6 +130,26 @@ function failedStage(){
 			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
 		}
 	);
+}
+
+function showHelp(){
+	$("#helpModal").modalContentDisplay(500);
+	$(".completed-repeat-btn").click(function(){
+			$('#hoc-fullmodal').hide();
+		});
+	
+	$(".completed-next-btn").click(function(){
+			var lv = parseInt($('#i-level').val());
+			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
+		}
+	);
+}
+
+function welcomeWindow(){
+	$("#welcomeModal").modalContentDisplay(525);
+	$(".welcome-button").click(function(){
+			$('#hoc-fullmodal').hide();
+		});
 }
 
 

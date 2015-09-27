@@ -62,7 +62,11 @@ var assetsObj = {
 		}
 	},
 	"audio": {
-		"beep": ["beep4.wav"]
+		"beep": ["beep4.wav"],
+		"achieve": ["achieve.wav"],
+		"mal":["mal.wav"],
+		"ladrido":["guau.wav"],
+		"masomenos":["masomenos.wav"]
 	}
 };
 
@@ -72,7 +76,8 @@ window.onload = function() {
 }
 
 var simbolosMurallasAltas = new Set("M?".split(''));
-var simbolosMurallasBajas = new Set("RSFTUGJqwasP".split(''));
+var simbolosMurallasBajas = new Set("RSFTUGJqwas".split(''));
+var stackeablesSolidos = new Set(["piedra"]);
 /*
 var indiceTipoPersonaje = {
 	"pjtest": 0,
@@ -170,6 +175,11 @@ function crear_escenario() {
 	if (typeof HOC_LEVEL.metas !== 'undefined') {
 		for (var i = 0; i < HOC_LEVEL.metas.cantidad; ++i) {
 			var spriteMeta = HOC_LEVEL.metas.m[i].tipo;
+			var sonidoDePerro = false
+			if (spriteMeta == "perro" && !sonidoDePerro){
+				Crafty.audio.play("ladrido");
+				sonidoDePerro=true;
+			}
 			var igridMeta = HOC_LEVEL.metas.m[i].fila;
 			var jgridMeta = HOC_LEVEL.metas.m[i].columna;
 			var orientacionMeta = orientacionNumerica[HOC_LEVEL.metas.m[i].orientacion];
@@ -188,14 +198,17 @@ function crear_escenario() {
 	stackeable = [];
 	if (typeof HOC_LEVEL.stackeables !== 'undefined') {
 		for (var i = 0; i < HOC_LEVEL.stackeables.cantidad; ++i) {
-			var spriteStackeable = HOC_LEVEL.stackeables.s[i].tipo;
+			var spriteStackeable = HOC_LEVEL.stackeables.s[i].tipo;	
 			var igridStackeable = HOC_LEVEL.stackeables.s[i].fila;
 			var jgridStackeable = HOC_LEVEL.stackeables.s[i].columna;
 			
 			stackeable[i] = Crafty.e("2D, Canvas, " + spriteStackeable)
 				.attr({igrid: igridStackeable, jgrid: jgridStackeable,
-					x: jgridStackeable*s, y: igridStackeable*s, w: s, h: s})
+					x: jgridStackeable*s, y: igridStackeable*s, w: s, h: s,
+					tipo: spriteStackeable})
 			;
+			
+			stackeableEn[igridStackeable][jgridStackeable] = stackeable[i];
 		}
 	}
 	
@@ -308,28 +321,35 @@ function go() {
 					stepCode();
 					break;
 				case "finalizando":
-					if (condicion_de_victoria_final())
+					if (condicion_de_victoria_final()){
 						this.estado = "celebrando";
+					}
 					else {
 						incompletedStage();
 						this.estado = "muerto";
+						Crafty.audio.play("mal");
 					}
 					break;
 				case "celebrando":
-					if (bloques_usados() <= bloquesNecesarios)
+					if (bloques_usados() <= bloquesNecesarios){
 						completedStage();
-					else
+						Crafty.audio.play("achieve");
+					}
+					else{
 						semiCompletedStage(5);
+						Crafty.audio.play("masomenos");
+					}
 					this.estado = "muerto";
 					break;
 			}
 		})
-		.bind("avanzar", function() {	
-			var simbolo = simbolo_en(
-					this.igrid + idir[this.orientacion],
-					this.jgrid + jdir[this.orientacion]);
+		.bind("avanzar", function() {
+			var igridDespues = this.igrid + idir[this.orientacion];
+			var jgridDespues = this.jgrid + jdir[this.orientacion];
+			var simbolo = simbolo_en(igridDespues, jgridDespues);
 			if (!simbolosMurallasAltas.has(simbolo) &&
-				!simbolosMurallasBajas.has(simbolo)) {
+				!simbolosMurallasBajas.has(simbolo) &&
+				!stackeablesSolidos.has(stackeableEn[igridDespues][jgridDespues].tipo)) {
 				this.inicioAnimacion = Date.now();
 				this.animate("caminando_o" + this.orientacion);
 				this.estado = "avanzando";

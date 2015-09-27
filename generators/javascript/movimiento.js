@@ -31,13 +31,13 @@ Blockly.JavaScript['if_no_caca'] = function(block) {
 Blockly.JavaScript['repetir_hasta'] = function(block) {
   var statements_until_body = Blockly.JavaScript.statementToCode(block, 'until_body');
   
-  var code = 'while(!no_mas_caca()) {\n' + statements_until_body + '}\n';
+  var code = 'while (!no_mas_caca()) {\n' + statements_until_body + '}\n';
   return code;
 };
 
 Blockly.JavaScript['repetir_hasta_perro'] = function(block) {
   var statements_until_body = Blockly.JavaScript.statementToCode(block, 'until_body');
   
-  var code = 'while(!llegue_al_perro()) {\n' + statements_until_body + '}\n';
+  var code = 'while (!llegue_al_perro()) {\n' + statements_until_body + '}\n';
   return code;
 };
