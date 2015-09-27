@@ -113,14 +113,22 @@ function cargar_cacas() {
 }
 
 function crear_escenario() {
-	escenario = cacaEn = metaEn = stackeableEn = [];
+	escenario = [];
+	cacaEn = [];
+	metaEn = [];
+	stackeableEn = [];
 	for (var i = 0; i < HOC_LEVEL.grid.filas; ++i) {
-		escenario[i] = cacaEn[i] = metaEn[i] = stackeableEn[i] = [];
+		escenario[i] = [];
+		cacaEn[i] = [];
+		metaEn[i] = [];
+		stackeableEn[i] = [];
 		for (var j = 0; j < HOC_LEVEL.grid.columnas; ++j) {
 			escenario[i][j] = Crafty.e("2D, Canvas, " + tileSimbolo[HOC_LEVEL.grid.matriz[i][j]])
 				.attr({x: j*s, y: i*s, w: s, h: s})
 			;
-			cacaEn[i][j] = metaEn[i][j] = stackeableEn[i][j] = false;
+			cacaEn[i][j] = false;
+			metaEn[i][j] = false;
+			stackeableEn[i][j] = false;
 		}
 	}
 	
@@ -151,11 +159,9 @@ function crear_escenario() {
 					x: jgridMeta*s, y: igridMeta*s, w: s, h: s})
 			;
 			
-			//metaEn[igridMeta][jgridMeta] = meta[i];
-			metaEn[igridMeta][jgridMeta] = true;
+			metaEn[igridMeta][jgridMeta] = meta[i];
 		}
 	}
-	alert(metaEn[5][5]);
 	
 	cargar_cacas();
 	
