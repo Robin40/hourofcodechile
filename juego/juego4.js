@@ -52,7 +52,14 @@ var assetsObj = {
 				"bloque_muralla": [2, 0],
 				"tierra": [3, 0],
 				"missing_tile": [4, 0],
-				"caca": [5, 0]
+				"caca": [5, 0],
+				"piedra": [6, 0],
+				"reja_horizontal_oscuro": [7, 0],
+				"reja_horizontal_claro": [8, 0],
+				"reja_izquierda_oscuro": [9, 0],
+				"reja_izquierda_claro": [10, 0],
+				"reja_derecha_oscuro": [11, 0],
+				"reja_derecha_claro": [12, 0]
 			}
 		}
 	}
