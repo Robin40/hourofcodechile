@@ -68,3 +68,20 @@ Blockly.Blocks['if_no_caca'] = {
   }
 };
 
+Blockly.Blocks['repetir_hasta'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("repetir hasta que")
+        .appendField(new Blockly.FieldDropdown([["no haya más caca", "caca"], ["llegue al perro", "perro"]]), "until_opt");
+    this.appendStatementInput("until_body")
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(260);
+    this.setTooltip('Realiza algunas acciones tantas veces como sea necesario hasta cumplir la condición');
+  }
+};
+
+
+
+
