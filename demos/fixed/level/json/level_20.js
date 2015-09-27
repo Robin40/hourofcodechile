@@ -43,11 +43,12 @@ var HOC_LEVEL = {
         "s": [
             {"tipo": "piedra", "fila": 0, "columna": 4},
             {"tipo": "fuego0", "fila": 0, "columna": 0},
-            {"tipo": "fuego0", "fila": 0, "columna": 1},
-            {"tipo": "fuego1", "fila": 0, "columna": 2},
-            {"tipo": "fuego1", "fila": 1, "columna": 2},
-            {"tipo": "fuego2", "fila": 1, "columna": 1},
+            {"tipo": "fuego1", "fila": 0, "columna": 1},
+            {"tipo": "fuego2", "fila": 0, "columna": 2},
+
             {"tipo": "fuego2", "fila": 1, "columna": 0},
+            {"tipo": "fuego1", "fila": 1, "columna": 1},
+            {"tipo": "fuego0", "fila": 1, "columna": 2},
 
             {"tipo": "fuego0", "fila": 9, "columna": 3},
             {"tipo": "fuego1", "fila": 9, "columna": 4},
