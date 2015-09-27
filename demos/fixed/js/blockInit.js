@@ -109,25 +109,35 @@ var maximoBloques = 32;
 	
 	
 	function ejecutar_javascript() {
-		if(!gameRunning){
-			gameRunning = true;
-			parseCode();
-			personaje.trigger("resetear");
-			personaje.estado = 'listo';
-			//document.getElementById('js-button').disabled = 'disabled';
-			execbtn.innerHTML = 'Detener';
-			execbtn.className = 'running';
-			stepCode();
-			
-			//gameRunning = false;
-			//execbtn.innerHTML = 'Reiniciar';
-			//document.getElementById('js-button').disabled = '';
-		}
-		else{
-			gameRunning = false;
-			execbtn.innerHTML = 'Reiniciar';
-			execbtn.className = '';
-			personaje.estado = 'muerto';
-			
-		}
+          /* 
+             verificar que no hayan bloques "sueltos" (no bajo el
+             when run) 
+          */
+          if (Blockly.mainWorkspace.getTopBlocks().length >= 2) {
+            alert("Tienes bloques sueltos!");
+            return;
+          }
+
+          if(!gameRunning){
+	    gameRunning = true;
+	    parseCode();
+	    personaje.trigger("resetear");
+	    personaje.estado = 'listo';
+	    //document.getElementById('js-button').disabled = 'disabled';
+	    execbtn.innerHTML = 'Detener';
+	    execbtn.className = 'running';
+
+            stepCode();
+	    
+	    //gameRunning = false;
+	    //execbtn.innerHTML = 'Reiniciar';
+	    //document.getElementById('js-button').disabled = '';
+	  }
+	  else{
+	    gameRunning = false;
+	    execbtn.innerHTML = 'Reiniciar';
+	    execbtn.className = '';
+	    personaje.estado = 'muerto';
+	    
+	  }
 	}
