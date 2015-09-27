@@ -132,19 +132,16 @@ var maximoBloques = 32;
 	
 	
 	function ejecutar_javascript() {
-          /* 
-             verificar que no hayan bloques "sueltos" (no bajo el
-             when run) 
-          */
+		
           if (hay_bloques_sueltos()) {
 			$("#errorModal").modalDisplay();
             return;
           }
-
+		
           if(!gameRunning){
 	    gameRunning = true;
 	    
-		if (parseCode() != "success");
+		if (parseCode() != "success")
 			return;
 		
 		personaje.trigger("resetear");
