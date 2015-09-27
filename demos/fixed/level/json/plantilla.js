@@ -3,7 +3,7 @@ var HOC_LEVEL = {
 	"descripcion": "Descripción del nivel",
 	"tutorial": url_video_EMBEBIDO,
 	"maximoBloques": n,
-	"minimoBloques": k,
+	"bloquesNecesarios": k,
 	"grid": {
 		"filas": r,
 		"columnas": c,

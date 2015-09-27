@@ -5,6 +5,7 @@ var escenario;
 var meta, metaEn;
 var caca, cacaEn, cacasRecogidas, cacasRequeridas;
 var stackeable, stackeableEn;
+var bloquesNecesarios;
 var s = 45;
 
 var assetsObj = {
@@ -150,9 +151,11 @@ function crear_escenario() {
 					x: jgridMeta*s, y: igridMeta*s, w: s, h: s})
 			;
 			
-			metaEn[igridMeta][jgridMeta] = meta[i];
+			//metaEn[igridMeta][jgridMeta] = meta[i];
+			metaEn[igridMeta][jgridMeta] = true;
 		}
 	}
+	alert(metaEn[5][5]);
 	
 	cargar_cacas();
 	
@@ -169,6 +172,14 @@ function crear_escenario() {
 			;
 		}
 	}
+	
+	bloquesNecesarios = 10000;
+	if (typeof HOC_LEVEL.bloquesNecesarios !== 'undefined')
+		bloquesNecesarios = HOC_LEVEL.bloquesNecesarios + 1;
+}
+
+function bloques_usados() {
+	return Blockly.mainWorkspace.getAllBlocks().length;
 }
 
 function simbolo_en(igrid, jgrid) {
@@ -183,8 +194,7 @@ function condicion_de_victoria_inmediata() {
 }
 
 function condicion_de_victoria_final() {
-	alert(metaEn[personaje.igrid][personaje.jgrid]);
-	return true;
+	return metaEn[personaje.igrid][personaje.jgrid];
 }
 
 function go() {
@@ -265,15 +275,16 @@ function go() {
 					stepCode();
 					break;
 				case "finalizando":
-					alert("foo20");
 					if (condicion_de_victoria_final())
 						this.estado = "celebrando";
 					else
 						this.estado = "muerto";
 					break;
 				case "celebrando":
-					alert("foo15");
-					$("#nivelCompletadoModal").modalDisplay();
+					if (bloques_usados() <= bloquesNecesarios)
+						completeStage();
+					else
+						incompleteStage();
 					this.estado = "muerto";
 					break;
 			}
