@@ -84,10 +84,11 @@ var maximoBloques = 32;
 		} finally {
 			if (!ok) {
 				//document.getElementById('stepButton').disabled = 'disabled';
-				personaje.estado == "muerto";
+				//personaje.estado == "muerto";
 				gameRunning = false;
 				execbtn.innerHTML = 'Reiniciar';
 				execbtn.className = '';
+				personaje.estado = "finalizando";
 				return;
 			}
 			else{

@@ -143,7 +143,7 @@ function crear_escenario() {
 			var spriteMeta = HOC_LEVEL.metas.m[i].tipo;
 			var igridMeta = HOC_LEVEL.metas.m[i].fila;
 			var jgridMeta = HOC_LEVEL.metas.m[i].columna;
-			var orientacionMeta = HOC_LEVEL.metas.m[i].orientacion;
+			var orientacionMeta = orientacionNumerica[HOC_LEVEL.metas.m[i].orientacion];
 			
 			meta[i] = Crafty.e("2D, Canvas, " + spriteMeta + "_o" + orientacionMeta)
 				.attr({igrid: igridMeta, jgrid: jgridMeta,
@@ -178,9 +178,13 @@ function simbolo_en(igrid, jgrid) {
 	return "?";
 }
 
-function condicion_de_victoria() {
-	return (metaEn[personaje.igrid][personaje.jgrid] ||
-			cacasRecogidas >= cacasRequeridas);
+function condicion_de_victoria_inmediata() {
+	return (cacasRecogidas >= cacasRequeridas);
+}
+
+function condicion_de_victoria_final() {
+	alert(metaEn[personaje.igrid][personaje.jgrid]);
+	return true;
 }
 
 function go() {
@@ -252,7 +256,7 @@ function go() {
 						cacaEn[this.igrid][this.jgrid] = false;
 					}
 					
-					if (!condicion_de_victoria())
+					if (!condicion_de_victoria_inmediata())
 						this.estado = "listo";
 					else
 						this.estado = "celebrando";
@@ -260,7 +264,15 @@ function go() {
 				case "listo":
 					stepCode();
 					break;
+				case "finalizando":
+					alert("foo20");
+					if (condicion_de_victoria_final())
+						this.estado = "celebrando";
+					else
+						this.estado = "muerto";
+					break;
 				case "celebrando":
+					alert("foo15");
 					$("#nivelCompletadoModal").modalDisplay();
 					this.estado = "muerto";
 					break;
