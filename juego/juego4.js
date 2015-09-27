@@ -300,9 +300,9 @@ function go() {
 					break;
 				case "celebrando":
 					if (bloques_usados() <= bloquesNecesarios)
-						completeStage();
+						completedStage();
 					else
-						incompleteStage();
+						incompletedStage(5);
 					this.estado = "muerto";
 					break;
 			}

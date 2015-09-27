@@ -32,6 +32,16 @@ function setLevelAsCompleted(i){
 	localStorage[incompleteStorage] = ~mask & localStorage[incompleteStorage];
 }
 
+function setLevelAsIncompleted(i){
+	var mask = 1;
+	while(i > 1){
+		mask = mask << 1;
+		i--;
+	}
+	localStorage[completeStorage] = mask | localStorage[completeStorage];
+	localStorage[incompleteStorage] = ~mask & localStorage[incompleteStorage];
+}
+
 function applyColor(level,  i){
 	level.addClass("lcolor"+isLevelCompleted(i));
 }
@@ -62,8 +72,9 @@ $("#game-tutorial div").click(function(){
 
 
 
-function completeStage(){
+function completedStage(){
 	$("#completedModal").modalContentDisplay(500);
+	$(".completedExtra").hide();
 	var lv = parseInt($('#i-level').val());
 	setLevelAsCompleted(lv);
 	$(".completed-repeat-btn").click(function(){
@@ -76,7 +87,23 @@ function completeStage(){
 	);
 }
 
-function incompleteStage(){
+function incompletedStage(n){
+	$("#completedModal").modalContentDisplay(500);
+	$(".blockNumber").html(n);
+	$(".completedExtra").show();
+	var lv = parseInt($('#i-level').val());
+	setLevelAsIncompleted(lv);
+	$(".completed-repeat-btn").click(function(){
+			$('#hoc-fullmodal').hide();
+		});
+	
+	$(".completed-next-btn").click(function(){
+			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
+		}
+	);
+}
+
+function failedStage(){
 	$("#incompletedModal").modalContentDisplay(500);
 	$(".completed-repeat-btn").click(function(){
 			$('#hoc-fullmodal').hide();

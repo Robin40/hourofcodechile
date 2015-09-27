@@ -1,188 +1,136 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Blockly Demos</title>
-  <style>
-    body {
-      margin: 0 10%;
-      background-color: #fff;
-      font-family: sans-serif;
-    }
-    h1 {
-      font-weight: normal;
-      font-size: 140%;
-    }
-    td {
-      padding: 1ex;
-    }
-    img {
-      border: none;
-    }
-  </style>
-</head>
+  <title>Blockly Demo: Fixed Blockly</title>
+  
+  <link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/modalPlugin.css">    <script src="level/json/tileSimbolo.js"></script>
+  <script src="../../blockly_compressed.js"></script>
+  <script src="../../blocks_compressed.js"></script>
+  <script src="../../javascript_compressed.js"></script>
+  <script src="../../msg/js/es.js"></script>
+  <script src="../../blocks/movimiento.js"></script>
+  <script src="../../generators/javascript/movimiento.js"></script>
+  <script src="../../jsinterpreter/acorn_interpreter.js"></script></head> 
 <body>
-  <h1><a href="https://developers.google.com/blockly/">Blockly</a> &gt; Demos</h1>
+	<input id="i-level" type="hidden" value="6" />
+	<div id="wrap">
+				<div>
+			<div id="gameContainer">
+				<div id="gameDiv"></div>
+			</div>
+			
+			<!--<div id="current-level"><div>Nivel 6</div></div>-->
+			<div id="buttons">
+				<button id="exec-button" onclick="ejecutar_javascript()">Iniciar</button>
+				<button id="js-button" onclick="mostrar_javascript()">Mostrar C&oacute;digo</button>		
+		    </div>
+			<div id="game-info">
+				<span id="game-info-title"></span>
+				<span id="game-info-desc">Descripci&oacute;n del nivel actual (este texto es para rellenar la descripci&oacute;n)</span>
+			</div>
+			<div id="game-tutorial">
+				<div>&iquest;Necesitas ayuda? &excl;Haz clic aqu&iacute;!</div>
+			</div>
+			<script src="../../crafty/crafty-min.js"></script>
+			<script src="../../juego/juego4.js"></script>
+		</div>		<div>
+				<header>
+		<div id="levels-bar">
+			<div>
+				<div class="l-title">Nivel 6</div>
+				<ul>
+					<li></li><li></li><li></li><li></li><li></li><li class='current-level'>6</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>				</ul>
+			</div>
+		</div>
+		<div id="lines-info">
+	    		<div>Llevas</div>
+	    		<div id="lines-count">0</div>
+	    		<div>lineas de c&oacute;digo</div>
+	    </div>
+	    <div id="logo-container"></div>
+	</header>						<table>
+				<thead>
+					<tr>
+						<th id="block-table-header"><div>Acciones disponibles</div><div>Acciones a realizar</div></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><div id="blocklyDiv"></div></td>
+					</tr>
+				</tbody>
+			</table>		</div>
+	</div>
+	
 
-  <p>These demos are intended for developers who want to integrate Blockly with
-  their own applications.</p>
+		  
+		
+	
+	<xml id="toolbox" style="display: none">
+    <block type="avanzar"></block>
+	<block type="girar">
+		<field name="sentido">antihorario</field>
+	</block>
+	<block type="girar">
+		<field name="sentido">horario</field>
+	</block>
+    <block type="controls_repeat"></block>
+  </xml>
 
-  <table>
-    <tr>
-      <td>
-        <a href="fixed/index.html">
-          <img src="fixed/icon.png" height=80 width=100>
-        </a>
-      </td>
-      <td>
-        <div><a href="fixed/index.html">Fixed Blockly</a></div>
-        <div>Inject Blockly into a page as a fixed element.</div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <a href="resizable/index.html">
-          <img src="resizable/icon.png" height=80 width=100>
-        </a>
-      </td>
-      <td>
-        <div><a href="resizable/index.html">Resizable Blockly</a></div>
-        <div>Inject Blockly into a page as a resizable element.</div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <a href="toolbox/index.html">
-          <img src="toolbox/icon.png" height=80 width=100>
-        </a>
-      </td>
-      <td>
-        <div><a href="toolbox/index.html">Defining the Toolbox</a></div>
-        <div>Organize blocks into categories for the user.</div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <a href="maxBlocks/index.html">
-          <img src="maxBlocks/icon.png" height=80 width=100>
-        </a>
-      </td>
-      <td>
-        <div><a href="maxBlocks/index.html">Maximum Block Limit</a></div>
-        <div>Limit the total number of blocks allowed (for academic exercises).</div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <a href="generator/index.html">
-          <img src="generator/icon.png" height=80 width=100>
-        </a>
-      </td>
-      <td>
-        <div><a href="generator/index.html">Generate JavaScript</a></div>
-        <div>Turn blocks into code and execute it.</div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <a href="headless/index.html">
-          <img src="headless/icon.png" height=80 width=100>
-        </a>
-      </td>
-      <td>
-        <div><a href="headless/index.html">Headless</a></div>
-        <div>Generate code from XML without graphics.</div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <a href="interpreter/index.html">
-          <img src="interpreter/icon.png" height=80 width=100>
-        </a>
-      </td>
-      <td>
-        <div><a href="interpreter/index.html">JS Interpreter</a></div>
-        <div>Step by step execution in JavaScript.</div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <a href="graph/index.html">
-          <img src="graph/icon.png" height=80 width=100>
-        </a>
-      </td>
-      <td>
-        <div><a href="graph/index.html">Graph</a></div>
-        <div>Instant updates when blocks are changed.</div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <a href="rtl/index.html">
-          <img src="rtl/icon.png" height=80 width=100>
-        </a>
-      </td>
-      <td>
-        <div><a href="rtl/index.html">RTL</a></div>
-        <div>See what Blockly looks like in right-to-left mode (for Arabic and Hebrew).</div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <a href="plane/index.html">
-          <img src="plane/icon.png" height=80 width=100>
-        </a>
-      </td>
-      <td>
-        <div><a href="plane/index.html">Plane</a></div>
-        <div>Using Closure Templates to support 35 languages.</div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <a href="storage/index.html">
-          <img src="storage/icon.png" height=80 width=100>
-        </a>
-      </td>
-      <td>
-        <div><a href="storage/index.html">Cloud Storage</a></div>
-        <div>Save and load blocks with App Engine.</div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <a href="code/index.html">
-          <img src="code/icon.png" height=80 width=100>
-        </a>
-      </td>
-      <td>
-        <div><a href="code/index.html">Code Editor</a></div>
-        <div>Export a Blockly program into JavaScript, Python, PHP, Dart or XML.</div>
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        <a href="blockfactory/index.html">
-          <img src="blockfactory/icon.png" height=80 width=100>
-        </a>
-      </td>
-      <td>
-        <div><a href="blockfactory/index.html">Block Factory</a></div>
-        <div>Build custom blocks using Blockly.</div>
-      </td>
-    </tr>
-  </table>
+  <xml id="startBlocks" style="display: none">
+	<block type="al_ejecutar" x="32" y="32"></block>
+  </xml>
+	<div class="modalWindowMessages">
+		<div id="hoc-fm1" >Bienvenido! Has sido escogido para aprender a utilizar el poder infinito de la programaci&oacute;n! (o cualquier mensaje que se desee c:).</div>
+		<div id="sizedMessages">
+			<span id="hoc-sm1">Pantalla de juego</span>
+			<span id="hoc-sm2">Arrastra m&aacute;s bloques debajo de este!</span>
+			<span id="hoc-sm3">Revisa el c&oacute;digo que has creado y ejec&uacute;talo en el juego!</span>
+		</div>
+	</div>	<div class="modalWindowMessages">
+		<div id="jsModal">jsmodal</div>
+		<div id="errorModal">&iexcl;Tienes bloques sueltos! Aseg&uacute;rate de que todos los bloques que uses est&aacute;n conectados al bloque "al inicio".</div>
+		<div id="codigoVacioModal">No has puesto bloques... Arrastra bloques en "Acciones disponibles" hasta el bloque "Al inicio" para que estos se ejecuten.</div>
+		<div id="completedModal"><b>
+			<div class="completedTitle">&iexcl;Has completado el nivel!</div>
+			<div>Completaste la tarea que se te ha pedido, &iexcl;Felicitaciones!</div></b>
+			<br />
+			<div class="completedExtra">Este nivel pudo ser completado utilizando solamente <span class="blockNumber"></span> bloques. Puedes volver a intentarlo.</div>
+			
+			<div class="completed-buttons">
+				<button class="completed-repeat-btn">Repetir nivel</button>
+				<button class="completed-next-btn">Siguiente nivel</button>
+			</div>
+		</div>
+		<div id="incompletedModal"><b>
+			<div class="completedTitle">&iexcl;Has fallado!</div></b>
+			<div>Debes utilizar el bloque <b><span class="incompleted-block">bloque_x</span></b> para completar este nivel</div>
+			<br />
+			
+			<div class="completed-buttons">
+				<button class="completed-repeat-btn centered">Repetir nivel</button>
+			</div>
+		</div>
+	</div>
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/modalPlugin.js"></script>
+	
+	<!-- 
+		IMPORTANTE: Para Robinson
+		Json del nivel actual  -->
+	<script src="level/json/level_6.js"></script>
+	<!--<script src="level/json/test.js"></script>--!>
+	
+	<!-- 
+		IMPORTANTE: Para Robinson
+		Funciones e inicializador de la API del videojuego -->
+	<script src="js/blockInit.js"></script>
+	
+	<script src="js/content.js"></script>
 </body>
 </html>

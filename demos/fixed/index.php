@@ -36,14 +36,14 @@ if(isset($_GET['level']) && $_GET['level'] > 0 && $_GET['level'] <= $GLOBALS['LE
 	include_once "level/modal/modal_$level.php";
 	?>
 	<div class="modalWindowMessages">
-		<div id="jsModal"></div>
+		<div id="jsModal">jsmodal</div>
 		<div id="errorModal">&iexcl;Tienes bloques sueltos! Aseg&uacute;rate de que todos los bloques que uses est&aacute;n conectados al bloque "al inicio".</div>
-		<div id="codigoVacioModal">No has puesto bloques... Arrastra bloques en "acciones disponibles" hasta el bloque "al inicio" para que estos se ejecuten.</div>
+		<div id="codigoVacioModal">No has puesto bloques... Arrastra bloques en "Acciones disponibles" hasta el bloque "Al inicio" para que estos se ejecuten.</div>
 		<div id="completedModal"><b>
 			<div class="completedTitle">&iexcl;Has completado el nivel!</div>
 			<div>Completaste la tarea que se te ha pedido, &iexcl;Felicitaciones!</div></b>
 			<br />
-			<div>Este nivel pudo ser completado utilizando solamente X bloques. Puedes volver a intentarlo.</div>
+			<div class="completedExtra">Este nivel pudo ser completado utilizando solamente <span class="blockNumber"></span> bloques. Puedes volver a intentarlo.</div>
 			
 			<div class="completed-buttons">
 				<button class="completed-repeat-btn">Repetir nivel</button>
