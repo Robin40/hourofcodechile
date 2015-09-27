@@ -55,9 +55,16 @@ var maximoBloques = 32;
 	}
 	
 	function parseCode() {
+		Blockly.JavaScript.STATEMENT_PREFIX = "";
+		var codigo = Blockly.JavaScript.workspaceToCode(workspace);
+		if (codigo == "") {
+			$("#codigoVacioModal").modalDisplay();
+			return "codigoVacio";
+		}
+		
 		Blockly.JavaScript.STATEMENT_PREFIX = "highlightBlock(%1);\n";
 		Blockly.JavaScript.addReservedWords("highlightBlock");
-		var codigo = Blockly.JavaScript.workspaceToCode(workspace);
+		codigo = Blockly.JavaScript.workspaceToCode(workspace);
 		interprete = new Interpreter(codigo, initApi);
 		
 		//alert("Listo para ejecutar este código:\n\n" + codigo);
@@ -65,6 +72,8 @@ var maximoBloques = 32;
 		highlightPause = false;
 		workspace.traceOn(true);
 		workspace.highlightBlock(null);
+		
+		return "success";
 	}
 	
 	var gameRunning = false;
@@ -98,13 +107,27 @@ var maximoBloques = 32;
 		}
 	}
 	
+	function hay_bloques_sueltos() {
+		return (Blockly.mainWorkspace.getTopBlocks().length >= 2);
+	}
+	
 	function mostrar_javascript() {
+		if (hay_bloques_sueltos()) {
+			$("#errorModal").modalDisplay();
+			return;
+		}
+		
 		Blockly.JavaScript.STATEMENT_PREFIX = "";
 		var codigo = Blockly.JavaScript.workspaceToCode(workspace);
+		
+		if (codigo == "") {
+			$("#codigoVacioModal").modalDisplay();
+			return;
+		}
+		
 		var jsModal = $('#jsModal');
 		jsModal.html(codigo);
 		jsModal.modalCodeDisplay();
-		//alert(codigo);
 	}
 	
 	
@@ -113,15 +136,18 @@ var maximoBloques = 32;
              verificar que no hayan bloques "sueltos" (no bajo el
              when run) 
           */
-          if (Blockly.mainWorkspace.getTopBlocks().length >= 2) {
-            alert("Tienes bloques sueltos!");
+          if (hay_bloques_sueltos()) {
+			$("#errorModal").modalDisplay();
             return;
           }
 
           if(!gameRunning){
 	    gameRunning = true;
-	    parseCode();
-	    personaje.trigger("resetear");
+	    
+		if (parseCode() != "success");
+			return;
+		
+		personaje.trigger("resetear");
 	    personaje.estado = 'listo';
 	    //document.getElementById('js-button').disabled = 'disabled';
 	    execbtn.innerHTML = 'Detener';

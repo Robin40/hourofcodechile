@@ -75,7 +75,8 @@ window.onload = function() {
 	Crafty.load(assetsObj, go);
 }
 
-var simbolosMurallas = new Set("R?".split(''));
+var simbolosMurallasAltas = new Set("M?".split(''));
+var simbolosMurallasBajas = new Set("RSFTUGJqwasP".split(''));
 
 var indiceTipoPersonaje = {
 	"pjtest": 0,
@@ -220,10 +221,12 @@ function go() {
 					break;
 			}
 		})
-		.bind("avanzar", function() {			
-			if (!simbolosMurallas.has(simbolo_en(
+		.bind("avanzar", function() {	
+			var simbolo = simbolo_en(
 					this.igrid + idir[this.orientacion],
-					this.jgrid + jdir[this.orientacion]))) {
+					this.jgrid + jdir[this.orientacion]);
+			if (!simbolosMurallasAltas.has(simbolo) &&
+				!simbolosMurallasBajas.has(simbolo)) {
 				this.inicioAnimacion = Date.now();
 				this.animate("caminando_o" + this.orientacion);
 				this.estado = "avanzando";
