@@ -72,7 +72,7 @@ Blockly.Blocks['repetir_hasta'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("repetir hasta que")
-        .appendField(new Blockly.FieldDropdown([["no haya más caca", "caca"], ["llegue al perro", "perro"]]), "until_opt");
+        .appendField(new Blockly.FieldDropdown([["no haya más caca", "no_mas_caca"], ["llegue al perro", "llegar_al_perro"]]), "until_opt");
     this.appendStatementInput("until_body")
         .setCheck(null);
     this.setPreviousStatement(true, null);
