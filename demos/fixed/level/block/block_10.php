@@ -9,6 +9,6 @@
     <block type="controls_repeat"></block>
   </xml>
 
-  <xml id="startBlocks" style="display: none">
-	<block type="al_ejecutar" x="32" y="32"></block>
-  </xml>
+<xml id="startBlocks" style="display: none">
+  <block type="al_ejecutar" x="32" y="32"></block>
+</xml>
