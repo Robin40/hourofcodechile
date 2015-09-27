@@ -89,8 +89,6 @@ function incompleteStage(){
 	);
 }
 
-incompleteStage();
-
 
 
 
