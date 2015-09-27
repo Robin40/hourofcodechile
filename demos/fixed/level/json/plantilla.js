@@ -50,5 +50,13 @@ var HOC_LEVEL = {
 			{"fila": i, "columna": j},
 			...
 		]
+	},
+	"stackeables": {
+		"cantidad": n,
+		"s": [
+			{"tipo": "piedra", "fila": i, "columna": j},
+			{"tipo": "piedra", "fila": i, "columna": j},
+			...
+		]
 	}
 };

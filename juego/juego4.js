@@ -2,23 +2,10 @@ var idir = [0, -1, 0, 1];
 var jdir = [1, 0, -1, 0];
 var personaje;
 var escenario;
-var meta;
+var meta, metaEn;
+var caca, cacaEn, cacasRecogidas, cacasRequeridas;
 var s = 45;
-/*
-function cambiar_zoom()
-{
-	if (s == 32)
-		s = 32*1.2;
-	else
-		s = 32;
-	
-	personaje.attr({x: personaje.jgrid*s, y: personaje.igrid*s, w: s, h: s});
-	meta.attr({x: meta.jgrid*s, y: meta.igrid*s, w: s, h: s});
-	for (var i = 0; i < HOC_LEVEL.grid.filas; ++i)
-		for (var j = 0; j < HOC_LEVEL.grid.columnas; ++j)
-			escenario[i][j].attr({x: j*s, y: i*s, w: s, h: s});
-}
-*/
+
 var assetsObj = {
 	"sprites": {
 		"personajes.png": {
@@ -77,7 +64,7 @@ window.onload = function() {
 
 var simbolosMurallasAltas = new Set("M?".split(''));
 var simbolosMurallasBajas = new Set("RSFTUGJqwasP".split(''));
-
+/*
 var indiceTipoPersonaje = {
 	"pjtest": 0,
 	"mariohugo": 1
@@ -86,7 +73,7 @@ var indiceTipoPersonaje = {
 var indiceTipoMeta = {
 	"perro": 0
 }
-
+*/
 var orientacionNumerica = {
 	"derecha": 0,
 	"arriba": 1,
@@ -101,40 +88,70 @@ var igridInicial = 3;
 var jgridInicial = 4;
 var orientacionInicial = 0;
 var duracionAnim = 800;
-
+/*
 var spriteMeta = "perro";
 var indiceMeta = 0;
 var igridMeta = 11;
 var jgridMeta = 11;
 var orientacionMeta = 0;
-
+*/
 function crear_escenario() {
-	escenario = [];
+	escenario = cacaEn = metaEn = [];
 	for (var i = 0; i < HOC_LEVEL.grid.filas; ++i) {
-		escenario[i] = [];
-		for(var j = 0; j < HOC_LEVEL.grid.columnas; ++j)
+		escenario[i] = cacaEn[i] = metaEn[i] = [];
+		for (var j = 0; j < HOC_LEVEL.grid.columnas; ++j) {
 			escenario[i][j] = Crafty.e("2D, Canvas, " + tileSimbolo[HOC_LEVEL.grid.matriz[i][j]])
 				.attr({x: j*s, y: i*s, w: s, h: s})
 			;
+			cacaEn[i][j] = metaEn[i][j] = false;
+		}
 	}
 	
 	spritePersonaje = HOC_LEVEL.personaje.tipo;
-	indicePersonaje = indiceTipoPersonaje[HOC_LEVEL.personaje.tipo];
+	//indicePersonaje = indiceTipoPersonaje[HOC_LEVEL.personaje.tipo];
 	subimgsAnim = 8;
 	igridInicial = HOC_LEVEL.personaje.fila;
 	jgridInicial = HOC_LEVEL.personaje.columna;
 	orientacionInicial = orientacionNumerica[HOC_LEVEL.personaje.orientacion];
 	duracionAnim = 800;
-	
+	/*
 	spriteMeta = HOC_LEVEL.meta.tipo;
 	indiceMeta = indiceTipoMeta[HOC_LEVEL.meta.tipo];
 	igridMeta = HOC_LEVEL.meta.fila;
 	jgridMeta = HOC_LEVEL.meta.columna;
 	orientacionMeta = orientacionNumerica[HOC_LEVEL.meta.orientacion];
+	*/
+	meta = [];
+	if (typeof HOC_LEVEL.metas !== 'undefined') {
+		for (var i = 0; i < HOC_LEVEL.metas.cantidad; ++i) {
+			var spriteMeta = HOC_LEVEL.metas.m[i].tipo;
+			var igridMeta = HOC_LEVEL.metas.m[i].fila;
+			var jgridMeta = HOC_LEVEL.metas.m[i].columna;
+			var orientacionMeta = HOC_LEVEL.metas.m[i].orientacion;
+			
+			meta[i] = Crafty.e("2D, Canvas, " + spriteMeta + "_o" + orientacionMeta)
+				.attr({igrid: igridMeta, jgrid: jgridMeta,
+					x: jgridMeta*s, y: igridMeta*s, w: s, h: s})
+			;
+			
+			metaEn[igridMeta][jgridMeta] = meta[i];
+		}
+	}
 	
-	meta = Crafty.e("2D, Canvas, " + spriteMeta + "_o" + orientacionMeta)
-		.attr({igrid: igridMeta, jgrid: jgridMeta, x: jgridMeta*s, y: igridMeta*s, w: s, h: s})
-	;
+	caca = [];
+	if (typeof HOC_LEVEL.cacas !== 'undefined') {
+		for (var i = 0; i < HOC_LEVEL.cacas.cantidad; ++i) {
+			var igridCaca = HOC_LEVEL.cacas.c[i].fila;
+			var jgridCaca = HOC_LEVEL.cacas.c[i].columna;
+			
+			caca[i] = Crafty.e("2D, Canvas, caca")
+				.attr({igrid: igridCaca, jgrid: jgridCaca,
+					x: jgridCaca*s, y: jgridCaca*s, w: s, h: s})
+			;
+			
+			cacaEn[igridCaca][jgridCaca] = caca[i];
+		}
+	}
 }
 
 function simbolo_en(igrid, jgrid) {
@@ -142,6 +159,11 @@ function simbolo_en(igrid, jgrid) {
 		0 <= jgrid && jgrid < HOC_LEVEL.grid.columnas)
 		return HOC_LEVEL.grid.matriz[igrid][jgrid];
 	return "?";
+}
+
+function condicion_de_victoria() {
+	return (metaEn[personaje.igrid][personaje.jgrid] ||
+			cacasRecogidas >= cacasRequeridas);
 }
 
 function go() {
@@ -207,7 +229,13 @@ function go() {
 					break;
 				case "descansando":
 					this.animate("caminando_o" + this.orientacion).pauseAnimation();
-					if (this.igrid != igridMeta || this.jgrid != jgridMeta)
+					
+					if (cacaEn[this.igrid][this.jgrid]) {
+						++cacasRecogidas;
+						cacaEn[this.igrid][this.jgrid] = false;
+					}
+					
+					if (!condicion_de_victoria())
 						this.estado = "listo";
 					else
 						this.estado = "celebrando";
@@ -216,7 +244,7 @@ function go() {
 					stepCode();
 					break;
 				case "celebrando":
-					alert("has pasado el nivel\nmovimiento abortado");
+					$("#nivelCompletadoModal").modalDisplay();
 					this.estado = "muerto";
 					break;
 			}
@@ -231,7 +259,7 @@ function go() {
 				this.animate("caminando_o" + this.orientacion);
 				this.estado = "avanzando";
 			} else {
-				alert("chocaste con una muralla\nmovimiento abortado");
+				$("#murallaModal").modalDisplay();
 				this.estado = "muerto";
 			}
 		})
@@ -258,14 +286,25 @@ function girar_horario() {
 	personaje.trigger("girar", -1);
 }
 
+function veo_caca_en_orientacion(orientacion) {
+	var igrid = personaje.igrid, jgrid = personaje.jgrid;
+	while (!simbolosMurallasAltas.has(simbolo_en(igrid, jgrid))) {
+		if (hayCaca[igrid][jgrid])
+			return true;
+		igrid += idir[orientacion];
+		jgrid += jdir[orientacion];
+	}
+	return false;
+}
+
 function veo_caca_derecho() {
-	return true;
+	return veo_caca_en_orientacion(personaje.orientacion);
 }
 
 function veo_caca_antihorario() {
-	return true;
+	return veo_caca_en_orientacion((personaje.orientacion + 1)%4);
 }
 
 function veo_caca_horario() {
-	return true;
+	return veo_caca_en_orientacion((personaje.orientacion + 3)%4);
 }
