@@ -1,3 +1,6 @@
+Blockly.HSV_SATURATION = 1;
+Blockly.HSV_VALUE = .9;
+
 Blockly.Blocks['avanzar'] = {
   init: function() {
     this.appendDummyInput()
@@ -5,7 +8,7 @@ Blockly.Blocks['avanzar'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setColour(20);
+    this.setColour(185);
     this.setTooltip('Avanza un paso');
   }
 };
@@ -18,7 +21,7 @@ Blockly.Blocks['girar'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setColour(20);
+    this.setColour(185);
     this.setTooltip('Gira a la izquierda o a la derecha en 90 grados');
   }
 };
@@ -28,7 +31,7 @@ Blockly.Blocks['al_ejecutar'] = {
     this.appendDummyInput()
         .appendField("cuando se ejecuta");
     this.setNextStatement(true);
-    this.setColour(210);
+    this.setColour(45);
     this.setTooltip('');
     this.setMovable(false);
   }
@@ -45,7 +48,7 @@ Blockly.Blocks['if_caca'] = {
         .appendField("hacer");
 	this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setColour(160);
+    this.setColour(196);
     this.setTooltip('Realiza algunas acciones si se cumple una condición');
   }
 };
