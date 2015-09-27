@@ -21,7 +21,15 @@ var assetsObj = {
 				"mariohugo_o0": [0, 1],
 				"mariohugo_o1": [8, 1],
 				"mariohugo_o2": [16, 1],
-				"mariohugo_o3": [24, 1]
+				"mariohugo_o3": [24, 1],
+				"mariohugo_a0": [32, 1],
+				"mariohugo_a1": [33, 1],
+				"mariohugo_a2": [34, 1],
+				"mariohugo_a3": [35, 1],
+				"mariohugo_h0": [36, 1],
+				"mariohugo_h1": [37, 1],
+				"mariohugo_h2": [38, 1],
+				"mariohugo_h3": [39, 1]
 			}
 		},
 		"metas.png": {
@@ -101,7 +109,7 @@ var subimgsAnim = 8;
 var igridInicial = 3;
 var jgridInicial = 4;
 var orientacionInicial = 0;
-var duracionAnim = 800;
+var duracionAnim = 500;
 
 function cargar_cacas() {
 	cacasRequeridas = 10000;
@@ -253,6 +261,14 @@ function go() {
 		.reel("caminando_o1", duracionAnim, subimgsAnim, indicePersonaje, subimgsAnim)
 		.reel("caminando_o2", duracionAnim, subimgsAnim*2, indicePersonaje, subimgsAnim)
 		.reel("caminando_o3", duracionAnim, subimgsAnim*3, indicePersonaje, subimgsAnim)
+		.reel("mirando_a0", duracionAnim, subimgsAnim*4, indicePersonaje, 1)
+		.reel("mirando_a1", duracionAnim, subimgsAnim*4 + 1, indicePersonaje, 1)
+		.reel("mirando_a2", duracionAnim, subimgsAnim*4 + 2, indicePersonaje, 1)
+		.reel("mirando_a3", duracionAnim, subimgsAnim*4 + 3, indicePersonaje, 1)
+		.reel("mirando_h0", duracionAnim, subimgsAnim*4 + 4, indicePersonaje, 1)
+		.reel("mirando_h1", duracionAnim, subimgsAnim*4 + 5, indicePersonaje, 1)
+		.reel("mirando_h2", duracionAnim, subimgsAnim*4 + 6, indicePersonaje, 1)
+		.reel("mirando_h3", duracionAnim, subimgsAnim*4 + 7, indicePersonaje, 1)
 		.bind("setear", function(atributos) {
 			this.attr(atributos);
 			this.attr({
@@ -299,6 +315,17 @@ function go() {
 					} else {
 						this.orientacion = this.orientacionDespues;
 						this.estado = "descansando";
+					}
+					break;
+				case "mirando":
+					if (tAnim < 0.5) {
+						
+					} else if (tAnim < 1) {
+						if (this.sentidoMirada != 0)
+							this.animate("mirando_" + (this.sentidoMirada > 0 ? "a" : "h") +
+								this.orientacion).pauseAnimation();
+					} else {
+						this.estado = "listo";
 					}
 					break;
 				case "descansando":
@@ -387,7 +414,10 @@ function girar_derecha() {
 	personaje.trigger("girar", -1);
 }
 
-function veo_caca_en_orientacion(orientacion) {
+function veo_caca_en_orientacion(orientacion, sentido) {
+	personaje.inicioAnimacion = Date.now();
+	personaje.sentidoMirada = sentido;
+	personaje.estado = "mirando";
 	var igrid = personaje.igrid, jgrid = personaje.jgrid;
 	while (!simbolosMurallasAltas.has(simbolo_en(igrid, jgrid))) {
 		if (indiceCacaEn[igrid][jgrid] != -1)
@@ -399,15 +429,15 @@ function veo_caca_en_orientacion(orientacion) {
 }
 
 function veo_caca_al_frente() {
-	return veo_caca_en_orientacion(personaje.orientacion);
+	return veo_caca_en_orientacion(personaje.orientacion, 0);
 }
 
 function veo_caca_izquierda() {
-	return veo_caca_en_orientacion((personaje.orientacion + 1)%4);
+	return veo_caca_en_orientacion((personaje.orientacion + 1)%4, 1);
 }
 
 function veo_caca_derecha() {
-	return veo_caca_en_orientacion((personaje.orientacion + 3)%4);
+	return veo_caca_en_orientacion((personaje.orientacion + 3)%4, -1);
 }
 
 function no_mas_caca() {
