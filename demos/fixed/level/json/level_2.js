@@ -23,11 +23,14 @@ var HOC_LEVEL = {
 		"columna": 4,
 		"orientacion": "derecha"
 	},
-	"meta": {
-		"tipo": "perro",
-		"fila": 6,
-		"columna": 6,
-		"orientacion": "izquierda"
+	"metas": {
+		"cantidad": 1,
+		"m": [
+			{
+				"tipo": "perro",
+				"fila": 6, "columna": 6,
+				"orientacion":"izquierda"
+			}
+		]
 	}
-
 };
