@@ -122,11 +122,16 @@ body{
 	color: #fff;
 	padding: 5px;
 	cursor: default;
+	text-align: center;
 }
 
 #game-tutorial:hover{
 	cursor: pointer;
 	text-decoration: underline;
+}
+
+#game-tutorial > span{
+	font-family: sans-serif;
 }
 
 .completedTitle{
