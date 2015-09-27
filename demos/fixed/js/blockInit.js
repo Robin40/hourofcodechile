@@ -9,6 +9,15 @@ var maximoBloques = 32;
 		document.getElementById('startBlocks'));
 	
 	var interprete = null;
+	
+	function updateLines(){
+		Blockly.JavaScript.STATEMENT_PREFIX = "";
+		var codigo = Blockly.JavaScript.workspaceToCode(workspace);
+		codigo = codigo.replace(/\n+/g,"\n");
+		var lineCount = document.getElementById("lines-count");
+		lineCount.innerHTML = codigo.split(/\r\n|\r|\n/).length-1;
+	}
+	workspace.addChangeListener(updateLines);
 
 	function initApi(interpreter, scope) {
 		var wrapper;		
