@@ -21,8 +21,5 @@ var HOC_LEVEL = {
 		"fila": 5,
 		"columna": 2,
 		"orientacion": "derecha"
-	},
-	"cacas":{
-		
 	}
 };
