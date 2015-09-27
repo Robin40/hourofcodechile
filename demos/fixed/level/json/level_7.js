@@ -22,14 +22,14 @@ var HOC_LEVEL = {
 		"m": [
 			{
 				"tipo": "perro",
-				"fila": 6, "columna": 6,
+				"fila": 5, "columna": 5,
 				"orientacion":"izquierda"
 			}
 		]
 	},
 	"personaje": {
 		"tipo": "mariohugo",
-		"fila": 6,
+		"fila": 5,
 		"columna": 3,
 		"orientacion": "arriba"
 	},
