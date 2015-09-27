@@ -37,7 +37,8 @@ if(isset($_GET['level']) && $_GET['level'] > 0 && $_GET['level'] <= $GLOBALS['LE
 	?>
 	<div class="modalWindowMessages">
 		<div id="jsModal"></div>
-		<div id="errorModal"></div>
+		<div id="errorModal">&iexcl;Tienes bloques sueltos! Aseg&uacute;rate de que todos los bloques que uses est&aacute;n conectados al bloque "al inicio".</div>
+		<div id="codigoVacioModal">No has puesto bloques... Arrastra bloques en "acciones disponibles" hasta el bloque "al inicio" para que estos se ejecuten.</div>
 		<div id="completedModal"><b>
 			<div class="completedTitle">&iexcl;Has completado el nivel!</div>
 			<div>Completaste la tarea que se te ha pedido, &iexcl;Felicitaciones!</div></b>
