@@ -1,6 +1,7 @@
 var tileSimbolo = {
 	"X": "pasto_claro",
 	"Y": "pasto_claro",
+	"M": "bloque_muralla",
 	".": "tierra",
 	"P": "piedra",
 	"R": "reja_horizontal_claro",
