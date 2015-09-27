@@ -25,7 +25,7 @@ function setFullCss(){
 	fm.css("border", "1px solid #cccccc");
 	fm.css("background-color", "#ffffff");
 	fm.css("padding", "10px");
-	fm.css("margin", "50px auto");
+	fm.css("margin", "150px auto");
 	
 	var content = $('#hoc-fm-content');
 	content.css("font-size", "16");
@@ -126,13 +126,14 @@ $.fn.modalVideoDisplay = function(url) {
 	$('#hoc-fm-accept').show();
 	var fm = $('#hoc-div');
 	fm.css("width", "854px");
+	fm.css("margin", "50px auto");
 	
 	var content = $('#hoc-fm-content');
 	content.css("font-size", "16");
 	content.css("width", "854px");
 	content.css("height", "auto");
 	
-	content.css("height", "auto");
+	
 	var title = '<b>'+'Titulo del video'+'</b>';
 	var html = '<div>'+title+'</div>';
 	html += "<iframe width=\"854px\" height=\"480px\" src=\""+url+"\"></iframe>"; 
@@ -150,6 +151,7 @@ $.fn.modalContentDisplay = function(w) {
 	$('#hoc-fm-accept').hide();
 	var fm = $('#hoc-div');
 	fm.css("width", w+"px");
+	fm.css("margin", "150px auto");
 	
 	var content = $('#hoc-fm-content');
 	content.css("width", w+"px");

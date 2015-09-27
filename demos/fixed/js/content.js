@@ -1,21 +1,25 @@
-var storageName = 'hoc-stage'
+var completeStorage = 'hoc-stage';
+var incompleteStorage = 'hoc-istage';
 var htmlLevelPrefix = 'index';
 function initLevels(i){
-	var clean = localStorage[storageName];
+	var clean = localStorage[completeStorage];
 	if(!clean){
-		localStorage[storageName] = 0;
+		localStorage[completeStorage] = 0;
+		localStorage[incompleteStorage] = 0;
 	}
 }
 
 function isLevelCompleted(i){
-	var data = localStorage[storageName];
+	var data = localStorage[completeStorage];
+	var idata = localStorage[incompleteStorage];
 	var val;
 	while(i>0){
-		val = data & 1;
+		idata = idata>>1;
 		data = data>>1;
 		i--;
 	}
-	return val;
+	
+	return (data&1)*2+(idata&1);
 }
 
 function setLevelAsCompleted(i){
@@ -24,7 +28,8 @@ function setLevelAsCompleted(i){
 		mask = mask << 1;
 		i--;
 	}
-	localStorage[storageName] = mask | localStorage[storageName];
+	localStorage[completeStorage] = mask | localStorage[completeStorage];
+	localStorage[incompleteStorage] = ~mask & localStorage[incompleteStorage];
 }
 
 function applyColor(level,  i){
@@ -56,16 +61,35 @@ $("#game-tutorial div").click(function(){
 });
 
 
-/*$("#completedModal").modalContentDisplay(500);
-$(".completed-repeat-btn").click(function(){
-		$('#hoc-fullmodal').hide();
-	});
 
-$(".completed-next-btn").click(function(){
-		var lv = parseInt($('#i-level').val());
-		window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
-	}
-);*/
+function completeStage(){
+	$("#completedModal").modalContentDisplay(500);
+	var lv = parseInt($('#i-level').val());
+	setLevelAsCompleted(lv);
+	$(".completed-repeat-btn").click(function(){
+			$('#hoc-fullmodal').hide();
+		});
+	
+	$(".completed-next-btn").click(function(){
+			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
+		}
+	);
+}
+
+function incompleteStage(){
+	$("#incompletedModal").modalContentDisplay(500);
+	$(".completed-repeat-btn").click(function(){
+			$('#hoc-fullmodal').hide();
+		});
+	
+	$(".completed-next-btn").click(function(){
+			var lv = parseInt($('#i-level').val());
+			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
+		}
+	);
+}
+
+incompleteStage();
 
 
 

@@ -39,14 +39,23 @@ if(isset($_GET['level']) && $_GET['level'] > 0 && $_GET['level'] <= $GLOBALS['LE
 		<div id="jsModal"></div>
 		<div id="errorModal"></div>
 		<div id="completedModal"><b>
-			<div id="completedTitle">&iexcl;Has completado el nivel!</div>
-			<div>Completaste la tarea que se te ha pedido, &iexcl;Felicitaciones!</div>
+			<div class="completedTitle">&iexcl;Has completado el nivel!</div>
+			<div>Completaste la tarea que se te ha pedido, &iexcl;Felicitaciones!</div></b>
 			<br />
 			<div>Este nivel pudo ser completado utilizando solamente X bloques. Puedes volver a intentarlo.</div>
-			</b>
-			<div id="completed-buttons">
+			
+			<div class="completed-buttons">
 				<button class="completed-repeat-btn">Repetir nivel</button>
 				<button class="completed-next-btn">Siguiente nivel</button>
+			</div>
+		</div>
+		<div id="incompletedModal"><b>
+			<div class="completedTitle">&iexcl;Has fallado!</div></b>
+			<div>Debes utilizar el bloque <b><span class="incompleted-block">bloque_x</span></b> para completar este nivel</div>
+			<br />
+			
+			<div class="completed-buttons">
+				<button class="completed-repeat-btn centered">Repetir nivel</button>
 			</div>
 		</div>
 	</div>

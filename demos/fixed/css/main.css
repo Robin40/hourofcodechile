@@ -129,25 +129,25 @@ body{
 	text-decoration: underline;
 }
 
-#completedTitle{
+.completedTitle{
 	font-size: 30px;
 	font-weight: bold;
 	color: #D64828;
 	text-align: center;
 }
 
-#completed-buttons{
+.completed-buttons{
 	margin-top: 10px;
 }
 
-#completed-buttons > button{
+.completed-buttons > button{
 	width: 180px;
 	padding: 10px 20px;
 	color: #fff;
 	font-size: 20px;	
 }
 
-#completed-buttons > button:hover{
+.completed-buttons > button:hover{
 	cursor: pointer;
 }
 
@@ -158,5 +158,10 @@ body{
 .completed-next-btn{
 	background-color: #43B945;
 	float: right;
+}
+
+.centered{
+	display: block;
+	margin: 0 auto;
 }
 
