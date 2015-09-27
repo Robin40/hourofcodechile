@@ -5,17 +5,17 @@ var HOC_LEVEL = {
 	"grid": {
 		"filas": 10,
 		"columnas": 10,
-		"matriz": 
+		"matriz":
 		   ["qRRRRRRRRw",
 		   	"T........G",
-			"T.qFFFFw.G",
-			"T.GXXXXT.G",
-			"T.GXXXXT.G",
-			"T.GXXXXT.G",
-			"T.GXXXXT.G",
-			"T.GXXXXT.G",
-			"T.GXXXXT.G",
-			"aFsXXXXaFs"]
+			"T.qRRRRw.G",
+			"T.TXXXXG.G",
+			"T.TXXXXG.G",
+			"T.TXXXXG.G",
+			"T.TXXXXG.G",
+			"T.aFFFFs.G",
+			"T........G",
+			"aFFFFFFFFs"]
 	},
 	"personaje": {
 		"tipo": "mariohugo",
@@ -31,6 +31,15 @@ var HOC_LEVEL = {
 				"fila": 8, "columna": 8,
 				"orientacion":"izquierda"
 			}
+		]
+	},
+	"stackeables": {
+		"cantidad": 4,
+		"s": [
+			{"tipo": "piedra", "fila": 8, "columna": 3},
+			{"tipo": "piedra", "fila": 8, "columna": 4},
+			{"tipo": "piedra", "fila": 8, "columna": 5},
+			{"tipo": "piedra", "fila": 8, "columna": 6}
 		]
 	}
 };

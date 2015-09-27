@@ -5,7 +5,7 @@ var HOC_LEVEL = {
 	"grid": {
 		"filas": 10,
 		"columnas": 10,
-		"matriz": 
+		"matriz":
 		   ["XXXXXXXXXX",
 		   	"XXXXXXXXXX",
 			"XXqRRRRwXX",
@@ -22,14 +22,14 @@ var HOC_LEVEL = {
 		"m": [
 			{
 				"tipo": "perro",
-				"fila": 6, "columna": 6,
+				"fila": 5, "columna": 5,
 				"orientacion":"izquierda"
 			}
 		]
 	},
 	"personaje": {
 		"tipo": "mariohugo",
-		"fila": 6,
+		"fila": 5,
 		"columna": 3,
 		"orientacion": "arriba"
 	},
