@@ -5,6 +5,7 @@ var tileSimbolo = {
 	"P": "piedra",
 	"R": "reja_horizontal_claro",
 	"S": "reja_horizontal_claro",
+	"F": "reja_abajo",
 	"T": "reja_izquierda_claro",
 	"U": "reja_izquierda_claro",
 	"G": "reja_derecha_claro",

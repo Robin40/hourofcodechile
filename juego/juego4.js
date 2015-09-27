@@ -63,7 +63,8 @@ var assetsObj = {
 				"reja_superior_derecha": [13, 0],
 				"reja_superior_izquierda": [14, 0],
 				"reja_inferior_derecha": [15, 0],
-				"reja_inferior_izquierda": [16, 0]
+				"reja_inferior_izquierda": [16, 0],
+				"reja_abajo": [17, 0]
 			}
 		}
 	}
