@@ -4,6 +4,7 @@ var personaje;
 var escenario;
 var meta, metaEn;
 var caca, cacaEn, cacasRecogidas, cacasRequeridas;
+var stackeable, stackeableEn;
 var s = 45;
 
 var assetsObj = {
@@ -88,22 +89,37 @@ var igridInicial = 3;
 var jgridInicial = 4;
 var orientacionInicial = 0;
 var duracionAnim = 800;
-/*
-var spriteMeta = "perro";
-var indiceMeta = 0;
-var igridMeta = 11;
-var jgridMeta = 11;
-var orientacionMeta = 0;
-*/
+
+function cargar_cacas() {
+	cacasRequeridas = 10000;
+	if (typeof caca === 'undefined')
+		caca = [];
+	if (typeof HOC_LEVEL.cacas !== 'undefined') {
+		for (var i = 0; i < HOC_LEVEL.cacas.cantidad; ++i) {
+			var igridCaca = HOC_LEVEL.cacas.c[i].fila;
+			var jgridCaca = HOC_LEVEL.cacas.c[i].columna;
+			if (typeof caca[i] !== 'undefined')
+				caca[i].destroy();
+			caca[i] = Crafty.e("2D, Canvas, caca")
+				.attr({igrid: igridCaca, jgrid: jgridCaca,
+					x: jgridCaca*s, y: jgridCaca*s, w: s, h: s})
+			;
+			cacaEn[igridCaca][jgridCaca] = caca[i];
+		}
+		if (typeof HOC_LEVEL.cacas.requeridas !== 'undefined')
+			cacasRequeridas = HOC_LEVEL.cacas.requeridas;
+	}
+}
+
 function crear_escenario() {
-	escenario = cacaEn = metaEn = [];
+	escenario = cacaEn = metaEn = stackeableEn = [];
 	for (var i = 0; i < HOC_LEVEL.grid.filas; ++i) {
-		escenario[i] = cacaEn[i] = metaEn[i] = [];
+		escenario[i] = cacaEn[i] = metaEn[i] = stackeableEn[i] = [];
 		for (var j = 0; j < HOC_LEVEL.grid.columnas; ++j) {
 			escenario[i][j] = Crafty.e("2D, Canvas, " + tileSimbolo[HOC_LEVEL.grid.matriz[i][j]])
 				.attr({x: j*s, y: i*s, w: s, h: s})
 			;
-			cacaEn[i][j] = metaEn[i][j] = false;
+			cacaEn[i][j] = metaEn[i][j] = stackeableEn[i][j] = false;
 		}
 	}
 	
@@ -138,18 +154,19 @@ function crear_escenario() {
 		}
 	}
 	
-	caca = [];
-	if (typeof HOC_LEVEL.cacas !== 'undefined') {
-		for (var i = 0; i < HOC_LEVEL.cacas.cantidad; ++i) {
-			var igridCaca = HOC_LEVEL.cacas.c[i].fila;
-			var jgridCaca = HOC_LEVEL.cacas.c[i].columna;
+	cargar_cacas();
+	
+	stackeable = [];
+	if (typeof HOC_LEVEL.stackeables !== 'undefined') {
+		for (var i = 0; i < HOC_LEVEL.stackeables.cantidad; ++i) {
+			var spriteStackeable = HOC_LEVEL.stackeables.s[i].tipo;
+			var igridStackeable = HOC_LEVEL.stackeables.s[i].fila;
+			var jgridStackeable = HOC_LEVEL.stackeables.s[i].columna;
 			
-			caca[i] = Crafty.e("2D, Canvas, caca")
-				.attr({igrid: igridCaca, jgrid: jgridCaca,
-					x: jgridCaca*s, y: jgridCaca*s, w: s, h: s})
+			stackeable[i] = Crafty.e("2D, Canvas, " + spriteStackeable)
+				.attr({igrid: igridStackeable, jgrid: jgridStackeable,
+					x: jgridStackeable*s, y: jgridStackeable*s, w: s, h: s})
 			;
-			
-			cacaEn[igridCaca][jgridCaca] = caca[i];
 		}
 	}
 }
@@ -271,7 +288,12 @@ function go() {
 		})
 	;
 
+	resetear_nivel();
+}
+
+function resetear_nivel() {
 	personaje.trigger("resetear");
+	cacasRecogidas = 0;
 }
 
 function avanzar() {
