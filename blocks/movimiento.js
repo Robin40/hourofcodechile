@@ -17,7 +17,7 @@ Blockly.Blocks['girar'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("girar a la")
-        .appendField(new Blockly.FieldDropdown([["izquierda ↺", "izquierda"], ["derecha ↻", "derecha"]]), "sentido");
+        .appendField(new Blockly.FieldDropdown([["izquierda ↺", "antihorario"], ["derecha ↻", "horario"]]), "sentido");
     this.setInputsInline(true);
     this.setPreviousStatement(true);
     this.setNextStatement(true);
