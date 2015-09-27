@@ -19,7 +19,7 @@ var maximoBloques = 32;
 	}
 	workspace.addChangeListener(updateLines);
 
-	function initApi(interpreter, scope) {
+	function initApi(interpreter, scope) {		
 		var wrapper;		
 		
 		wrapper = function() {
@@ -38,6 +38,30 @@ var maximoBloques = 32;
 			interpreter.createPrimitive(girar_horario());
 		};
 		interpreter.setProperty(scope, "girar_horario",
+			interpreter.createNativeFunction(wrapper));
+			
+		wrapper = function() {
+			interpreter.createPrimitive(no_mas_caca());
+		};
+		interpreter.setProperty(scope, "no_mas_caca",
+			interpreter.createNativeFunction(wrapper));
+			
+		wrapper = function() {
+			interpreter.createPrimitive(veo_caca_derecho());
+		};
+		interpreter.setProperty(scope, "veo_caca_derecho",
+			interpreter.createNativeFunction(wrapper));
+			
+		wrapper = function() {
+			interpreter.createPrimitive(veo_caca_antihorario());
+		};
+		interpreter.setProperty(scope, "veo_caca_antihorario",
+			interpreter.createNativeFunction(wrapper));
+			
+		wrapper = function() {
+			interpreter.createPrimitive(veo_caca_horario());
+		};
+		interpreter.setProperty(scope, "veo_caca_horario",
 			interpreter.createNativeFunction(wrapper));
 			
 		wrapper = function(id) {
