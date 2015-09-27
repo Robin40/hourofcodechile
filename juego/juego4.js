@@ -172,7 +172,7 @@ function crear_escenario() {
 			
 			meta[i] = Crafty.e("2D, Canvas, " + spriteMeta + "_o" + orientacionMeta)
 				.attr({igrid: igridMeta, jgrid: jgridMeta,
-					x: jgridMeta*s, y: igridMeta*s, w: s, h: s})
+					x: jgridMeta*s, y: igridMeta*s, w: s, h: s, tipo: spriteMeta})
 			;
 			
 			metaEn[igridMeta][jgridMeta] = meta[i];
@@ -388,4 +388,9 @@ function veo_caca_derecha() {
 
 function no_mas_caca() {
 	return (cacasRecogidas >= caca.length);
+}
+
+function llegue_al_perro() {
+	var m = metaEn[personaje.igrid][personaje.jgrid];
+	return (m && m.tipo == "perro");
 }

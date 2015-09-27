@@ -23,7 +23,7 @@ var maximoBloques = 32;
 		var wrapper;		
 		var func = [
 			"avanzar", "girar_izquierda", "girar_derecha",
-			"veo_caca_al_frente", "veo_caca_izquierda", "veo_caca_derecha"
+			"veo_caca_al_frente", "veo_caca_izquierda", "veo_caca_derecha",
 		];
 		var str = "";
 		for (var i = 0; i < func.length; ++i) {
@@ -41,12 +41,19 @@ var maximoBloques = 32;
 			interpreter.createNativeFunction(wrapper));
 		*/
 		eval(str);
-		
-		wrapper = function(id) {
+	
+		wrapper = function() {
 			var r = no_mas_caca();
 			return interpreter.createPrimitive(r);
 		};
 		interpreter.setProperty(scope, "no_mas_caca",
+			interpreter.createNativeFunction(wrapper));
+		
+		wrapper = function() {
+			var r = llegue_al_perro();
+			return interpreter.createPrimitive(r);
+		};
+		interpreter.setProperty(scope, "llegue_al_perro",
 			interpreter.createNativeFunction(wrapper));
 			
 		wrapper = function(id) {
@@ -141,8 +148,7 @@ var maximoBloques = 32;
 	}
 	
 	
-	function ejecutar_javascript() {
-		
+	function ejecutar_javascript() {		
           if (hay_bloques_sueltos()) {
 			$("#errorModal").modalDisplay();
             return;
