@@ -65,7 +65,8 @@ var assetsObj = {
 		"beep": ["beep4.wav"],
 		"achieve": ["achieve.wav"],
 		"mal":["mal.wav"],
-		"ladrido":["guau.wav"]
+		"ladrido":["guau.wav"],
+		"masomenos":["masomenos.wav"]
 	}
 };
 
@@ -336,7 +337,7 @@ function go() {
 					}
 					else{
 						semiCompletedStage(5);
-						Crafty.audio.play("achieve");
+						Crafty.audio.play("masomenos");
 					}
 					this.estado = "muerto";
 					break;
