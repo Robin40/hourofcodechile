@@ -103,13 +103,19 @@ function cargar_cacas() {
 				caca[i].destroy();
 			caca[i] = Crafty.e("2D, Canvas, caca")
 				.attr({igrid: igridCaca, jgrid: jgridCaca,
-					x: jgridCaca*s, y: jgridCaca*s, w: s, h: s})
+					x: jgridCaca*s, y: igridCaca*s, w: s, h: s})
 			;
 			cacaEn[igridCaca][jgridCaca] = caca[i];
 		}
 		if (typeof HOC_LEVEL.cacas.requeridas !== 'undefined')
 			cacasRequeridas = HOC_LEVEL.cacas.requeridas;
 	}
+}
+
+function tile_simbolo(simbolo) {
+	if (typeof tileSimbolo[simbolo] !== 'undefined')
+		return tileSimbolo[simbolo];
+	return "missing_tile";
 }
 
 function crear_escenario() {
@@ -123,7 +129,8 @@ function crear_escenario() {
 		metaEn[i] = [];
 		stackeableEn[i] = [];
 		for (var j = 0; j < HOC_LEVEL.grid.columnas; ++j) {
-			escenario[i][j] = Crafty.e("2D, Canvas, " + tileSimbolo[HOC_LEVEL.grid.matriz[i][j]])
+			escenario[i][j] = Crafty.e("2D, Canvas, " +
+					tile_simbolo(HOC_LEVEL.grid.matriz[i][j]))
 				.attr({x: j*s, y: i*s, w: s, h: s})
 			;
 			cacaEn[i][j] = false;
@@ -174,7 +181,7 @@ function crear_escenario() {
 			
 			stackeable[i] = Crafty.e("2D, Canvas, " + spriteStackeable)
 				.attr({igrid: igridStackeable, jgrid: jgridStackeable,
-					x: jgridStackeable*s, y: jgridStackeable*s, w: s, h: s})
+					x: jgridStackeable*s, y: igridStackeable*s, w: s, h: s})
 			;
 		}
 	}
@@ -182,6 +189,9 @@ function crear_escenario() {
 	bloquesNecesarios = 10000;
 	if (typeof HOC_LEVEL.bloquesNecesarios !== 'undefined')
 		bloquesNecesarios = HOC_LEVEL.bloquesNecesarios + 1;
+	
+	if (typeof HOC_LEVEL.maximoBloques !== 'undefined')
+		maximoBloques = HOC_LEVEL.maximoBloques;
 }
 
 function bloques_usados() {
@@ -196,11 +206,12 @@ function simbolo_en(igrid, jgrid) {
 }
 
 function condicion_de_victoria_inmediata() {
-	return (cacasRecogidas >= cacasRequeridas);
+	return false;
 }
 
 function condicion_de_victoria_final() {
-	return metaEn[personaje.igrid][personaje.jgrid];
+	return (metaEn[personaje.igrid][personaje.jgrid] ||
+			cacasRecogidas >= cacasRequeridas);
 }
 
 function go() {
@@ -269,6 +280,7 @@ function go() {
 					
 					if (cacaEn[this.igrid][this.jgrid]) {
 						++cacasRecogidas;
+						cacaEn[this.igrid][this.jgrid].destroy();
 						cacaEn[this.igrid][this.jgrid] = false;
 					}
 					
@@ -288,9 +300,9 @@ function go() {
 					break;
 				case "celebrando":
 					if (bloques_usados() <= bloquesNecesarios)
-						completeStage();
+						completedStage();
 					else
-						incompleteStage();
+						incompletedStage(5);
 					this.estado = "muerto";
 					break;
 			}
@@ -322,6 +334,7 @@ function go() {
 
 function resetear_nivel() {
 	personaje.trigger("resetear");
+	cargar_cacas();
 	cacasRecogidas = 0;
 }
 

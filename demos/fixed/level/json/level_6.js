@@ -10,8 +10,8 @@ var HOC_LEVEL = {
 			"XRRRRRRRRX",
 			"T........G",
 			"T........G",
-			"T..qRRw..G",
-			"T..aFFs..G",
+			"T........G",
+			"T........G",
 			"T........G",
 			"T........G",
 			"XFFFFFFFFX",
@@ -31,6 +31,19 @@ var HOC_LEVEL = {
 				"fila": 7, "columna": 8,
 				"orientacion":"izquierda"
 			}
+		]
+	},
+	"stackeables": {
+		"cantidad": 8,
+		"s": [
+			{"tipo": "piedra", "fila": 4, "columna": 3},
+			{"tipo": "piedra", "fila": 4, "columna": 4},
+			{"tipo": "piedra", "fila": 4, "columna": 5},
+			{"tipo": "piedra", "fila": 4, "columna": 6},
+			{"tipo": "piedra", "fila": 5, "columna": 3},
+			{"tipo": "piedra", "fila": 5, "columna": 4},
+			{"tipo": "piedra", "fila": 5, "columna": 5},
+			{"tipo": "piedra", "fila": 5, "columna": 6}
 		]
 	}
 };

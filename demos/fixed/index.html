@@ -42,7 +42,7 @@
 	<span id="game-info-desc">Descripci&oacute;n del nivel actual (este texto es para rellenar la descripci&oacute;n)</span>
       </div>
       <div id="game-tutorial">
-	<div>Necesitas ayuda? Has clic aqu&iacute; !</div>
+	<div style="text-align: center"><span style="font-family: sans-serif;">¿Necesitas ayuda?</span></div>
       </div>
       <script src="../../crafty/crafty-min.js"></script>
       <script src="../../juego/juego4.js"></script>
@@ -76,6 +76,7 @@
   <xml id="startBlocks" style="display: none">
     <block type="al_ejecutar" x="32" y="32"></block>
   </xml>
+  
   <div class="modalWindowMessages">
     <div id="hoc-fm1" >Bienvenido! Has sido escogido para aprender a utilizar el poder infinito de la programaci&oacute;n! (o cualquier mensaje que se desee c:).</div>
     <div id="sizedMessages">
@@ -87,24 +88,41 @@
     <div id="jsModal"></div>
     <div id="errorModal">&iexcl;Tienes bloques sueltos! Aseg&uacute;rate de que todos los bloques que uses est&aacute;n conectados al bloque "al inicio".</div>
     <div id="codigoVacioModal">No has puesto bloques... Arrastra bloques en "acciones disponibles" hasta el bloque "al inicio" para que estos se ejecuten.</div>
-    <div id="nivelCompletadoModal">&iexcl;Has completado este nivel!</div>
-    <div id="murallaModal">Has chocado... Int&eacute;ntalo de nuevo.</div>
+    <div id="completedModal"><b>
+	<div class="completedTitle">&iexcl;Has completado el nivel!</div>
+	<div>Completaste la tarea que se te ha pedido, &iexcl;Felicitaciones!</div></b>
+      <br />
+      <div>Este nivel pudo ser completado utilizando solamente X bloques. Puedes volver a intentarlo.</div>
+      
+      <div class="completed-buttons">
+	<button class="completed-repeat-btn">Repetir nivel</button>
+	<button class="completed-next-btn">Siguiente nivel</button>
+      </div>
+    </div>
+    <div id="incompletedModal"><b>
+	<div class="completedTitle">&iexcl;Has fallado!</div></b>
+      <div>Debes utilizar el bloque <b><span class="incompleted-block">bloque_x</span></b> para completar este nivel</div>
+      <br />
+      
+      <div class="completed-buttons">
+	<button class="completed-repeat-btn centered">Repetir nivel</button>
+      </div>
+    </div>
   </div>
   
   <script src="js/jquery.min.js"></script>
   <script src="js/modalPlugin.js"></script>
   
   <!-- 
-  IMPORTANTE: Para Robinson
-  Json del nivel actual  -->
-  <script src="level/json/level_4.js"></script>
+       IMPORTANTE: Para Robinson
+       Json del nivel actual  -->
+  <script src="level/json/level_10.js"></script>
   <!--<script src="level/json/test.js"></script>--!>
-  
-  <!-- 
-  IMPORTANTE: Para Robinson
-  Funciones e inicializador de la API del videojuego -->
-  <script src="js/blockInit.js"></script>
-  
-  <script src="js/content.js"></script>
+      
+      <!-- 
+	   IMPORTANTE: Para Robinson
+	   Funciones e inicializador de la API del videojuego -->
+      <script src="js/blockInit.js"></script>
+      <script src="js/content.js"></script>
 </body>
 </html>
