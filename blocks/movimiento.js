@@ -42,7 +42,7 @@ Blockly.Blocks['if_caca'] = {
     this.appendDummyInput()
         .appendField("si veo")
         //.appendField(new Blockly.FieldDropdown([["veo", "ver"], ["no veo", "no_ver"]]), "condicion")
-        .appendField(new Blockly.FieldImage("http://users.dcc.uchile.cl/~mquezada/horadelcodigo/caca.png", 24, 24, "caca"))
+        .appendField(new Blockly.FieldImage("media/caca.png", 24, 24, "caca"))
         .appendField(new Blockly.FieldDropdown([["al frente", "derecho"], ["a la izquierda", "antihorario"], ["a la derecha", "horario"]]), "sentido");
     this.appendStatementInput("if_true")
 	this.setPreviousStatement(true);
@@ -58,7 +58,7 @@ Blockly.Blocks['if_no_caca'] = {
     this.appendDummyInput()
         .appendField("si no veo")
         //.appendField(new Blockly.FieldDropdown([["veo", "ver"], ["no veo", "no_ver"]]), "condicion")
-        .appendField(new Blockly.FieldImage("http://users.dcc.uchile.cl/~mquezada/horadelcodigo/caca.png", 24, 24, "caca"))
+        .appendField(new Blockly.FieldImage("media/caca.png", 24, 24, "caca"))
         .appendField(new Blockly.FieldDropdown([["al frente", "derecho"], ["a la izquierda", "antihorario"], ["a la derecha", "horario"]]), "sentido");
     this.appendStatementInput("if_true")
 	this.setPreviousStatement(true);
@@ -74,7 +74,7 @@ Blockly.Blocks['repetir_hasta'] = {
     this.appendDummyInput()
       .setAlign(Blockly.ALIGN_RIGHT)
       .appendField("repetir hasta")
-      .appendField(new Blockly.FieldImage("http://users.dcc.uchile.cl/~mquezada/horadelcodigo/caca.png", 24, 24, "*"));
+      .appendField(new Blockly.FieldImage("media/no_caca.png", 24, 24, "*"));
  
       //        .appendField(new Blockly.FieldDropdown([["no hay caca", "no_mas_caca"], ["llegue al perro", "llegue_al_perro"]]), "until_opt");
     this.appendStatementInput("until_body")
@@ -82,7 +82,7 @@ Blockly.Blocks['repetir_hasta'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(90);
-    this.setTooltip('Realiza algunas acciones tantas veces como sea necesario hasta cumplir la condición');
+    this.setTooltip('Realiza las acciones tantas veces como sea necesario hasta que no haya más caca.');
   }
 };
 
@@ -92,7 +92,7 @@ Blockly.Blocks['repetir_hasta_perro'] = {
     this.appendDummyInput()
       .setAlign(Blockly.ALIGN_RIGHT)
       .appendField("repetir hasta")
-      .appendField(new Blockly.FieldImage("http://users.dcc.uchile.cl/~mquezada/horadelcodigo/perro.png", 24, 24, "*"));
+      .appendField(new Blockly.FieldImage("media/perro.png", 24, 24, "*"));
  
       //        .appendField(new Blockly.FieldDropdown([["no hay caca", "no_mas_caca"], ["llegue al perro", "llegue_al_perro"]]), "until_opt");
     this.appendStatementInput("until_body")
@@ -100,7 +100,7 @@ Blockly.Blocks['repetir_hasta_perro'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(90);
-    this.setTooltip('Realiza algunas acciones tantas veces como sea necesario hasta cumplir la condición');
+    this.setTooltip('Realiza las acciones tantas veces como sea necesario hasta llegar al perro.');
   }
 };
 
