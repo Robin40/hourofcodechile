@@ -8,25 +8,25 @@ var HOC_LEVEL = {
 			"XXXXXXXXXX",
 			"XXXXXXXXXX",
 			"XXXXXXXXXX",
-			"XqRRRRRRwX",
-			"XT......GX",
-			"XaFFw.qFsX",
-			"XXXXaFsXXX",
-			"XXXXXXXXXX",
+			"XXqRRRRwXX",
+			"XXT....GXX",
+			"XXT....GXX",
+			"XXaFFw.GXX",
+			"XXXXXaFsXX",
 			"XXXXXXXXXX",
 			"XXXXXXXXXX"
 		]
 	},
 	"personaje": {
 		"tipo": "mariohugo",
-		"fila": 4,
-		"columna": 2,
+		"fila": 5,
+		"columna": 4,
 		"orientacion": "derecha"
 	},
 	"meta": {
 		"tipo": "perro",
-		"fila": 5,
-		"columna": 5,
+		"fila": 6,
+		"columna": 6,
 		"orientacion": "izquierda"
 	}
 
