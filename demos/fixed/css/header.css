@@ -24,6 +24,7 @@ header{
 	vertical-align: middle;
 }
 
+
 #levels-bar{
 	text-align: center;
 	font-weight: bold;
@@ -33,6 +34,14 @@ header{
 	background-color: #0094CA;
         height: 40px;
 }
+
+@media screen and (max-width: 600px) {
+    header, .logo, .niveles, .options {
+        display: none;
+        height: 0;
+    }
+}
+
 
 #levels-bar ul{
 	display: inline-block;
