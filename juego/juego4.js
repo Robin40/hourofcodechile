@@ -59,9 +59,12 @@ var assetsObj = {
 	}
 };
 
+var asset_Snd = {"audio":{"beep":["beep4.wav"]}};
+
 window.onload = function() {
 	Crafty.init(450, 450, document.getElementById("gameDiv"));
 	Crafty.load(assetsObj, go);
+	Crafty.load(asset_Snd, go);
 }
 
 var simbolosMurallasAltas = new Set("M?".split(''));
@@ -282,6 +285,7 @@ function go() {
 						++cacasRecogidas;
 						cacaEn[this.igrid][this.jgrid].destroy();
 						cacaEn[this.igrid][this.jgrid] = false;
+						Crafty.audio.play("beep");
 					}
 					
 					if (!condicion_de_victoria_inmediata())
