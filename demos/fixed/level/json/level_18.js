@@ -6,16 +6,16 @@ var HOC_LEVEL = {
         "filas": 10,
         "columnas": 10,
         "matriz":
-           ["MMMMMMMMMM",
+           ["XMMMMMMMMX",
+            "MM......MM",
             "M........M",
             "M........M",
             "M........M",
             "M........M",
             "M........M",
             "M........M",
-            "M........M",
-            "M........M",
-            "MMMMMMMMMM"]
+            "MM......MM",
+            "XMMMMMMMMX"]
         // ["qRRRRRRRRw",
         //     "T........G",
         //     "T........G",

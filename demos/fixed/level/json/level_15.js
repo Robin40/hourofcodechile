@@ -22,19 +22,18 @@
 	"personaje": {
 		"tipo": "mariohugo",
 		"fila": 2,
-		"columna": 2,
+		"columna": 3,
 		"orientacion": "derecha"
 	},
     "cacas": {
-        "cantidad": 7,
-        "requeridas": 7,
+        "cantidad": 6,
+        "requeridas": 6,
         "c": [
-            {"fila": 2, "columna": 3},
-            {"fila": 4, "columna": 3},
+            {"fila": 2, "columna": 4},
             {"fila": 4, "columna": 4},
-            {"fila": 6, "columna": 4},
+            {"fila": 4, "columna": 5},
             {"fila": 6, "columna": 5},
-            {"fila": 8, "columna": 5},
+            {"fila": 6, "columna": 6},
             {"fila": 8, "columna": 6},
         ]
     },
