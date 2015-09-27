@@ -9,5 +9,9 @@ var tileSimbolo = {
 	"U": "reja_izquierda_claro",
 	"G": "reja_derecha_claro",
 	"J": "reja_derecha_claro",
+	"q": "reja_superior_izquierda",
+	"w": "reja_superior_derecha",
+	"a": "reja_inferior_izquierda",
+	"s": "reja_inferior_derecha",
 	"?": "missing_tile"
 };
