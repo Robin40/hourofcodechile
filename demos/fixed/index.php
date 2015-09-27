@@ -9,6 +9,7 @@ if(isset($_GET['level']) && $_GET['level'] > 0 && $_GET['level'] <= $GLOBALS['LE
 <html>
 <?php include_once 'include/head.php'; ?> 
 <body>
+	<input id="i-level" type="hidden" value="<?= $level ?>" />
 	<div id="wrap">
 		<?php include_once 'include/game_content.php'; ?>
 		<div>
@@ -37,6 +38,17 @@ if(isset($_GET['level']) && $_GET['level'] > 0 && $_GET['level'] <= $GLOBALS['LE
 	<div class="modalWindowMessages">
 		<div id="jsModal"></div>
 		<div id="errorModal"></div>
+		<div id="completedModal"><b>
+			<div id="completedTitle">&iexcl;Has completado el nivel!</div>
+			<div>Completaste la tarea que se te ha pedido, &iexcl;Felicitaciones!</div>
+			<br />
+			<div>Este nivel pudo ser completado utilizando solamente X bloques. Puedes volver a intentarlo.</div>
+			</b>
+			<div id="completed-buttons">
+				<button class="completed-repeat-btn">Repetir nivel</button>
+				<button class="completed-next-btn">Siguiente nivel</button>
+			</div>
+		</div>
 	</div>
 	
 	<script src="js/jquery.min.js"></script>
