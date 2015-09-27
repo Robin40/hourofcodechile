@@ -7,38 +7,30 @@ var HOC_LEVEL = {
 		"columnas": 10,
 		"matriz":
 		   ["XXXXXXXXXX",
-		   	"XXXXXXXXXX",
-			"XXqRRRRwXX",
-			"XXT....GXX",
-			"XXT....GXX",
-			"XXT....GXX",
-			"XXT....GXX",
-			"XXaFFFFsXX",
+			"XXXXXXXXXX",
+			"qRRRRRRRRw",
+			"T........G",
+			"T........G",
+			"T........G",
+			"T........G",
+			"aFFFFFFFFs",
 			"XXXXXXXXXX",
 			"XXXXXXXXXX"]
+	},
+	"personaje": {
+		"tipo": "mariohugo",
+		"fila": 5,
+		"columna": 1,
+		"orientacion": "derecha"
 	},
 	"metas": {
 		"cantidad": 1,
 		"m": [
 			{
 				"tipo": "perro",
-				"fila": 5, "columna": 5,
+				"fila": 5, "columna": 8,
 				"orientacion":"izquierda"
 			}
-		]
-	},
-	"personaje": {
-		"tipo": "mariohugo",
-		"fila": 5,
-		"columna": 3,
-		"orientacion": "arriba"
-	},
-	"stackeables": {
-		"cantidad": 3,
-		"s": [
-			{"tipo": "piedra", "fila": 4, "columna": 4},
-			{"tipo": "piedra", "fila": 5, "columna": 4},
-			{"tipo": "piedra", "fila": 6, "columna": 4}
 		]
 	}
 };

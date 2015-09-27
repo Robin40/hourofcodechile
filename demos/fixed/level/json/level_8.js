@@ -6,40 +6,45 @@ var HOC_LEVEL = {
 		"filas": 10,
 		"columnas": 10,
 		"matriz":
-		   ["qRRRRRRRRw",
-		   	"T........G",
-			"T.qRRRRw.G",
-			"T.TXXXXG.G",
-			"T.TXXXXG.G",
-			"T.TXXXXG.G",
-			"T.TXXXXG.G",
-			"T.aFFFFs.G",
+		   ["XXXXXXXXXX",
+			"qRRRRRRRRw",
 			"T........G",
-			"aFFFFFFFFs"]
+			"T........G",
+			"T........G",
+			"T........G",
+			"T........G",
+			"T........G",
+			"aFFFFFFFFs",
+			"XXXXXXXXXX"]
 	},
 	"personaje": {
 		"tipo": "mariohugo",
-		"fila": 8,
+		"fila": 2,
 		"columna": 1,
-		"orientacion": "arriba"
+		"orientacion": "derecha"
 	},
 	"metas": {
 		"cantidad": 1,
 		"m": [
 			{
 				"tipo": "perro",
-				"fila": 8, "columna": 8,
+				"fila": 7, "columna": 8,
 				"orientacion":"izquierda"
 			}
 		]
 	},
 	"stackeables": {
-		"cantidad": 4,
-		"s": [
-			{"tipo": "piedra", "fila": 8, "columna": 3},
-			{"tipo": "piedra", "fila": 8, "columna": 4},
-			{"tipo": "piedra", "fila": 8, "columna": 5},
-			{"tipo": "piedra", "fila": 8, "columna": 6}
-		]
-	}
+        "cantidad": 8,
+        "s": [
+            {"tipo": "piedra", "fila": 4, "columna": 3},
+            {"tipo": "piedra", "fila": 4, "columna": 4},
+            {"tipo": "piedra", "fila": 4, "columna": 5},
+            {"tipo": "piedra", "fila": 4, "columna": 6},
+            {"tipo": "piedra", "fila": 5, "columna": 3},
+            {"tipo": "piedra", "fila": 5, "columna": 4},
+            {"tipo": "piedra", "fila": 5, "columna": 5},
+            {"tipo": "piedra", "fila": 5, "columna": 6},
+
+        ]
+    }
 };

@@ -13,25 +13,29 @@
 			"XT......GX",
 			"XT......GX",
 			"XT......GX",
+            "XT......GX",
 			"XT......GX",
 			"XaFFFFFFsX",
-			"XXXXXXXXXX"]
+
+        ]
 	},
 	"personaje": {
 		"tipo": "mariohugo",
-		"fila": 7,
+		"fila": 2,
 		"columna": 2,
 		"orientacion": "derecha"
 	},
     "cacas": {
-        "cantidad": 5,
-        "requeridas": 5,
+        "cantidad": 7,
+        "requeridas": 7,
         "c": [
-            {"fila": 6, "columna": 3},
-            {"fila": 5, "columna": 4},
-            {"fila": 4, "columna": 5},
-            {"fila": 3, "columna": 6},
-            {"fila": 2, "columna": 7},
+            {"fila": 2, "columna": 3},
+            {"fila": 4, "columna": 3},
+            {"fila": 4, "columna": 4},
+            {"fila": 6, "columna": 4},
+            {"fila": 6, "columna": 5},
+            {"fila": 8, "columna": 5},
+            {"fila": 8, "columna": 6},
         ]
     },
 };
