@@ -7,4 +7,4 @@ var tileSimbolo = {
 	"T": "reja_vertical_oscuro",
 	"U": "reja_vertical_claro",
 	"?": "missing_tile"
-}
+};

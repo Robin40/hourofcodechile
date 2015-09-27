@@ -50,7 +50,7 @@ var assetsObj = {
 				"pasto_oscuro": [0, 0],
 				"pasto_claro": [1, 0],
 				"bloque_muralla": [2, 0],
-				"tierra": [3, 0]
+				"tierra": [3, 0],
 				"missing_tile": [4, 0],
 				"caca": [5, 0]
 			}
