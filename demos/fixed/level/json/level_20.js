@@ -48,13 +48,14 @@ var HOC_LEVEL = {
             {"tipo": "fuego1", "fila": 1, "columna": 2},
             {"tipo": "fuego2", "fila": 1, "columna": 1},
             {"tipo": "fuego2", "fila": 1, "columna": 0},
-            {"tipo": "fuego3", "fila": 9, "columna": 3},
-            {"tipo": "fuego3", "fila": 9, "columna": 4},
-            {"tipo": "fuego3", "fila": 9, "columna": 5},
+
+            {"tipo": "fuego0", "fila": 9, "columna": 3},
+            {"tipo": "fuego1", "fila": 9, "columna": 4},
+            {"tipo": "fuego2", "fila": 9, "columna": 5},
             {"tipo": "fuego3", "fila": 9, "columna": 6},
-            {"tipo": "fuego3", "fila": 9, "columna": 7},
-            {"tipo": "fuego3", "fila": 9, "columna": 8},
-            {"tipo": "fuego3", "fila": 9, "columna": 9},
+            {"tipo": "fuego0", "fila": 9, "columna": 7},
+            {"tipo": "fuego1", "fila": 9, "columna": 8},
+            {"tipo": "fuego2", "fila": 9, "columna": 9},
         ],
     }
 };
