@@ -62,7 +62,10 @@ var assetsObj = {
 		}
 	},
 	"audio": {
-		"beep": ["beep4.wav"]
+		"beep": ["beep4.wav"],
+		"achieve": ["achieve.wav"],
+		"mal":["mal.wav"],
+		"ladrido":["guau.wav"]
 	}
 };
 
@@ -171,6 +174,11 @@ function crear_escenario() {
 	if (typeof HOC_LEVEL.metas !== 'undefined') {
 		for (var i = 0; i < HOC_LEVEL.metas.cantidad; ++i) {
 			var spriteMeta = HOC_LEVEL.metas.m[i].tipo;
+			var sonidoDePerro = false
+			if (spriteMeta == "perro" && !sonidoDePerro){
+				Crafty.audio.play("ladrido");
+				sonidoDePerro=true;
+			}
 			var igridMeta = HOC_LEVEL.metas.m[i].fila;
 			var jgridMeta = HOC_LEVEL.metas.m[i].columna;
 			var orientacionMeta = orientacionNumerica[HOC_LEVEL.metas.m[i].orientacion];
@@ -189,7 +197,7 @@ function crear_escenario() {
 	stackeable = [];
 	if (typeof HOC_LEVEL.stackeables !== 'undefined') {
 		for (var i = 0; i < HOC_LEVEL.stackeables.cantidad; ++i) {
-			var spriteStackeable = HOC_LEVEL.stackeables.s[i].tipo;
+			var spriteStackeable = HOC_LEVEL.stackeables.s[i].tipo;	
 			var igridStackeable = HOC_LEVEL.stackeables.s[i].fila;
 			var jgridStackeable = HOC_LEVEL.stackeables.s[i].columna;
 			
@@ -312,18 +320,24 @@ function go() {
 					stepCode();
 					break;
 				case "finalizando":
-					if (condicion_de_victoria_final())
+					if (condicion_de_victoria_final()){
 						this.estado = "celebrando";
+					}
 					else {
 						incompletedStage();
 						this.estado = "muerto";
+						Crafty.audio.play("mal");
 					}
 					break;
 				case "celebrando":
-					if (bloques_usados() <= bloquesNecesarios)
+					if (bloques_usados() <= bloquesNecesarios){
 						completedStage();
-					else
+						Crafty.audio.play("achieve");
+					}
+					else{
 						semiCompletedStage(5);
+						Crafty.audio.play("achieve");
+					}
 					this.estado = "muerto";
 					break;
 			}
