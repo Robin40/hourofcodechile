@@ -94,7 +94,7 @@ var maximoBloques = 32;
 		var codigo = Blockly.JavaScript.workspaceToCode(workspace);
 		var jsModal = $('#jsModal');
 		jsModal.html(codigo);
-		$('#jsModal').modalDisplay();
+		$('#jsModal').modalCodeDisplay();
 		//alert(codigo);
 	}
 	
@@ -105,10 +105,9 @@ var maximoBloques = 32;
 			parseCode();
 			personaje.trigger("resetear");
 			personaje.estado = 'listo';
-			document.getElementById('js-button').disabled = 'disabled';
+			//document.getElementById('js-button').disabled = 'disabled';
 			execbtn.innerHTML = 'Detener';
 			execbtn.className = 'running';
-			console.log("asdasd");
 			stepCode();
 			
 			//gameRunning = false;

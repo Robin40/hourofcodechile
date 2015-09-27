@@ -43,6 +43,19 @@ $('#levels-bar li').each(function (i){
 $("#game-info-title").html(HOC_LEVEL.nombre+': ');
 $("#game-info-desc").html(HOC_LEVEL.descripcion);
 
+var t_c = 0;
+$("#game-tutorial div").click(function(){
+	if(t_c == 0){
+		$(document).modalVideoDisplay();
+		t_c = 1;
+	}
+	else{
+		$("#hoc-fm1").modalDisplay();
+		t_c = 0;
+	}
+	
+});
+
 
 
 

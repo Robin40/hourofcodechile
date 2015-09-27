@@ -20,26 +20,27 @@ function setFullCss(){
 	trans.css("top", "0px");
 	
 	var fm = $('#hoc-div');
-	fm.css("width", "400px");
-	fm.css("height", "200px");
+	fm.css("width", "420px");
+	//fm.css("height", "200px");
 	fm.css("border", "1px solid #cccccc");
 	fm.css("background-color", "#ffffff");
 	fm.css("padding", "10px");
-	fm.css("margin", "200px auto");
+	fm.css("margin", "50px auto");
 	
 	var content = $('#hoc-fm-content');
 	content.css("font-size", "16");
-	content.css("width", "380px");
+	content.css("width", "400px");
 	content.css("height", "150px");
 	
 	var accept = $('#hoc-fm-accept');
 	accept.css("font-size", "16");
-	accept.css("width", "380px");
+	//accept.css("width", "380px");
 	accept.css("height", "50px");
 	
 	var btn = accept.find("button");
 	
 	btn.css("padding", "10px 20px");
+	btn.css("margin-right", "20px");
 	btn.css("float", "right");
 }
 
@@ -59,7 +60,7 @@ function createFullModal(){
 	div.append('<div id=\'hoc-fm-content\'></div>');
 	div.append('<div id=\'hoc-fm-accept\'></div>');
 	
-	$('#hoc-fm-accept').append('<button>Aceptar</button>');
+	$('#hoc-fm-accept').append('<button>Cerrar esta ventana</button>');
 	
 	setFullCss();
 	$('#hoc-fm-accept button').click(function(){
@@ -94,10 +95,50 @@ $.fn.modalDisplay = function() {
 		createFullModal();
 	}
 	else{
+		setFullCss();
+		modal.show();
+	}
+    $('#hoc-fm-content').text(this.text());
+};
+
+$.fn.modalCodeDisplay = function() {
+	var modal = $('#hoc-fullmodal');
+	if(modal.length == 0){
+		createFullModal();
+	}
+	else{
+		
 		modal.show();
 	}
     $('#hoc-fm-content').html('<pre>'+this.text()+'</pre>');
 };
+
+$.fn.modalVideoDisplay = function() {
+	var modal = $('#hoc-fullmodal');
+	if(modal.length == 0){
+		createFullModal();
+	}
+	else{
+		modal.show();
+	}
+	
+	var fm = $('#hoc-div');
+	fm.css("width", "854px");
+	
+	var content = $('#hoc-fm-content');
+	content.css("font-size", "16");
+	content.css("width", "854px");
+	content.css("height", "auto");
+	
+	content.css("height", "auto");
+	var title = '<b>'+'Titulo del video'+'</b>';
+	var html = '<div>'+title+'</div>';
+	html += "<iframe width=\"854px\" height=\"480px\" src=\"https://www.youtube.com/embed/injrqPi050I\"></iframe>"; 
+    content.html(html);
+};
+
+
+
 
 $.fn.modalSmallDisplay = function(relElemId, offx, offy) {
     var container = $('#hoc-sizedmodal-container');
