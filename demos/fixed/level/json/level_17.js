@@ -20,7 +20,7 @@ var HOC_LEVEL = {
     "personaje": {
         "tipo": "mariohugo",
         "fila": 2,
-        "columna": 2,
+        "columna": 3,
         "orientacion": "derecha"
     },
     "cacas": {

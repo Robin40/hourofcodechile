@@ -4,7 +4,7 @@ var HOC_LEVEL = {
 	"grid": {
 		"filas": 10,
 		"columnas": 10,
-		"matriz": 
+		"matriz":
 		   ["XXXXXXXXXX",
 			"XXXXXXXXXX",
 			"qRSRSRSRSw",
@@ -18,8 +18,8 @@ var HOC_LEVEL = {
 	},
 	"personaje": {
 		"tipo": "mariohugo",
-		"fila": 6,
-		"columna": 2,
+		"fila": 5,
+		"columna": 3,
 		"orientacion": "derecha"
 	},
 	"metas": {
