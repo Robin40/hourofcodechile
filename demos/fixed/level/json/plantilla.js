@@ -26,15 +26,25 @@ var HOC_LEVEL = {
 		"columna": indexada desde 0,
 		"orientacion": "arriba"/"izquierda"/"derecha"/"abajo"
 	},
-	"meta": {
-		"tipo": "perro",
-		"fila": indexada desde 0,
-		"columna": indexada desde 0,
-		"orientacion": "arriba"/"izquierda"/"derecha"/"abajo"
-	}
+	"metas": {
+		"cantidad": n,
+		"m": [
+			{
+				"tipo": "perro",
+				"fila": i, "columna": j,
+				"orientacion": "arriba"/"izquierda"/"derecha"/"abajo"
+			},
+			{
+				"tipo": "perro",
+				"fila": i, "columna": j,
+				"orientacion": "arriba"/"izquierda"/"derecha"/"abajo"
+			},
+			...
+		]
+	},
 	"cacas": {
-		"cantidad": n
-		"requeridas": k
+		"cantidad": n,
+		"requeridas": k,
 		"c": [
 			{"fila": i, "columna": j},
 			{"fila": i, "columna": j},
