@@ -98,6 +98,7 @@ $.fn.modalDisplay = function() {
 		setFullCss();
 		modal.show();
 	}
+	$('#hoc-fm-accept').show();
     $('#hoc-fm-content').text(this.text());
 };
 
@@ -110,6 +111,7 @@ $.fn.modalCodeDisplay = function() {
 		
 		modal.show();
 	}
+	$('#hoc-fm-accept').show();
     $('#hoc-fm-content').html('<pre>'+this.text()+'</pre>');
 };
 
@@ -121,7 +123,7 @@ $.fn.modalVideoDisplay = function(url) {
 	else{
 		modal.show();
 	}
-	
+	$('#hoc-fm-accept').show();
 	var fm = $('#hoc-div');
 	fm.css("width", "854px");
 	
@@ -137,6 +139,24 @@ $.fn.modalVideoDisplay = function(url) {
     content.html(html);
 };
 
+$.fn.modalContentDisplay = function(w) {
+	var modal = $('#hoc-fullmodal');
+	if(modal.length == 0){
+		createFullModal();
+	}
+	else{
+		modal.show();
+	}
+	$('#hoc-fm-accept').hide();
+	var fm = $('#hoc-div');
+	fm.css("width", w+"px");
+	
+	var content = $('#hoc-fm-content');
+	content.css("width", w+"px");
+	content.css("height", "auto");
+
+    content.html(this.html());
+};
 
 
 

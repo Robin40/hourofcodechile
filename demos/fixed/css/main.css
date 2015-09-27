@@ -129,5 +129,34 @@ body{
 	text-decoration: underline;
 }
 
+#completedTitle{
+	font-size: 30px;
+	font-weight: bold;
+	color: #D64828;
+	text-align: center;
+}
 
+#completed-buttons{
+	margin-top: 10px;
+}
+
+#completed-buttons > button{
+	width: 180px;
+	padding: 10px 20px;
+	color: #fff;
+	font-size: 20px;	
+}
+
+#completed-buttons > button:hover{
+	cursor: pointer;
+}
+
+.completed-repeat-btn{
+	background-color: #2BBDCA;
+}
+
+.completed-next-btn{
+	background-color: #43B945;
+	float: right;
+}
 

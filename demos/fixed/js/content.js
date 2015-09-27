@@ -53,8 +53,19 @@ $("#game-tutorial div").click(function(){
 		$("#hoc-fm1").modalDisplay();
 		t_c = 0;
 	}
-	
 });
+
+
+/*$("#completedModal").modalContentDisplay(500);
+$(".completed-repeat-btn").click(function(){
+		$('#hoc-fullmodal').hide();
+	});
+
+$(".completed-next-btn").click(function(){
+		var lv = parseInt($('#i-level').val());
+		window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
+	}
+);*/
 
 
 
