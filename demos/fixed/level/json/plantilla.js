@@ -1,6 +1,7 @@
 var HOC_LEVEL = {
 	"nombre": "Nombre del nivel",
 	"descripcion": "Descripción del nivel",
+	"tutorial": url_video_EMBEBIDO,
 	"grid": {
 		"filas": r,
 		"columnas": c,

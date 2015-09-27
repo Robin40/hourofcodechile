@@ -113,7 +113,7 @@ $.fn.modalCodeDisplay = function() {
     $('#hoc-fm-content').html('<pre>'+this.text()+'</pre>');
 };
 
-$.fn.modalVideoDisplay = function() {
+$.fn.modalVideoDisplay = function(url) {
 	var modal = $('#hoc-fullmodal');
 	if(modal.length == 0){
 		createFullModal();
@@ -133,7 +133,7 @@ $.fn.modalVideoDisplay = function() {
 	content.css("height", "auto");
 	var title = '<b>'+'Titulo del video'+'</b>';
 	var html = '<div>'+title+'</div>';
-	html += "<iframe width=\"854px\" height=\"480px\" src=\"https://www.youtube.com/embed/injrqPi050I\"></iframe>"; 
+	html += "<iframe width=\"854px\" height=\"480px\" src=\""+url+"\"></iframe>"; 
     content.html(html);
 };
 
