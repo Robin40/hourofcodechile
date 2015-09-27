@@ -188,3 +188,54 @@ body{
     margin: 0 auto;
     display: inline-block;
 }
+
+.welcome-title{
+	font-size: 30px;
+	font-weight: bold;
+	color: #D64828;
+	text-align: center;
+}
+
+.welcome-content > div{
+	display: inline-block;
+	vertical-align: top;
+	padding: 5px;
+	font-size: 22px;
+}
+
+.welcome-image, .welcome-image > img{
+	width: 64px;
+	height: 64px;
+}
+
+.welcome-message{
+	width: 250px;
+}
+
+.welcome-button{
+	float: right;
+	background-color: #441111;
+}
+
+
+.help-title{
+	font-size: 30px;
+	font-weight: bold;
+	color: #D64828;
+	text-align: center;
+}
+
+.help-image{
+	width: 400px;
+	margin: 0 auto;
+	height: 300px;
+}
+
+.help-message{
+	width: 400px;
+}
+
+.help-button{
+	background-color: #441111;
+}
+

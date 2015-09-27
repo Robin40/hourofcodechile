@@ -59,18 +59,13 @@ $("#game-info-title").html(HOC_LEVEL.nombre+': ');
 $("#game-info-desc").html(HOC_LEVEL.descripcion);
 $(".welcome-image img").attr('src', 'media/welcome/'+HOC_LEVEL.imagen_inicial);
 $(".welcome-message").html(HOC_LEVEL.mensaje_inicial);
+$(".help-title").html(HOC_LEVEL.titulo_ayuda);
+$(".help-image img").attr('src', 'media/help/'+HOC_LEVEL.imagen_ayuda);
+$(".help-message").html(HOC_LEVEL.comentario_ayuda);
 
-var t_c = 0;
-$("#game-tutorial div").click(function(){
-	if(t_c == 0){
+$("#game-tutorial span").click(function(){
 		$(document).modalVideoDisplay(HOC_LEVEL.tutorial);
-		t_c = 1;
-	}
-	else{
-		$("#hoc-fm1").modalDisplay();
-		t_c = 0;
-	}
-});
+	});
 
 
 
@@ -97,6 +92,7 @@ function semiCompletedStage(n){
 	var lv = parseInt($('#i-level').val());
 	setLevelAsIncompleted(lv);
 	$(".completed-repeat-btn").click(function(){
+			resetear_nivel();
 			$('#hoc-fullmodal').hide();
 		});
 	
@@ -109,6 +105,7 @@ function semiCompletedStage(n){
 function incompletedStage(){
 	$("#incompletedModal").modalContentDisplay(500);
 	$(".completed-repeat-btn").click(function(){
+			resetear_nivel();
 			$('#hoc-fullmodal').hide();
 		});
 	
@@ -122,6 +119,7 @@ function incompletedStage(){
 function failedStage(){
 	$("#failedModal").modalContentDisplay(500);
 	$(".completed-repeat-btn").click(function(){
+			resetear_nivel();
 			$('#hoc-fullmodal').hide();
 		});
 	
@@ -134,15 +132,9 @@ function failedStage(){
 
 function showHelp(){
 	$("#helpModal").modalContentDisplay(500);
-	$(".completed-repeat-btn").click(function(){
+	$(".help-button").click(function(){
 			$('#hoc-fullmodal').hide();
 		});
-	
-	$(".completed-next-btn").click(function(){
-			var lv = parseInt($('#i-level').val());
-			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
-		}
-	);
 }
 
 function welcomeWindow(){
@@ -152,6 +144,6 @@ function welcomeWindow(){
 		});
 }
 
-//welcomeWindow();
+welcomeWindow();
 
 
