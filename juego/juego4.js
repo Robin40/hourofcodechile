@@ -72,7 +72,8 @@ window.onload = function() {
 }
 
 var simbolosMurallasAltas = new Set("M?".split(''));
-var simbolosMurallasBajas = new Set("RSFTUGJqwasP".split(''));
+var simbolosMurallasBajas = new Set("RSFTUGJqwas".split(''));
+var stackeablesSolidos = new Set(["piedra"]);
 /*
 var indiceTipoPersonaje = {
 	"pjtest": 0,
@@ -194,8 +195,11 @@ function crear_escenario() {
 			
 			stackeable[i] = Crafty.e("2D, Canvas, " + spriteStackeable)
 				.attr({igrid: igridStackeable, jgrid: jgridStackeable,
-					x: jgridStackeable*s, y: igridStackeable*s, w: s, h: s})
+					x: jgridStackeable*s, y: igridStackeable*s, w: s, h: s,
+					tipo: spriteStackeable})
 			;
+			
+			stackeableEn[igridStackeable][jgridStackeable] = stackeable[i];
 		}
 	}
 	
@@ -324,12 +328,13 @@ function go() {
 					break;
 			}
 		})
-		.bind("avanzar", function() {	
-			var simbolo = simbolo_en(
-					this.igrid + idir[this.orientacion],
-					this.jgrid + jdir[this.orientacion]);
+		.bind("avanzar", function() {
+			var igridDespues = this.igrid + idir[this.orientacion];
+			var jgridDespues = this.jgrid + jdir[this.orientacion];
+			var simbolo = simbolo_en(igridDespues, jgridDespues);
 			if (!simbolosMurallasAltas.has(simbolo) &&
-				!simbolosMurallasBajas.has(simbolo)) {
+				!simbolosMurallasBajas.has(simbolo) &&
+				!stackeablesSolidos.has(stackeableEn[igridDespues][jgridDespues].tipo)) {
 				this.inicioAnimacion = Date.now();
 				this.animate("caminando_o" + this.orientacion);
 				this.estado = "avanzando";
