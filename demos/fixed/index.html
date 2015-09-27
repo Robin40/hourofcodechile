@@ -16,14 +16,7 @@
   <script src="../../generators/javascript/movimiento.js"></script>
   <script src="../../jsinterpreter/acorn_interpreter.js"></script></head> 
 <body>
-    <header style="width: 100%">
-      <div id="levels-bar" style="width: 100%; padding: 5px 0; background-color: #00ADBC;">
-          <!--<img src="http://horadelcodigo.cl/images/logo_hora_codigo.png" width=30 />-->
-          <span> Nivel </span>
-	  <ul style="display: inline">
-	    <li class="current-level">1</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>				</ul>
-      </div>
-    </header>
+    
 
   
   <div id="wrap">
@@ -47,7 +40,17 @@
       <script src="../../crafty/crafty-min.js"></script>
       <script src="../../juego/juego4.js"></script>
     </div>
-    <div>
+    
+    <div id="workspace">
+      <header style="width: 604px;">
+        <div id="levels-bar" style="width: 100%; padding: 5px 0; background-color: #0094CA;">
+          <!--<img src="http://horadelcodigo.cl/images/logo_hora_codigo.png" width=30 />-->
+          <span> Nivel </span>
+	  <ul style="display: inline">
+	    <li class="current-level">1</li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>				</ul>
+        </div>
+      </header>
+      
       <table>
 	<thead>
 	  <tr>
@@ -65,12 +68,12 @@
   <xml id="toolbox" style="display: none">
     <block type="avanzar"></block>
     <block type="girar">
-      <field name="sentido">antihorario</field>
+      <field name="sentido">izquierda</field>
     </block>
     <block type="girar">
-      <field name="sentido">horario</field>
+      <field name="sentido">derecha</field>
     </block>
-    <block type="controls_repeat"></block>
+    <!--<block type="controls_repeat"></block> -->
   </xml>
   
   <xml id="startBlocks" style="display: none">
