@@ -1,4 +1,7 @@
-var maximoBloques = 32;
+var maximoBloques = Infinity;
+/*if (typeof HOC_LEVEL.maximoBloques !== 'undefined')
+	maximoBloques = HOC_LEVEL.maximoBloques + 1;*/
+
 var workspace = Blockly.inject('blocklyDiv', {
   media: '../../media/',
   toolbox: document.getElementById('toolbox'),
@@ -144,11 +147,11 @@ function mostrar_mensaje_modal(mensaje) {
 }
 
 var nombreBloqueSegunTipo = {
-	"avanzar": "avanzar",
-	"girar": "girar",
+	"avanzar": "\"avanzar\"",
+	"girar": "\"girar\"",
 	"repetir_hasta": "\"repetir hasta que no haya caca\"",
 	"repetir_hasta_perro": "\"repetir hasta que llegue al perro\"",
-	"controls_repeat": "repetir",
+	"controls_repeat": "\"repetir\"",
 	"if_caca": "\"si veo caca\"",
 	"if_no_caca": "\"si no veo caca\""
 };
