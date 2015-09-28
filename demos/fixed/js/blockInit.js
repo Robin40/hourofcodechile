@@ -149,8 +149,8 @@ function mostrar_mensaje_modal(mensaje) {
 var nombreBloqueSegunTipo = {
 	"avanzar": "\"avanzar\"",
 	"girar": "\"girar\"",
-	"repetir_hasta": "\"repetir hasta que no haya caca\"",
-	"repetir_hasta_perro": "\"repetir hasta que llegue al perro\"",
+	"repetir_hasta": "\"repetir\"",
+	"repetir_hasta_perro": "\"repetir\"",
 	"controls_repeat": "\"repetir\"",
 	"if_caca": "\"si veo caca\"",
 	"if_no_caca": "\"si no veo caca\""
