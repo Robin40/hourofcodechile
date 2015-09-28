@@ -45,13 +45,18 @@ function setFullCss(){
 	var accept = $('#hoc-fm-accept');
 	accept.css("font-size", "16px");
 	//accept.css("width", "380px");
-	accept.css("height", "50px");
+	accept.css("height", "35px");
+	accept.css("margin-top", "10px");
+	
 	
 	var btn = accept.find("button");
 	
 	btn.css("padding", "10px 20px");
 	btn.css("margin-right", "20px");
 	btn.css("float", "right");
+	btn.css("color", "#ffffff");
+	btn.css("background-color", "#2BBDCA");
+	btn.css("cursor", "pointer");
 }
 
 function setSizedCss(model, elemId, offx, offy){
@@ -118,7 +123,7 @@ $.fn.modalDisplay = function() {
     $('#hoc-fm-content').text(this.text());
 };
 
-$.fn.modalCodeDisplay = function() {
+$.fn.modalCodeDisplay = function(lines, levels) {
 	var modal = $('#hoc-fullmodal');
 	if(modal.length == 0){
 		createFullModal();
@@ -128,7 +133,9 @@ $.fn.modalCodeDisplay = function() {
 		modal.show();
 	}
 	$('#hoc-fm-accept').show();
-    $('#hoc-fm-content').html('<pre>'+this.text()+'</pre>');
+	var htmlCode = "<div class='showCodeHeader'><div>Hasta ahora llevas</div><ul><li>"+lines+" Lineas de código</li><li>"+levels+" Niveles completados</li></ul></div>";
+	htmlCode += "<div class='showCodeBody'><div>Tu c&oacute;digo actual:</div>";
+    $('#hoc-fm-content').html(htmlCode+'<pre>'+this.text()+'</pre></div>');
 };
 
 $.fn.modalVideoDisplay = function(url) {

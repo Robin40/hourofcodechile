@@ -24,6 +24,7 @@
 	
 	<div class="completed-buttons">
 	  <button class="completed-repeat-btn">Repetir nivel</button>
+	  <button class="completed-code-btn">Mostrar c&oacute;digo</button>
 	  <button class="completed-next-btn">Siguiente nivel</button>
 	</div>
       </div>

@@ -153,7 +153,7 @@ function mostrar_javascript() {
   
   var jsModal = $('#jsModal');
   jsModal.html(codigo);
-  jsModal.modalCodeDisplay();
+  jsModal.modalCodeDisplay(getAllBlocks() , stagesCompleted());
 }
 
 

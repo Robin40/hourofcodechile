@@ -1,11 +1,16 @@
 var completeStorage = 'hoc-stage';
 var incompleteStorage = 'hoc-istage';
+var linesStorage = 'hoc-lns';
 var htmlLevelPrefix = 'index';
 function initLevels(i){
 	var clean = localStorage[completeStorage];
 	if(!clean){
 		localStorage[completeStorage] = 0;
 		localStorage[incompleteStorage] = 0;
+		
+		for(var i = 1; i <= 20; i++){
+			localStorage[linesStorage+i] = 0;
+		}
 	}
 }
 
@@ -30,6 +35,7 @@ function setLevelAsCompleted(i){
 	}
 	localStorage[completeStorage] = mask | localStorage[completeStorage];
 	localStorage[incompleteStorage] = ~mask & localStorage[incompleteStorage];
+	localStorage[linesStorage+i] = bloques_usados()-1;
 }
 
 function setLevelAsIncompleted(i){
@@ -40,11 +46,32 @@ function setLevelAsIncompleted(i){
 	}
 	localStorage[incompleteStorage] = mask | localStorage[incompleteStorage];
 	localStorage[completeStorage] = ~mask & localStorage[completeStorage];
+	localStorage[linesStorage+i] = bloques_usados()-1;
+}
+
+function getAllBlocks(){
+	var sum = 0;
+	for(var i = 1; i <= 20; i++){
+		sum += parseInt(localStorage[linesStorage+i]);
+	}
+	sum -= parseInt(localStorage[linesStorage+parseInt($('#i-level').val())]);
+	return sum+bloques_usados()-1;
 }
 
 function applyColor(level,  i){
 	level.addClass("lcolor"+isLevelCompleted(i));
 }
+
+function stagesCompleted(){
+	var s = localStorage[completeStorage];
+	var c = 0;
+	while(s != 0){
+		c += s & 1;
+		s = s >> 1;
+	}
+	return c;
+}
+
 
 initLevels();
 $('#levels-bar li').each(function (i){
@@ -68,14 +95,21 @@ $("#game-tutorial span").click(function(){
 	});
 
 
+function showHelp(){
+	$("#helpModal").modalContentDisplay(500);
+	$(".help-button").click(function(){
+			$('#hoc-fullmodal').hide();
+		});
+}
 
 function completedStage(){
-	$("#completedModal").modalContentDisplay(500);
+	$("#completedModal").modalContentDisplay(548);
 	$(".completedExtra").hide();
 	var lv = parseInt($('#i-level').val());
 	setLevelAsCompleted(lv);
 	console.log("level "+lv+ " completed");
 	$(".completed-repeat-btn").click(function(){
+			resetear_nivel();
 			$('#hoc-fullmodal').hide();
 		});
 	
@@ -83,10 +117,20 @@ function completedStage(){
 			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
 		}
 	);
+	
+	$('.completed-code-btn').click(function(){
+		$('#hoc-fullmodal').hide();
+		mostrar_javascript();
+		var btn = $('#hoc-fm-accept button');
+		btn.html("Siguiente nivel");
+		btn.click(function(){
+			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
+		});
+	});
 }
 
 function semiCompletedStage(n){
-	$("#completedModal").modalContentDisplay(500);
+	$("#completedModal").modalContentDisplay(548);
 	$(".blockNumber").html(n);
 	$(".completedExtra").show();
 	var lv = parseInt($('#i-level').val());
@@ -100,6 +144,15 @@ function semiCompletedStage(n){
 			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
 		}
 	);
+	$('.completed-code-btn').click(function(){
+		$('#hoc-fullmodal').hide();
+		mostrar_javascript();
+		var btn = $('#hoc-fm-accept button');
+		btn.html("Siguiente nivel");
+		btn.click(function(){
+			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
+		});
+	});
 }
 
 function incompletedStage(){
@@ -114,6 +167,11 @@ function incompletedStage(){
 			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
 		}
 	);
+	
+	$(".completed-help-btn").click(function(){
+		$('#hoc-fullmodal').hide();
+		showHelp();
+	});
 }
 
 function failedStage(){
@@ -128,13 +186,11 @@ function failedStage(){
 			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
 		}
 	);
-}
-
-function showHelp(){
-	$("#helpModal").modalContentDisplay(500);
-	$(".help-button").click(function(){
-			$('#hoc-fullmodal').hide();
-		});
+	
+	$(".completed-help-btn").click(function(){
+		$('#hoc-fullmodal').hide();
+		showHelp();
+	});
 }
 
 function welcomeWindow(){

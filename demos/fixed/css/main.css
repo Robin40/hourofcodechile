@@ -172,6 +172,10 @@ body{
 	float: right;
 }
 
+.completed-code-btn{
+	background-color: #D64828;
+}
+
 .centered{
 	display: block;
 	margin: 0 auto;
@@ -214,7 +218,7 @@ body{
 
 .welcome-button{
 	float: right;
-	background-color: #441111;
+	background-color: #F9AC3D;
 }
 
 
@@ -239,3 +243,32 @@ body{
 	background-color: #441111;
 }
 
+
+.showCodeHeader{
+	padding: 5px;
+	background-color: #eeeeee;	
+}
+
+.showCodeHeader > div:first-child{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.showCodeHeader li{
+	list-style-type: none;
+}
+
+.showCodeBody{
+	margin-top: 5px;
+	background-color: #eeeeee;
+}
+
+.showCodeBody > div{
+	padding: 5px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.showCodeBody pre{
+	padding: 10px;
+}
