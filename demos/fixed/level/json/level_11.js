@@ -2,7 +2,7 @@ var HOC_LEVEL = {
 	"nombre": "",
 	"descripcion": "¿Cómo puedes llegar al perro usando sólo 5 bloques?",
 	"imagen_inicial": "perro.png",
-	"titulo_ayuda": "Repetir un 'patrón'",
+	"titulo_ayuda": "Repetir un patrón",
 	"comentario_ayuda": "Mira qué bloques te ayudan a caminar desde la posición donde estás hasta la posición que está arriba y a la derecha. Luego podrías repetir este movimiento varias veces usando un bloque 'repetir' para llegar hasta el perro.",
 	"mensaje_inicial": "¿Cómo puedes llegar al perro usando sólo 5 bloques?",
 	"maximoBloques": 5,

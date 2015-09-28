@@ -1,7 +1,7 @@
 var HOC_LEVEL = {
 	"nombre": "",
 	"imagen_inicial": "perro.png",
-	"comentario_ayuda": "Prueba poniendo dos bloques \"avanzar\" y uno \"girar\" dentro \"repetir 3 veces\".",
+	"comentario_ayuda": "Prueba poniendo dos bloques \"avanzar\" y uno \"girar\" dentro de \"repetir 3 veces\".",
 	"mensaje_inicial": "El perro está ahora detrás de las piedras, pero puedes llegar a él repitiendo tres veces el mismo movimiento, ¿Puedes encontrar los bloques que debes poner dentro de \"repetir 3 veces\"?",
 	"descripcion": "¿Puedes encontrar los bloques que debes poner dentro de \"repetir 3 veces\"?",
 	"maximoBloques": 4,

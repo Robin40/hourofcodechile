@@ -2,7 +2,7 @@ var HOC_LEVEL = {
 	"nombre": "",
 	"imagen_inicial": "caca.png",
 	"titulo_ayuda": "Giros y más giros.",
-	"comentario_ayuda": "En este escenario debes girar al menos dos veces. Posiblemente sea más fácil solo avanzar al principio y recoger las dos cacas que están frente tuyo.",
+	"comentario_ayuda": "En este escenario debes girar al menos dos veces. Posiblemente sea más fácil solo avanzar para recoger primero las dos cacas que están al frente tuyo.",
 	"mensaje_inicial": "Tus perros han dejado más caca en la plaza. Esfuérzate un poco más y recógela toda.",
 	"descripcion": "Tus perros han dejado más caca en la plaza. Esfuérzate un poco más y recógela toda.",
 	"tutorial": "https://www.youtube.com/embed/injrqPi050I",
