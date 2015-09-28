@@ -43,7 +43,7 @@ Blockly.Blocks['if_caca'] = {
         .appendField("si veo")
         //.appendField(new Blockly.FieldDropdown([["veo", "ver"], ["no veo", "no_ver"]]), "condicion")
         .appendField(new Blockly.FieldImage("media/caca.png", 24, 24, "caca"))
-        .appendField(new Blockly.FieldDropdown(["a la izquierda", "izquierda"], ["al frente", "al_frente"], ["a la derecha", "derecha"]]), "sentido");
+        .appendField(new Blockly.FieldDropdown(["a la izquierda", "izquierda"], ["al frente", "al_frente"], ["a la derecha", "derecha"]), "sentido");
     this.appendStatementInput("if_true")
 	this.setPreviousStatement(true);
     this.setNextStatement(true);
