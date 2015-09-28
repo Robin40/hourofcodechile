@@ -7,6 +7,7 @@ var caca, indiceCacaEn, cacasRecogidas, cacasRequeridas;
 var stackeable, stackeableEn;
 var bloquesNecesarios;
 var s = 45;
+var duracionAnim = 500;
 
 var assetsObj = {
 	"sprites": {
@@ -114,7 +115,6 @@ var subimgsAnim = 8;
 var igridInicial = 3;
 var jgridInicial = 4;
 var orientacionInicial = 0;
-var duracionAnim = 500;
 var duracionAnimFuego = 500;
 
 function cargar_cacas() {
@@ -177,7 +177,6 @@ function crear_escenario() {
 	igridInicial = HOC_LEVEL.personaje.fila;
 	jgridInicial = HOC_LEVEL.personaje.columna;
 	orientacionInicial = orientacionNumerica[HOC_LEVEL.personaje.orientacion];
-	duracionAnim = 800;
 	/*
 	spriteMeta = HOC_LEVEL.meta.tipo;
 	indiceMeta = indiceTipoMeta[HOC_LEVEL.meta.tipo];

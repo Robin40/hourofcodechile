@@ -76,7 +76,7 @@ function initApi(interpreter, scope) {
 var highlightPause = false;
 function highlightBlock(id) {
   workspace.highlightBlock(id);
-  highlightPause = true;
+  //highlightPause = true;
 }
 
 function parseCode() {
