@@ -3,8 +3,8 @@ var HOC_LEVEL = {
 	"imagen_inicial": "perro.png",
 	"titulo_ayuda": "¿Cuántas veces repetir?",
 	"comentario_ayuda": "El bloque 'repetir' interno (el de más abajo) sirve para llegar de una esquina de la plaza a otra ¿Cuánto hay que caminar de una esquina a otra? Pon este número en el bloque 'repetir' interno. ¿Puedes ahora ver qué número debes poner en el 'repetir' de más arriba?",
-	"mensaje_inicial": "A pesar de que el perro está al otro lado de la plaza, puedes llegar a él usando pocos bloques. Define la cantidad de veces que se deben repetir ambos bloques.",
-	"descripcion": "Define la cantidad de veces que se deben repetir ambos bloques.",
+	"mensaje_inicial": "A pesar de que el perro está al otro lado de la plaza, puedes llegar a él usando pocos bloques. Descubre la cantidad de veces que se deben repetir ambos bloques para llegar a tu objetivo.",
+	"descripcion": "Descubre la cantidad de veces que se deben repetir ambos bloques para llegar a tu objetivo.",
 	"maximoBloques": 4,
 	"grid": {
 		"filas": 10,

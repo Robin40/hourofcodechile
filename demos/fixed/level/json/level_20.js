@@ -1,8 +1,8 @@
 var HOC_LEVEL = {
     "nombre": "",
     "imagen_inicial": "caca.png",
-    "titulo_ayuda": "Confía en tus conocimientos",
-    "comentario_ayuda": "Usa todo lo que has aprendido. Si lo necesitas vuelve a algún nivel anterior para recordar los bloques necesarios. ¡Buena suerte!",
+    "titulo_ayuda": "ConfÃ­a en tus conocimientos",
+    "comentario_ayuda": "Usa todo lo que has aprendido. Si lo necesitas vuelve a algÃºn nivel anterior para recordar los bloques necesarios. Â¡Buena suerte!",
     "mensaje_inicial": "Recoge toda la caca que han dejado tus perros, pero no te intimides por el nivel, ya tienes todo el poder necesario para lograrlo.",
     "descripcion": "Recoge toda la caca que han dejado tus perros, pero no te intimides por el nivel, ya tienes todo el poder necesario para lograrlo.",
     "maximoBloques": 6,

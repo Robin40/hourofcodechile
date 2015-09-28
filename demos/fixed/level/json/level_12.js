@@ -3,8 +3,8 @@ var HOC_LEVEL = {
 	"titulo_ayuda": "Repetir hasta llegar al perro.",
 	"imagen_inicial": "perro.png",
 	"comentario_ayuda": "Sólo debes avanzar hasta llegar al perro. Pon los bloques de esa forma y lo lograrás.",
-	"mensaje_inicial": "Ahora puedes llegar al perro aunque esté lejos y sin saber cuántos pasos debes dar simplemente usando el bloque \"repetir hasta\". Solo necesitas dos bloques.",
-	"descripcion": "Ahora puedes llegar al perro aunque esté lejos y sin saber cuantos pasos debes dar simplemente usando el bloque \"repetir hasta\". Solo necesitas dos bloques.",
+	"mensaje_inicial": "Usando el bloque \"repetir hasta\"  puedes llegar al perro sin importar cuántos pasos debes dar.",
+	"descripcion": "Usa el bloque \"repetir hasta\" para llegar a tu perro.",
 	"maximoBloques": 2,
 	"grid": {
 		"filas": 10,

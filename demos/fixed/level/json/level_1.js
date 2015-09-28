@@ -6,7 +6,7 @@ var HOC_LEVEL = {
 	"tutorial": "https://www.youtube.com/embed/injrqdPi050I",
 	"titulo_ayuda": "Usa el bloque 'avanzar'.",
 	"imagen_ayuda": "test.jpg",
-	"comentario_ayuda": "Sólo necesitas unir dos bloques 'avanzar' bajo el bloque 'al inicio'.",
+	"comentario_ayuda": "SÃ³lo necesitas unir dos bloques 'avanzar' bajo el bloque 'al inicio'.",
 	"maximoBloques": 2,
 	"grid": {
 		"filas": 10,

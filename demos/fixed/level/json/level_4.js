@@ -9,7 +9,7 @@ var HOC_LEVEL = {
 	"grid": {
 		"filas": 10,
 		"columnas": 10,
-		"matriz": 
+		"matriz":
 		   ["XXXXXXXXXX",
 			"XXXXXXXXXX",
 			"qRRRRRRRRw",

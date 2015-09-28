@@ -1,9 +1,9 @@
 var HOC_LEVEL = {
 	"nombre": "",
 	"comentario_ayuda": "Usa un bloque 'repetir' y un bloque 'avanzar' dentro. La clave está en decidir cuántas veces se debe repetir, prueba con distintos valores.",
-	"descripcion": "Tu perro está lejos, pero puedes llegar a él usando sólo dos instrucciones (recuerda utilizar el bloque repetir). ",
+	"descripcion": "Tu perro está lejos, pero puedes llegar a él usando sólo dos bloques (recuerda utilizar el bloque repetir). ",
 	"imagen_inicial": "perro.png",
-	"mensaje_inicial": "Tu perro está lejos, pero puedes llegar a él usando sólo dos instrucciones (recuerda utilizar el bloque repetir). ",
+	"mensaje_inicial": "Tu perro está lejos, pero puedes llegar a él usando sólo dos bloques (recuerda utilizar el bloque repetir). ",
 	"maximoBloques": 2,
 	"titulo_ayuda": "Repetir y repetir",
 	"grid": {
