@@ -42,7 +42,7 @@
         ]
     },
 	"bloquesRequeridos": {
-		"cantidad": 3,
+		"cantidad": 2,
 		"b": [
 			{"tipo": "repetir_hasta", "cantidad": 1},
 			{"tipo": "girar", "cantidad": 2}

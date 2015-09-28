@@ -10,6 +10,7 @@
   <?php include_once 'include/head.php'; ?> 
   <body>
     <input id="i-level" type="hidden" value="<?= $level ?>" />
+    <input id="i-maxlevel" type="hidden" value="<?= $GLOBALS['LEVEL_COUNT'] ?>" />
     <div id="wrap">
       <?php include_once 'include/header.php'; ?>
       <div class="game_content">

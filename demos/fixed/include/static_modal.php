@@ -9,7 +9,6 @@
 		</div>
 		<div id="helpModal">
 			<div class="help-title"></div>
-				<div class="help-image"><img src="" /></div>
 				<div class="help-message"></div>
 				<div class="completed-buttons"><button class="help-button">Cerrar</button></div>
 		</div>

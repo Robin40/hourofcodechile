@@ -82,17 +82,24 @@ $('#levels-bar li').each(function (i){
 });
 
 
-$("#game-info-title").html(HOC_LEVEL.nombre+': ');
 $("#game-info-desc").html(HOC_LEVEL.descripcion);
 $(".welcome-image img").attr('src', 'media/welcome/'+HOC_LEVEL.imagen_inicial);
 $(".welcome-message").html(HOC_LEVEL.mensaje_inicial);
 $(".help-title").html(HOC_LEVEL.titulo_ayuda);
-$(".help-image img").attr('src', 'media/help/'+HOC_LEVEL.imagen_ayuda);
 $(".help-message").html(HOC_LEVEL.comentario_ayuda);
+if(parseInt($('#i-maxlevel').val()) <= parseInt($('#i-level').val())){
+	$('.completed-next-btn').html('He terminado');
+}
 
 $("#game-tutorial span").click(function(){
 		$(document).modalVideoDisplay(HOC_LEVEL.tutorial);
 	});
+	
+function linkReference(){
+	var max = parseInt($('#i-maxlevel').val());
+	var lv = parseInt($('#i-level').val());
+	return lv<max?htmlLevelPrefix+'.php?level='+(lv+1):'felicitaciones.php';
+}
 
 
 function showHelp(){
@@ -107,25 +114,20 @@ function completedStage(){
 	$(".completedExtra").hide();
 	var lv = parseInt($('#i-level').val());
 	setLevelAsCompleted(lv);
-	console.log("level "+lv+ " completed");
 	$(".completed-repeat-btn").click(function(){
 			resetear_nivel();
 			$('#hoc-fullmodal').hide();
 		});
 	
 	$(".completed-next-btn").click(function(){
-			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
+			window.location.href = linkReference();
 		}
 	);
 	
 	$('.completed-code-btn').click(function(){
 		$('#hoc-fullmodal').hide();
 		mostrar_javascript();
-		var btn = $('#hoc-fm-accept button');
-		btn.html("Siguiente nivel");
-		btn.click(function(){
-			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
-		});
+		$("button.cd-btn2").show();
 	});
 }
 
@@ -141,16 +143,17 @@ function semiCompletedStage(n){
 		});
 	
 	$(".completed-next-btn").click(function(){
-			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
+			window.location.href = linkReference();
 		}
 	);
 	$('.completed-code-btn').click(function(){
 		$('#hoc-fullmodal').hide();
 		mostrar_javascript();
+		$("button.cd-btn2").show();
 	});
 }
 
-function incompletedStage(){
+function incompletedStage(n){
 	$("#incompletedModal").modalContentDisplay(500);
 	$(".completed-repeat-btn").click(function(){
 			resetear_nivel();
@@ -158,8 +161,7 @@ function incompletedStage(){
 		});
 	
 	$(".completed-next-btn").click(function(){
-			var lv = parseInt($('#i-level').val());
-			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
+			window.location.href = linkReference();
 		}
 	);
 	
@@ -177,8 +179,7 @@ function failedStage(block){
 		});
 	
 	$(".completed-next-btn").click(function(){
-			var lv = parseInt($('#i-level').val());
-			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
+			window.location.href = linkReference();
 		}
 	);
 	

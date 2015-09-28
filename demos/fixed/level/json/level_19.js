@@ -66,7 +66,7 @@ var HOC_LEVEL = {
         ]
     },
     "bloquesRequeridos": {
-        "cantidad": 5,
+        "cantidad": 3,
         "b": [
             {"tipo": "repetir_hasta", "cantidad": 1},
             {"tipo": "if_caca", "cantidad": 2},

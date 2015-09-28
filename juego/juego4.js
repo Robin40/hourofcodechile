@@ -267,12 +267,35 @@ function simbolo_en(igrid, jgrid) {
 	return "?";
 }
 
+function simpleStringify (object){
+    var simpleObject = {};
+    for (var prop in object ){
+        if (!object.hasOwnProperty(prop)){
+            continue;
+        }
+        if (typeof(object[prop]) == 'object'){
+            continue;
+        }
+        if (typeof(object[prop]) == 'function'){
+            continue;
+        }
+        simpleObject[prop] = object[prop];
+    }
+    var cleanedJson = JSON.stringify(simpleObject) ;
+    return cleanedJson;
+};
+
 function hay_al_menos_k_bloques_tipo(k, tipo) {
 	var b = Blockly.mainWorkspace.getAllBlocks();
 	var cuenta = 0;
-	for (var i = 0; i < b.length; ++i)
-		if (b[i].tipo == tipo)
+	for (var i = 0; i < b.length; ++i){
+		console.log('cmp: '+b[i].type+ " "+tipo); 
+		if (b[i].type == tipo){
 			++cuenta;
+		}
+			
+	}
+		
 	return (cuenta >= k);
 }
 
@@ -416,18 +439,26 @@ function go() {
 					break;
 				case "finalizando":
 					if (condicion_de_victoria_final()) {
-						if (condicion_de_bloques_requeridos())
-							this.estado = "celebrando";
+						this.estado = "celebrando";
+						if (condicion_de_bloques_requeridos()){
+							if((Blockly.mainWorkspace.getAllBlocks().length-1) > HOC_LEVEL.maximoBloques){
+								semiCompletedStage(HOC_LEVEL.maximoBloques);
+							}
+							else{
+								//HOC_LEVEL.maximoBloques
+								completedStage();
+							}
+						}
 						else {
 							Crafty.audio.play("mal");
-							//mostrar_mensaje_bloques_faltantes_victoria();
-							failedStage(nombreBloqueSegunTipo[tipoBloqueRequeridoFaltante]);
-							this.estado = "muerto";
+								//mostrar_mensaje_bloques_faltantes_victoria();
+								failedStage(nombreBloqueSegunTipo[tipoBloqueRequeridoFaltante]);
+								this.estado = "muerto";
 						}
 					}
 					else {
-						if (condicion_de_bloques_requeridos())
-							incompletedStage();
+						//if (condicion_de_bloques_requeridos())
+						incompletedStage();
 						//else
 							//mostrar_mensaje_bloques_faltantes_derrota();
 							
@@ -448,8 +479,8 @@ function go() {
 					this.estado = "muerto";
 					break;
 				case "muerto":
-					execbtn.innerHTML = 'Reiniciar';
-					execbtn.className = '';
+					//execbtn.innerHTML = 'Reiniciar';
+					//execbtn.className = '';
 			}
 		})
 		.bind("avanzar", function() {

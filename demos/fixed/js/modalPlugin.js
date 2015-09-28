@@ -57,6 +57,10 @@ function setFullCss(){
 	btn.css("color", "#ffffff");
 	btn.css("background-color", "#2BBDCA");
 	btn.css("cursor", "pointer");
+	
+	var btn = accept.find("button.cd-btn2");
+	
+	btn.css("display", "none");
 }
 
 function setSizedCss(model, elemId, offx, offy){
@@ -81,11 +85,15 @@ function createFullModal(){
 	div.append('<div id=\'hoc-fm-content\'></div>');
 	div.append('<div id=\'hoc-fm-accept\'></div>');
 	
-	$('#hoc-fm-accept').append('<button>Cerrar esta ventana</button>');
+	$('#hoc-fm-accept').append('<button class="cd-btn2">Siguiente nivel</button>');
+	$('#hoc-fm-accept').append('<button class="cd-btn1">Cerrar esta ventana</button>');
 	
 	setFullCss();
-	$('#hoc-fm-accept button').click(function(){
+	$('#hoc-fm-accept button.cd-btn1').click(function(){
 		fm.hide();
+	});
+	$('#hoc-fm-accept button.cd-btn2').click(function(){
+			window.location.href = linkReference();
 	});
 }
 
@@ -137,8 +145,6 @@ $.fn.modalCodeDisplay = function(lines, levels) {
 	var htmlCode = "<div class='showCodeHeader'><div>Hasta ahora llevas</div><ul><li>"+lines+" Lineas de código</li><li>"+levels+" Niveles completados</li></ul></div>";
 	htmlCode += "<div class='showCodeBody'><div>Tu c&oacute;digo actual:</div>";
     $('#hoc-fm-content').html(htmlCode+'<pre>'+this.text()+'</pre></div>');
-    ac.append(ac.html());
-    ac.find("button").get(1).html("Siguiente nivel");
 };
 
 $.fn.modalVideoDisplay = function(url) {

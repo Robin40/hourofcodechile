@@ -59,6 +59,7 @@ body{
 }
 
 #game-info{
+	width: 430px;
 	height: 42px;
 	margin-top: 5px;
 	padding: 8px;
@@ -66,6 +67,7 @@ body{
 	background-color: #26ABB7;
 	color: #ffffff;
 	cursor: default;
+	text-align: left;
 }
 
 #game-info-title{
@@ -213,7 +215,7 @@ body{
 }
 
 .welcome-message{
-	width: 250px;
+	width: 420px;
 }
 
 .welcome-button{
