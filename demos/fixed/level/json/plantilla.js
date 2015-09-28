@@ -61,8 +61,8 @@ var HOC_LEVEL = {
 	"stackeables": {
 		"cantidad": n,
 		"s": [
-			{"tipo": "piedra", "fila": i, "columna": j},
-			{"tipo": "piedra", "fila": i, "columna": j},
+			{"tipo": "piedra"/"fuego0"/.../"fuego3", "fila": i, "columna": j},
+			{"tipo": "piedra"/"fuego0"/.../"fuego3", "fila": i, "columna": j},
 			...
 		]
 	}

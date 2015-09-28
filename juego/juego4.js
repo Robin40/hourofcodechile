@@ -65,7 +65,11 @@ var assetsObj = {
 				"reja_superior_derecha_i": [18, 0],
 				"reja_superior_izquierda_i": [19, 0],
 				"reja_inferior_derecha_i": [20, 0],
-				"reja_inferior_izquierda_i": [21, 0]
+				"reja_inferior_izquierda_i": [21, 0],
+				"fuego0": [22, 0],
+				"fuego1": [23, 0],
+				"fuego2": [24, 0],
+				"fuego3": [25, 0]
 			}
 		}
 	},
@@ -86,6 +90,7 @@ window.onload = function() {
 var simbolosMurallasAltas = new Set("M?".split(''));
 var simbolosMurallasBajas = new Set("RSFTUGJqwas".split(''));
 var stackeablesSolidos = new Set(["piedra"]);
+var tilesFuegos = new Set(["fuego0", "fuego1","fuego2","fuego3"]);
 /*
 var indiceTipoPersonaje = {
 	"pjtest": 0,
@@ -110,6 +115,7 @@ var igridInicial = 3;
 var jgridInicial = 4;
 var orientacionInicial = 0;
 var duracionAnim = 500;
+var duracionAnimFuego = 500;
 
 function cargar_cacas() {
 	cacasRequeridas = 10000;
@@ -183,7 +189,7 @@ function crear_escenario() {
 	if (typeof HOC_LEVEL.metas !== 'undefined') {
 		for (var i = 0; i < HOC_LEVEL.metas.cantidad; ++i) {
 			var spriteMeta = HOC_LEVEL.metas.m[i].tipo;
-			var sonidoDePerro = false
+			var sonidoDePerro = false;
 			if (spriteMeta == "perro" && !sonidoDePerro){
 				Crafty.audio.play("ladrido");
 				sonidoDePerro=true;
@@ -210,11 +216,18 @@ function crear_escenario() {
 			var igridStackeable = HOC_LEVEL.stackeables.s[i].fila;
 			var jgridStackeable = HOC_LEVEL.stackeables.s[i].columna;
 			
-			stackeable[i] = Crafty.e("2D, Canvas, " + spriteStackeable)
+			stackeable[i] = Crafty.e("2D, Canvas, " + spriteStackeable + ", SpriteAnimation")
 				.attr({igrid: igridStackeable, jgrid: jgridStackeable,
 					x: jgridStackeable*s, y: igridStackeable*s, w: s, h: s,
 					tipo: spriteStackeable})
 			;
+			
+			if (tilesFuegos.has(spriteStackeable))
+				stackeable[i]
+					.reel("flameo", duracionAnimFuego, 22, 0, 4)
+					.animate("flameo", -1)
+					.reelPosition(parseInt(spriteStackeable[spriteStackeable.length-1]))
+				;
 			
 			stackeableEn[igridStackeable][jgridStackeable] = stackeable[i];
 		}

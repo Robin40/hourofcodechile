@@ -7,14 +7,14 @@ var HOC_LEVEL = {
 		"columnas": 10,
 		"matriz":
 		   ["XXXXXXXXXX",
-			"XXXXXXXXXX",
 			"XXXXXXX.XX",
-			"XXXXXX..XX",
-			"XXXXX..XXX",
-			"XXXX..XXXX",
-			"XXX..XXXXX",
+			"XXXXXX...X",
+			"XXXXX....X",
+			"XXXX....XX",
+			"XXX....XXX",
+			"XX....XXXX",
+			"X....XXXXX",
 			"XX..XXXXXX",
-			"XXXXXXXXXX",
 			"XXXXXXXXXX"
 		]
 	},

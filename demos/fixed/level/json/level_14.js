@@ -34,4 +34,12 @@
             {"fila": 2, "columna": 7},
         ]
     },
+    "stackeables": {
+        "cantidad": 2,
+        "s": [
+            {"tipo": "piedra", "fila": 3, "columna": 2},
+            {"tipo": "piedra", "fila": 2, "columna": 3},
+
+        ]
+    }
 };
