@@ -8,7 +8,6 @@ var HOC_LEVEL = {
 	"imagen_ayuda": "if_help.png", //debe estar en fixed/media/help
 	"comentario_ayuda": "ciclo qlo",
 	"maximoBloques": n,
-	"bloquesNecesarios": k,
 	"grid": {
 		"filas": r,
 		"columnas": c,

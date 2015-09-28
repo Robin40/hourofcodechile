@@ -169,7 +169,7 @@ function tile_simbolo(simbolo) {
 	return "missing_tile";
 }
 
-function crear_escenario() {
+function crear_escenario() {	
 	escenario = [];
 	indiceCacaEn = [];
 	metaEn = [];
@@ -251,12 +251,9 @@ function crear_escenario() {
 		}
 	}
 	
-	bloquesNecesarios = 10000;
-	if (typeof HOC_LEVEL.bloquesNecesarios !== 'undefined')
-		bloquesNecesarios = HOC_LEVEL.bloquesNecesarios + 1;
-	
+	bloquesNecesarios = Infinity;
 	if (typeof HOC_LEVEL.maximoBloques !== 'undefined')
-		maximoBloques = HOC_LEVEL.maximoBloques;
+		bloquesNecesarios = HOC_LEVEL.maximoBloques + 1;
 }
 
 function bloques_usados() {
@@ -281,7 +278,7 @@ function hay_al_menos_k_bloques_tipo(k, tipo) {
 
 var cantidadBloqueRequeridoFaltante, tipoBloqueRequeridoFaltante;
 function condicion_de_bloques_requeridos() {
-	if (typeof HOC_LEVEL.bloquesRequeridos === undefined)
+	if (typeof HOC_LEVEL.bloquesRequeridos === 'undefined')
 		return true;
 	
 	var cantidad, tipo;
@@ -424,7 +421,7 @@ function go() {
 						else {
 							Crafty.audio.play("mal");
 							//mostrar_mensaje_bloques_faltantes_victoria();
-							failedStage();
+							failedStage(nombreBloqueSegunTipo[tipoBloqueRequeridoFaltante]);
 							this.estado = "muerto";
 						}
 					}
