@@ -1,7 +1,11 @@
     var HOC_LEVEL = {
-	"nombre": "Nombre del nivel",
-	"descripcion": "Descripción del nivel",
-	"maximoBloques": 5,
+	"nombre": "",
+	"comentario_ayuda": "Sólo debes cambiar uno de los bloques \"girar\" para girar en otra dirección.",
+	"titulo_ayuda": "Debes cambiar muy poco",
+	"mensaje_inicial": "En este nivel, el código tiene un error y te deja dando vueltas en círculos. ¿Puedes arreglarlo para que se convierta en uno que lleva a recoger toda la caca?",
+	"descripcion": "En este nivel, el código tiene un error y te deja dando vueltas en círculos. ¿Puedes arreglarlo para que se convierta en uno que lleva a recoger toda la caca?",
+	"imagen_inicial": "caca.png",
+	"maximoBloques": 6,
 	"grid": {
 		"filas": 10,
 		"columnas": 10,
@@ -37,4 +41,11 @@
             {"fila": 8, "columna": 6},
         ]
     },
+	"bloquesRequeridos": {
+		"cantidad": 3,
+		"b": [
+			{"tipo": "repetir_hasta", "cantidad": 1},
+			{"tipo": "girar", "cantidad": 2}
+		]
+	}
 };
