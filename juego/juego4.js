@@ -289,7 +289,6 @@ function hay_al_menos_k_bloques_tipo(k, tipo) {
 	var b = Blockly.mainWorkspace.getAllBlocks();
 	var cuenta = 0;
 	for (var i = 0; i < b.length; ++i){
-		console.log('cmp: '+b[i].type+ " "+tipo); 
 		if (b[i].type == tipo){
 			++cuenta;
 		}
@@ -393,7 +392,7 @@ function go() {
 					} else {
 						this.x = this.jgrid*s;
 						this.y = this.igrid*s;
-						$("#murallaModal").modalDisplay();
+						wallCrash();
 						this.estado = "muerto";
 					}
 					break;

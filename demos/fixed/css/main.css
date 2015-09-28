@@ -63,6 +63,7 @@ body{
 	height: 42px;
 	margin-top: 5px;
 	padding: 8px;
+	font-size: 14px;
 	border: 2px solid #008E99;
 	background-color: #26ABB7;
 	color: #ffffff;
@@ -273,4 +274,10 @@ body{
 
 .showCodeBody pre{
 	padding: 10px;
+}
+.muralla-title{
+	font-size: 30px;
+	font-weight: bold;
+	color: #D64828;
+	text-align: center;
 }

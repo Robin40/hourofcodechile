@@ -18,6 +18,16 @@ header{
 	
 }
 
+#reset-level-btn button{
+	padding: 7px 28px;
+	border-radius: 2px;
+	background-color: #ff0000;
+	color: #ffffff;
+	background-color: #47E01E;
+	font-weight: bold;
+	font-size: 14px;
+}
+
 .l-title{
 	font-size: 20px;
 	display: inline-block;

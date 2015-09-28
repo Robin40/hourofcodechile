@@ -52,7 +52,7 @@ var HOC_LEVEL = {
         ]
     },
     "bloquesRequeridos": {
-		"cantidad": 2,
+		"cantidad": 1,
 		"b": [
 			{"tipo": "controls_repeat", "cantidad": 2}
 		]

@@ -1,10 +1,10 @@
 var HOC_LEVEL = {
     "nombre": "",
     "imagen_inicial": "caca.png",
-    "comentario_ayuda": "Elige dos bloques para girar dependiendo de la condici贸n.",
-    "titulo_ayuda": "Son s贸lo dos bloques.",
-    "mensaje_inicial": "Completa con s贸lo dos bloques para recoger toda la caca.",
-    "descripcion": "Completa con s贸lo dos bloques para recoger toda la caca.",
+    "comentario_ayuda": "Elige dos bloques para girar dependiendo de la condici髇.",
+    "titulo_ayuda": "Son s髄o dos bloques.",
+    "mensaje_inicial": "Completa con s髄o dos bloques para recoger toda la caca.",
+    "descripcion": "Completa con s髄o dos bloques para recoger toda la caca.",
     "maximoBloques": 6,
     "grid": {
         "filas": 10,

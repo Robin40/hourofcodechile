@@ -191,6 +191,23 @@ function failedStage(block){
 	$('.incompleted-block').html(block);
 }
 
+function wallCrash(){
+	$("#murallaModal").modalContentDisplay(500);
+	$(".completed-repeat-btn").click(function(){
+			resetear_nivel();
+			$('#hoc-fullmodal').hide();
+		});
+	
+	$(".completed-help-btn").click(function(){
+		$('#hoc-fullmodal').hide();
+		showHelp();
+	});
+	
+	execbtn.innerHTML = 'Reiniciar';
+	execbtn.className = '';
+}
+
+
 function welcomeWindow(){
 	$("#welcomeModal").modalContentDisplay(525);
 	$(".welcome-button").click(function(){

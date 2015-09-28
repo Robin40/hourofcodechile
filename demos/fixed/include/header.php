@@ -14,7 +14,7 @@
 	   </ul>
     </div>
     <div class="options">
-      <p>asdf</p>
+      <div id="reset-level-btn"><button>Resetear nivel</button></div>
     </div>
   </div>
   <!--<div id="lines-info">
