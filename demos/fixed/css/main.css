@@ -275,7 +275,7 @@ body{
 .showCodeBody pre{
 	padding: 10px;
 }
-.muralla-title{
+.muralla-title,  .empty-for-title{
 	font-size: 30px;
 	font-weight: bold;
 	color: #D64828;

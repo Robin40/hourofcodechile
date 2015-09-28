@@ -215,6 +215,18 @@ function wallCrash(){
 	execbtn.className = '';
 }
 
+function forModal(){
+	$("#emptyForErrorModal").modalContentDisplay(500);
+	$(".completed-repeat-btn").click(function(){
+			resetear_nivel();
+			$('#hoc-fullmodal').hide();
+		});
+	
+	$(".completed-help-btn").click(function(){
+		$('#hoc-fullmodal').hide();
+		showHelp();
+	});
+}
 
 function welcomeWindow(){
 	$("#welcomeModal").modalContentDisplay(525);

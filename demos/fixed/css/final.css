@@ -1,0 +1,34 @@
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+html{
+  height: 100%;
+}
+
+body{
+	min-height: 100%;
+	background-color: #3F92D6;
+	color: #ffffff;
+	font-size: 30px;
+	text-align: center;
+}
+
+#f-title{
+	font-size: 45px;
+}
+
+#f-message-container{
+	width: 600px;
+	height: 100vh;
+	margin: 0 auto;
+	display: table;
+}
+
+#f_message-inner{
+	display: table-cell;
+	vertical-align: middle;
+	height: 100%;
+}

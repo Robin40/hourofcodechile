@@ -14,6 +14,14 @@
 		</div>
       <div id="jsModal">jsmodal</div>
 	  <div id="mensajeModal">mensajeModal</div>
+	   <div id="emptyForErrorModal">
+	  	<div class="empty-for-title">&iexcl;Cuidado!</div>
+	  	<div>Los bloques repetir deben contener siempre otras insntrucciones dentro.</div>
+	  	<div class="completed-buttons">
+	  		<button class="completed-repeat-btn">Reintentar</button>
+	  		<button class="completed-help-btn">Necesito ayuda</button>
+	  	</div>
+	  </div>
 	  <div id="murallaModal">
 	  	<div class="muralla-title">&iexcl;Oh no!</div>
 	  	<div> Has chocado con un obst&aacute;culo. Revisa bien tus pasos y gira cuando sea necesario.</div>
