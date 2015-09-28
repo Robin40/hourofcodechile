@@ -12,7 +12,7 @@
   <xml id="startBlocks" style="display: none">
   <block type="al_ejecutar" x="32" y="32">
     <next>
-    <block type="controls_repeat">
+      <block type="controls_repeat">
     <field name="TIMES">?</field>
     <statement name="DO">
       <block type="controls_repeat">
@@ -20,13 +20,13 @@
         <statement name="DO">
           <block type="avanzar"></block>
         </statement>
+        <next>
+          <block type="girar">
+            <field name="sentido">derecha</field>
+          </block>
+        </next>
       </block>
     </statement>
-    <next>
-      <block type="girar">
-        <field name="sentido">derecha</field>
-      </block>
-    </next>
   </block>
     </next>
   </block>
