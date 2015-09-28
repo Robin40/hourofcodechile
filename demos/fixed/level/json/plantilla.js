@@ -65,5 +65,25 @@ var HOC_LEVEL = {
 			{"tipo": "piedra"/"fuego0"/.../"fuego3", "fila": i, "columna": j},
 			...
 		]
+	},
+	"bloquesRequeridos": {
+		"cantidad": n,
+		"b": [
+			{"tipo": tipobloque, "cantidad": k},
+			{"tipo": tipobloque, "cantidad": k},
+			...
+		]
 	}
 };
+
+/*
+	Tipos de bloques:
+		
+	"avanzar"
+	"girar"
+	"repetir_hasta"
+	"repetir_hasta_perro"
+	"controls_repeat"
+	"if_caca"
+	"if_no_caca"
+*/

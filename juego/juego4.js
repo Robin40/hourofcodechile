@@ -274,6 +274,33 @@ function simbolo_en(igrid, jgrid) {
 	return "?";
 }
 
+function hay_al_menos_k_bloques_tipo(k, tipo) {
+	var b = Blockly.mainWorkspace.getAllBlocks();
+	var cuenta = 0;
+	for (var i = 0; i < b.length; ++i)
+		if (b[i].tipo == tipo)
+			++cuenta;
+	return (cuenta >= k);
+}
+
+var cantidadBloqueRequeridoFaltante, tipoBloqueRequeridoFaltante;
+function condicion_de_bloques_requeridos() {
+	if (typeof HOC_LEVEL.bloquesRequeridos === undefined)
+		return true;
+	
+	var cantidad, tipo;
+	for (var i = 0; i < HOC_LEVEL.bloquesRequeridos.cantidad; ++i) {
+		cantidad = HOC_LEVEL.bloquesRequeridos.b[i].cantidad;
+		tipo = HOC_LEVEL.bloquesRequeridos.b[i].tipo;
+		if (!hay_al_menos_k_bloques_tipo(cantidad, tipo)) {
+			cantidadBloqueRequeridoFaltante = cantidad;
+			tipoBloqueRequeridoFaltante = tipo;
+			return false;
+		}
+	}
+	return true;
+}
+
 function condicion_de_victoria_inmediata() {
 	return false;
 }
