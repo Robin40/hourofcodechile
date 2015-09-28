@@ -1,9 +1,9 @@
 var HOC_LEVEL = {
 	"nombre": "",
 	"imagen_inicial": "perro.png",
-	"comentario_ayuda": "Prueba poniendo dos bloques 'avanzar' y uno 'girar' dentro 'repetir 3 veces'.",
-	"mensaje_inicial": "Tu perro está lejos, pero puedes llegar a él usando sólo dos instrucciones (recuerda utilizar el bloque repetir). ",
-	"descripcion": "El perro está ahora detrás de las piedras, pero puedes llegar a él repitiendo tres veces el mismo movimiento, ¿Puedes encontrar los bloques que debes poner dentro de 'repetir 3 veces'?",
+	"comentario_ayuda": "Prueba poniendo dos bloques \"avanzar\" y uno \"girar\" dentro \"repetir 3 veces\".",
+	"mensaje_inicial": "El perro está ahora detrás de las piedras, pero puedes llegar a él repitiendo tres veces el mismo movimiento, ¿Puedes encontrar los bloques que debes poner dentro de \"repetir 3 veces\"?",
+	"descripcion": "¿Puedes encontrar los bloques que debes poner dentro de \"repetir 3 veces\"?",
 	"maximoBloques": 4,
 	"titulo_ayuda": "Repetir varias instrucciones",
 	"grid": {

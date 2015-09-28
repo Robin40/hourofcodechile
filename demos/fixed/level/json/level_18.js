@@ -3,7 +3,7 @@ var HOC_LEVEL = {
     "imagen_inicial": "caca.png",
     "comentario_ayuda": "Este nivel es esencialmente igual a los dos anteriores pero en vez de mirar y girar a la derecha, debes hacerlo hacia la izquierda. Si tienes dudas puedes volver atrás y revisar los bloques anteriores.",
     "titulo_ayuda": "Es esencialmente igual al anterior",
-    "descripcion": "Ya te estás acercando al final. El nivel es intimidante, pero tienes los conocimientos para superarlo. Usa solo 4 bloques para recoger toda la caca y pasar al siguiente nivel.",
+    "descripcion": "Usa solo 4 bloques para recoger toda la caca y pasar al siguiente nivel.",
     "maximoBloques": 4,
     "mensaje_inicial": "Ya te estás acercando al final. El nivel es intimidante, pero tienes los conocimientos para superarlo. Usa solo 4 bloques para recoger toda la caca y pasar al siguiente nivel.",
     "grid": {

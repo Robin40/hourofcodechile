@@ -3,7 +3,7 @@
 	"comentario_ayuda": "Sólo debes cambiar uno de los bloques \"girar\" para girar en otra dirección.",
 	"titulo_ayuda": "Debes cambiar muy poco",
 	"mensaje_inicial": "En este nivel, el código tiene un error y te deja dando vueltas en círculos. ¿Puedes arreglarlo para que se convierta en uno que lleva a recoger toda la caca?",
-	"descripcion": "En este nivel, el código tiene un error y te deja dando vueltas en círculos. ¿Puedes arreglarlo para que se convierta en uno que lleva a recoger toda la caca?",
+	"descripcion": "¿Puedes arreglar el código para que se convierta en uno que lleva a recoger toda la caca?",
 	"imagen_inicial": "caca.png",
 	"maximoBloques": 6,
 	"grid": {

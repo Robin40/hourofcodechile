@@ -1,6 +1,7 @@
 var HOC_LEVEL = {
 	"nombre": "",
 	"maximoBloques": 6,
+	"imagen_inicial": "perro.png",
 	"comentario_ayuda": "Intenta usando dos giros, uno a la izquierda y otro a la derecha.",
 	"titulo_ayuda": "Girar y girar",
 	"descripcion": "Ahora el perro está un poco más lejos. Avanza y gira lo que sea necesario para llegar donde él. ",

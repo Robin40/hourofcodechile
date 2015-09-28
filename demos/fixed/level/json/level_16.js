@@ -7,7 +7,7 @@ var HOC_LEVEL = {
 		"b": [
 			{"tipo": "repetir_hasta", "cantidad": 1}
 		]
-	}
+	},
 	"titulo_ayuda": "Sólo debes girar.",
 	"comentario_ayuda": "Para completar el código, sólo debes girar. Mira la condición del bloque \"si\", para decidir en qué dirección debes girar.",
 	"mensaje_inicial": "Completa el código para poder recoger la caca.",

@@ -5,7 +5,7 @@ var HOC_LEVEL = {
 	"descripcion": "Ahora el perro está en la otra esquina de la plaza. ¿Puedes llegar a él usando sólo 5 bloques?",
 	"maximoBloques": 5,
 	"titulo_ayuda": "Dos bloques repetir",
-	"comentario_ayuda": "Prueba utilizando dos bloques "repetir", uno para llegar a la primera esquina y otro para llegar desde ahí hasta el perro. ¡Cuidado que ambos deberán repetirse distintas veces, y también tendrás que girar!",
+	"comentario_ayuda": "Prueba utilizando dos bloques \"repetir\", uno para llegar a la primera esquina y otro para llegar desde ahí hasta el perro. ¡Cuidado que ambos deberán repetirse distintas veces, y también tendrás que girar!",
 	"grid": {
 		"filas": 10,
 		"columnas": 10,

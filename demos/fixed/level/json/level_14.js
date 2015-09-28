@@ -2,7 +2,7 @@
 	"nombre": "",
 	"imagen_inicial": "caca.png",
 	"mensaje_inicial": "Debes recoger toda la caca de tus perros. Puedes usar el nuevo bloque \"repetir hasta que no haya más caca\". Este te ayudará a repetir movimientos mientras todavía quede caca por recoger.",
-	"descripcion": " Debes recoger toda la caca de tus perros. Puedes usar el nuevo bloque \"repetir hasta que no haya más caca\". Este te ayudará a repetir movimientos mientras todavía quede caca por recoger.",
+	"descripcion": "Puedes usar el nuevo bloque \"repetir hasta que no haya más caca\". Este te ayudará a repetir movimientos mientras todavía quede caca por recoger.",
 	"maximoBloques": 5,
 	"comentario_ayuda": "Este nivel es similar a otros que has pasado antes. Como ayuda, debes tratar de subir moviéndote en dos direcciones para luego repetir ese patrón de movimiento. No olvides usar el bloque \"repetir hasta que no haya más caca\".",
 	"titulo_ayuda": "Repite un patrón simple",
