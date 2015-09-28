@@ -87,9 +87,17 @@ $(".welcome-image img").attr('src', 'media/welcome/'+HOC_LEVEL.imagen_inicial);
 $(".welcome-message").html(HOC_LEVEL.mensaje_inicial);
 $(".help-title").html(HOC_LEVEL.titulo_ayuda);
 $(".help-message").html(HOC_LEVEL.comentario_ayuda);
+$("#reset-level-btn").click(function(){location.reload();});
 if(parseInt($('#i-maxlevel').val()) <= parseInt($('#i-level').val())){
-	$('.completed-next-btn').html('He terminado');
+		$('.completed-next-btn').html('He terminado');
+	}
+function lastLevelMessage(){
+	if(parseInt($('#i-maxlevel').val()) <= parseInt($('#i-level').val())){
+		$('.completed-next-btn').html('He terminado');
+		$('.cd-btn2').html('He terminado');
+	}
 }
+
 
 $("#game-tutorial span").click(function(){
 		$(document).modalVideoDisplay(HOC_LEVEL.tutorial);
