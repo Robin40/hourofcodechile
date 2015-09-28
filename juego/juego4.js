@@ -9,6 +9,25 @@ var bloquesNecesarios;
 var s = 45;
 var duracionAnim = 500;
 
+var sepAnimChoque = 0.7;
+var dgridMaxAnimChoque = 0.5;
+function dgrid_animacion_choque(t) {
+	var m = dgridMaxAnimChoque;
+	var s = sepAnimChoque;
+	var a = 1 - s;
+	if (t < 0.25*a)
+		return m* t*4/a;
+	if (t < 0.5*a)
+		return m* (1 - (t-0.25*a)*4/a);
+	if (t < 0.5*a + s)
+		return 0;
+	if (t < 0.75*a + s)
+		return m* ((t-(0.5*a+s))*4/a);
+	if (t < 1)
+		return m* (1 - (t-(0.75*a+s))*4/a);
+	return 0;
+}
+
 var assetsObj = {
 	"sprites": {
 		"personajes.png": {
@@ -305,18 +324,30 @@ function go() {
 		})
 		.bind("EnterFrame", function(e) {
 			var tAnim = this.tAnimacion();
+			var dgrid;
 			switch (this.estado) {
 				case "avanzando":
 					if (tAnim < 1) {
 						this.x = (this.jgrid + tAnim*jdir[this.orientacion])*s;
 						this.y = (this.igrid + tAnim*idir[this.orientacion])*s;
 					} else {
-						
 						this.igrid += idir[this.orientacion];
 						this.jgrid += jdir[this.orientacion];
 						this.x = this.jgrid*s;
 						this.y = this.igrid*s;
 						this.estado = "descansando";
+					}
+					break;
+				case "chocando":
+					if (tAnim < 1) {
+						dgrid = dgrid_animacion_choque(tAnim);
+						this.x = (this.jgrid + dgrid*jdir[this.orientacion])*s;
+						this.y = (this.igrid + dgrid*idir[this.orientacion])*s;
+					} else {
+						this.x = this.jgrid*s;
+						this.y = this.igrid*s;
+						$("#murallaModal").modalDisplay();
+						this.estado = "muerto";
 					}
 					break;
 				case "girando":
@@ -385,16 +416,15 @@ function go() {
 		.bind("avanzar", function() {
 			var igridDespues = this.igrid + idir[this.orientacion];
 			var jgridDespues = this.jgrid + jdir[this.orientacion];
+			this.inicioAnimacion = Date.now();
+			this.animate("caminando_o" + this.orientacion);
 			var simbolo = simbolo_en(igridDespues, jgridDespues);
 			if (!simbolosMurallasAltas.has(simbolo) &&
 				!simbolosMurallasBajas.has(simbolo) &&
 				!stackeablesSolidos.has(stackeableEn[igridDespues][jgridDespues].tipo)) {
-				this.inicioAnimacion = Date.now();
-				this.animate("caminando_o" + this.orientacion);
 				this.estado = "avanzando";
 			} else {
-				$("#murallaModal").modalDisplay();
-				this.estado = "muerto";
+				this.estado = "chocando";
 			}
 		})
 		.bind("girar", function(sentido) {
