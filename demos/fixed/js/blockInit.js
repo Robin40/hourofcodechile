@@ -137,6 +137,39 @@ function hay_bloques_sueltos() {
   return (Blockly.mainWorkspace.getTopBlocks().length >= 2);
 }
 
+function mostrar_mensaje_modal(mensaje) {
+	var div = $("#mensajeModal");
+	div.html(mensaje);
+	div.modalDisplay();
+}
+
+var nombreBloqueSegunTipo = {
+	"avanzar": "avanzar",
+	"girar": "girar",
+	"repetir_hasta": "\"repetir hasta que no haya caca\"",
+	"repetir_hasta_perro": "\"repetir hasta que llegue al perro\"",
+	"controls_repeat": "repetir",
+	"if_caca": "\"si veo caca\"",
+	"if_no_caca": "\"si no veo caca\""
+};
+/*
+function mostrar_mensaje_bloques_faltantes_victoria() {
+	var cantidad = cantidadBloqueRequeridoFaltante;
+	var tipo = tipoBloqueRequeridoFaltante;
+	mostrar_mensaje_modal("Tu c&oacute;digo cumple el objetivo principal, " +
+		"pero te falta" + (cantidad != 1 ? "n" : "") + " al menos " + 
+		(cantidad != 1 ? cantidad : "un") + " bloque" + (cantidad > 1 ? "s" : "") + " " +
+		nombreBloqueSegunTipo[tipo] + " para pasar el nivel.");
+}
+	
+function mostrar_mensaje_bloques_faltantes_derrota() {
+	var cantidad = cantidadBloqueRequeridoFaltante;
+	var tipo = tipoBloqueRequeridoFaltante;
+	mostrar_mensaje_modal("&iquest;Qu&eacute; tal si pones un" + 
+		(cantidad != 1 ? "os" + cantidad : "") + 
+		" bloque" + (cantidad != 1 ? "s" : "") + " " + nombreBloqueSegunTipo[tipo] + "?");
+}
+*/
 function mostrar_javascript() {
   if (hay_bloques_sueltos()) {
     $("#errorModal").modalDisplay();

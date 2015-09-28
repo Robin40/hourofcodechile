@@ -418,26 +418,41 @@ function go() {
 					stepCode();
 					break;
 				case "finalizando":
-					if (condicion_de_victoria_final()){
-						this.estado = "celebrando";
+					if (condicion_de_victoria_final()) {
+						if (condicion_de_bloques_requeridos())
+							this.estado = "celebrando";
+						else {
+							Crafty.audio.play("mal");
+							//mostrar_mensaje_bloques_faltantes_victoria();
+							failedStage();
+							this.estado = "muerto";
+						}
 					}
 					else {
-						incompletedStage();
+						if (condicion_de_bloques_requeridos())
+							incompletedStage();
+						//else
+							//mostrar_mensaje_bloques_faltantes_derrota();
+							
+						
 						this.estado = "muerto";
 						Crafty.audio.play("mal");
 					}
 					break;
 				case "celebrando":
-					if (bloques_usados() <= bloquesNecesarios){
+					if (bloques_usados() <= bloquesNecesarios) {
 						completedStage();
 						Crafty.audio.play("achieve");
 					}
 					else{
-						semiCompletedStage(5);
+						semiCompletedStage(bloquesNecesarios - 1);
 						Crafty.audio.play("masomenos");
 					}
 					this.estado = "muerto";
 					break;
+				case "muerto":
+					execbtn.innerHTML = 'Reiniciar';
+					execbtn.className = '';
 			}
 		})
 		.bind("avanzar", function() {
