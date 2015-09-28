@@ -1,7 +1,7 @@
 <header>
   <div id="levels-bar">
     <div class="logo">
-      <img src="media/hoc-logo3.png" width="60" />
+      <img src="media/hoc-logo.png" width="60" />
     </div>
     <div class="niveles">
       <div class="l-title">Nivel </div>

@@ -132,10 +132,13 @@ $.fn.modalCodeDisplay = function(lines, levels) {
 		
 		modal.show();
 	}
-	$('#hoc-fm-accept').show();
+	var ac = $('#hoc-fm-accept');
+	ac.show();
 	var htmlCode = "<div class='showCodeHeader'><div>Hasta ahora llevas</div><ul><li>"+lines+" Lineas de código</li><li>"+levels+" Niveles completados</li></ul></div>";
 	htmlCode += "<div class='showCodeBody'><div>Tu c&oacute;digo actual:</div>";
     $('#hoc-fm-content').html(htmlCode+'<pre>'+this.text()+'</pre></div>');
+    ac.append(ac.html());
+    ac.find("button").get(1).html("Siguiente nivel");
 };
 
 $.fn.modalVideoDisplay = function(url) {

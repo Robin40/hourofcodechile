@@ -8,10 +8,6 @@ var stackeable, stackeableEn;
 var bloquesNecesarios;
 var s = 45;
 var duracionAnim = 500;
-var hoc_paused_;
-var t_delay = 0;
-var t_ini;
-var t_end;
 
 var sepAnimChoque = 0.7;
 var dgridMaxAnimChoque = 0.5;
@@ -419,13 +415,7 @@ function go() {
 						this.estado = "celebrando";
 					break;
 				case "listo":
-					if(t_delay <= 0){
-						hoc_paused_ = false;
-					}
 					stepCode();
-					else{
-						
-					}
 					break;
 				case "finalizando":
 					if (condicion_de_victoria_final()){

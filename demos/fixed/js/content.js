@@ -147,11 +147,6 @@ function semiCompletedStage(n){
 	$('.completed-code-btn').click(function(){
 		$('#hoc-fullmodal').hide();
 		mostrar_javascript();
-		var btn = $('#hoc-fm-accept button');
-		btn.html("Siguiente nivel");
-		btn.click(function(){
-			window.location.href = htmlLevelPrefix+'.php?level='+(lv+1);
-		});
 	});
 }
 
@@ -174,7 +169,7 @@ function incompletedStage(){
 	});
 }
 
-function failedStage(){
+function failedStage(block){
 	$("#failedModal").modalContentDisplay(500);
 	$(".completed-repeat-btn").click(function(){
 			resetear_nivel();
@@ -191,6 +186,8 @@ function failedStage(){
 		$('#hoc-fullmodal').hide();
 		showHelp();
 	});
+	
+	$('.incompleted-block').html(block);
 }
 
 function welcomeWindow(){
