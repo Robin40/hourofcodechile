@@ -1,7 +1,11 @@
 var HOC_LEVEL = {
-    "nombre": "Nombre del nivel",
-    "descripcion": "Descripción del nivel",
-    "maximoBloques": 5,
+    "nombre": "",
+    "imagen_inicial": "caca.png",
+    "comentario_ayuda": "Elige dos bloques para girar dependiendo de la condición.",
+    "titulo_ayuda": "Son sólo dos bloques.",
+    "mensaje_inicial": "Completa con sólo dos bloques para recoger toda la caca.",
+    "descripcion": "Completa con sólo dos bloques para recoger toda la caca.",
+    "maximoBloques": 6,
     "grid": {
         "filas": 10,
         "columnas": 10,
@@ -59,6 +63,14 @@ var HOC_LEVEL = {
             {"tipo": "piedra", "fila": 7, "columna": 5},
             {"tipo": "piedra", "fila": 8, "columna": 4},
             {"tipo": "piedra", "fila": 8, "columna": 5},
+        ]
+    },
+    "bloquesRequeridos": {
+        "cantidad": 5,
+        "b": [
+            {"tipo": "repetir_hasta", "cantidad": 1},
+            {"tipo": "if_caca", "cantidad": 2},
+            {"tipo": "girar", "cantidad": 2}
         ]
     }
 };
