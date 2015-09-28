@@ -23,7 +23,7 @@
 	  	</div>
 	  </div>
       <div id="errorModal">&iexcl;Tienes bloques sueltos! Aseg&uacute;rate de que todos los bloques que uses est&aacute;n conectados al bloque "al inicio".</div>
-      <div id="codigoVacioModal">No has puesto bloques... Arrastra bloques en "Acciones disponibles" hasta el bloque "Al inicio" para que estos se ejecuten.</div>
+      <div id="codigoVacioModal">No has puesto bloques... Arrastra bloques en "Acciones disponibles" hasta el bloque "al inicio" para que estos se ejecuten.</div>
       <div id="completedModal"><b>
 	  <div class="completedTitle">&iexcl;Has completado el nivel!</div>
 	  <div>Completaste la tarea que se te ha pedido, &iexcl;Felicitaciones!</div></b>
