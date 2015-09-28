@@ -1,8 +1,12 @@
 var HOC_LEVEL = {
-	"nombre": "Mario Hugo",
-	"descripcion": "Ay&uacute;dame a llegar a la meta!",
+	"nombre": "",
+	"titulo_ayuda": "¡Recógela toda!",
+	"comentario_ayuda": "Avanza, avanza y gira cuando lo necesites. Tu puedes hacerlo, sólo necesitas 7 bloques.",
+	"mensaje_inicial": "Sé un buen dueño y recoge toda la caca que han dejado tus perros en la plaza. Sólo debes pasar por el lugar donde está la caca para recogerla, pero ¡no olvides ninguna!",
+	"descripcion": "Sé un buen dueño y recoge toda la caca que han dejado tus perros en la plaza. Sólo debes pasar por el lugar donde está la caca para recogerla, pero ¡no olvides ninguna!",
 	"tutorial": "https://www.youtube.com/embed/injrqPi050I",
-	"maximoBloques": 2,
+	"maximoBloques": 7,
+	"imagen_inicial": "caca.png",
 	"grid": {
 		"filas": 10,
 		"columnas": 10,

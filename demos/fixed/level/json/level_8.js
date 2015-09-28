@@ -1,7 +1,11 @@
 var HOC_LEVEL = {
-	"nombre": "Nombre del nivel",
-	"descripcion": "Descripción del nivel",
+	"nombre": "",
+	"imagen_inicial": "perro.png",
+	"mensaje_inicial": "Ahora el perro está en la otra esquina de la plaza. ¿Puedes llegar a él usando sólo 5 bloques?",
+	"descripcion": "Ahora el perro está en la otra esquina de la plaza. ¿Puedes llegar a él usando sólo 5 bloques?",
 	"maximoBloques": 5,
+	"titulo_ayuda": "Dos bloques repetir",
+	"comentario_ayuda": "Prueba utilizando dos bloques "repetir", uno para llegar a la primera esquina y otro para llegar desde ahí hasta el perro. ¡Cuidado que ambos deberán repetirse distintas veces, y también tendrás que girar!",
 	"grid": {
 		"filas": 10,
 		"columnas": 10,
@@ -46,5 +50,11 @@ var HOC_LEVEL = {
             {"tipo": "piedra", "fila": 5, "columna": 6},
 
         ]
-    }
+    },
+    "bloquesRequeridos": {
+		"cantidad": 2,
+		"b": [
+			{"tipo": "controls_repeat", "cantidad": 2}
+		]
+	}
 };

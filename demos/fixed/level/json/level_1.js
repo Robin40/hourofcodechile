@@ -1,12 +1,12 @@
 var HOC_LEVEL = {
-	"nombre": "Mario Hugo",
-	"descripcion": "Ay&uacute;dame a llegar a la meta!",
-	"mensaje_inicial": "Recoje la caca!",
+	"nombre": "",
+	"descripcion": "Avanza lo necesario para llegar donde el perro.",
+	"mensaje_inicial": "Avanza lo necesario para llegar donde el perro.",
 	"imagen_inicial": "perro.png",
 	"tutorial": "https://www.youtube.com/embed/injrqdPi050I",
-	"titulo_ayuda": "Bloque AVANZAR",
+	"titulo_ayuda": "Usa el bloque 'avanzar'.",
 	"imagen_ayuda": "test.jpg",
-	"comentario_ayuda": "Utiliza este bloque para que tu personaje avance una posición hacia donde está mirando.",
+	"comentario_ayuda": "Sólo necesitas unir dos bloques 'avanzar' bajo el bloque 'al inicio'.",
 	"maximoBloques": 2,
 	"grid": {
 		"filas": 10,

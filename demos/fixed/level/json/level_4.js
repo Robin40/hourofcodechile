@@ -1,7 +1,11 @@
 var HOC_LEVEL = {
-	"nombre": "Nombre del nivel",
-	"descripcion": "Descripción del nivel",
-	"maximoBloques": 5,
+	"nombre": "",
+	"imagen_inicial": "perro.png",
+	"titulo_ayuda": "Voltéate antes de avanzar.",
+	"comentario_ayuda": "Intenta girando dos veces antes de avanzar.",
+	"mensaje_inicial": "El perro está a tu espalda. ¿Qué debes hacer para llegar donde él?",
+	"descripcion": "El perro está a tu espalda. ¿Qué debes hacer para llegar donde él?",
+	"maximoBloques": 4,
 	"grid": {
 		"filas": 10,
 		"columnas": 10,

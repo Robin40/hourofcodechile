@@ -1,8 +1,12 @@
 var HOC_LEVEL = {
-	"nombre": "Mario Hugo",
-	"descripcion": "Ay&uacute;dame a llegar a la meta!",
+	"nombre": "",
+	"imagen_inicial": "caca.png",
+	"titulo_ayuda": "Giros y más giros.",
+	"comentario_ayuda": "En este escenario debes girar al menos dos veces. Posiblemente sea más fácil solo avanzar al principio y recoger las dos cacas que están frente tuyo.",
+	"mensaje_inicial": "Tus perros han dejado más caca en la plaza. Esfuérzate un poco más y recógela toda.",
+	"descripcion": "Tus perros han dejado más caca en la plaza. Esfuérzate un poco más y recógela toda.",
 	"tutorial": "https://www.youtube.com/embed/injrqPi050I",
-	"maximoBloques": 2,
+	"maximoBloques": 8,
 	"grid": {
 		"filas": 10,
 		"columnas": 10,

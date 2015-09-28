@@ -1,7 +1,11 @@
 var HOC_LEVEL = {
-	"nombre": "Nombre del nivel",
-	"descripcion": "Descripción del nivel",
-	"maximoBloques": 2,
+	"nombre": "",
+	"descripcion": "¿Cómo puedes llegar al perro usando sólo 5 bloques?",
+	"imagen_inicial": "perro.png",
+	"titulo_ayuda": "Repetir un 'patrón'",
+	"comentario_ayuda": "Mira qué bloques te ayudan a caminar desde la posición donde estás hasta la posición que está arriba y a la derecha. Luego podrías repetir este movimiento varias veces usando un bloque 'repetir' para llegar hasta el perro.",
+	"mensaje_inicial": "¿Cómo puedes llegar al perro usando sólo 5 bloques?",
+	"maximoBloques": 5,
 	"grid": {
 		"filas": 10,
 		"columnas": 10,
@@ -53,6 +57,13 @@ var HOC_LEVEL = {
 			{"tipo": "piedra", "fila": 8, "columna": 2},
 			{"tipo": "piedra", "fila": 1, "columna": 7},
 
+		]
+	},
+	"bloquesRequeridos": {
+		"cantidad": 3,
+		"b": [
+			{"tipo": "controls_repeat", "cantidad": 1},
+			{"tipo": "girar", "cantidad": 2}
 		]
 	}
 };
