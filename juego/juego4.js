@@ -108,7 +108,7 @@ window.onload = function() {
 }
 
 var simbolosMurallasAltas = new Set("M?".split(''));
-var simbolosMurallasBajas = new Set("RSFTUGJqwas".split(''));
+var simbolosMurallasBajas = new Set("RSFTUGJqwasuijk".split(''));
 var stackeablesSolidos = new Set(["piedra"]);
 var tilesFuegos = new Set(["fuego0", "fuego1","fuego2","fuego3"]);
 /*
