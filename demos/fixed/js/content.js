@@ -17,7 +17,6 @@ function initLevels(i){
 function isLevelCompleted(i){
 	var data = localStorage[completeStorage];
 	var idata = localStorage[incompleteStorage];
-	var val;
 	while(i>1){
 		idata = idata>>1;
 		data = data>>1;
@@ -29,24 +28,26 @@ function isLevelCompleted(i){
 
 function setLevelAsCompleted(i){
 	var mask = 1;
+	var level = i;
 	while(i > 1){
 		mask = mask << 1;
 		i--;
 	}
 	localStorage[completeStorage] = mask | localStorage[completeStorage];
 	localStorage[incompleteStorage] = ~mask & localStorage[incompleteStorage];
-	localStorage[linesStorage+i] = bloques_usados()-1;
+	localStorage[linesStorage+level] = bloques_usados()-1;
 }
 
 function setLevelAsIncompleted(i){
 	var mask = 1;
+	var level = i;
 	while(i > 1){
 		mask = mask << 1;
 		i--;
 	}
 	localStorage[incompleteStorage] = mask | localStorage[incompleteStorage];
 	localStorage[completeStorage] = ~mask & localStorage[completeStorage];
-	localStorage[linesStorage+i] = bloques_usados()-1;
+	localStorage[linesStorage+level] = bloques_usados()-1;
 }
 
 function getAllBlocks(){
