@@ -31,7 +31,10 @@ function insertNewUser($db){
 
 $USER_ID;
 if (session_status() == PHP_SESSION_NONE) {
+	ini_set('session.cookie_lifetime', 60 * 60 * 24 * 100);
+	ini_set('session.gc_maxlifetime', 60 * 60 * 24 * 100);
    	session_start();
+	session_regenerate_id();
 	if(!isset($_SESSION['user_id'])){
 		$db = DbConfig::getConnection();
 		$USER_ID = insertNewUser($db);

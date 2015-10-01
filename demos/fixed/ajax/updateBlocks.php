@@ -22,6 +22,7 @@ $user = $_SESSION['user_id'];
 $sql = "UPDATE hoc_user SET block_count='$blocks' WHERE id=$user LIMIT 1;";
 echo $sql;
 $db->query($sql);
+$db->close();
 echo "{status: 'ok'}";
 session_write_close();
 ?>
