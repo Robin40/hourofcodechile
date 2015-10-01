@@ -175,7 +175,7 @@ function mostrar_mensaje_bloques_faltantes_derrota() {
 */
 function mostrar_javascript() {
   if (hay_bloques_sueltos()) {
-    $("#errorModal").modalDisplay();
+  	unconnectedBlocks();
     return;
   }
   
@@ -196,7 +196,7 @@ function mostrar_javascript() {
 
 function ejecutar_javascript() {		
   if (hay_bloques_sueltos()) {
-    $("#errorModal").modalDisplay();
+    unconnectedBlocks();
     return;
   }
   

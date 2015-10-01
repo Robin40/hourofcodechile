@@ -28,6 +28,10 @@ header{
 	font-size: 14px;
 }
 
+#reset-level-btn button:hover{
+	cursor: pointer;
+}
+
 .l-title{
 	font-size: 20px;
 	display: inline-block;
