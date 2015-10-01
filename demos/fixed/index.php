@@ -20,7 +20,7 @@
       <div class="row">
         <?php include_once 'include/header.php'; ?>
 
-        <div class="col-xs-5 top-space">
+        <div class="col-xs-5 top-space" style="background-color: white">
           <?php include_once 'include/game_content.php'; ?>
         </div>
         
