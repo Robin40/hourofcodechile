@@ -1,6 +1,6 @@
 <?php
 
 /*Numero de niveles del juego*/
-$LEVEL_COUNT = 20;
+$LEVEL_COUNT = 24;
 
 ?>
