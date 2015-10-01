@@ -2,7 +2,7 @@
 <html>
   <head>
   <meta charset="utf-8">
-  <title>Felicitaciones</title>
+  <title>Felicitaciones - Hora del Código Chile</title>
   
   <link rel="stylesheet" href="css/final.css">
   </head> 
