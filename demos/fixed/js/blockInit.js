@@ -78,8 +78,8 @@ function initApi(interpreter, scope) {
 
 var highlightPause = false;
 function highlightBlock(id) {
-  workspace.highlightBlock(id);
-  //highlightPause = true;
+	workspace.highlightBlock(id);
+	highlightPause = true;
 }
 
 function parseCode() {
@@ -106,35 +106,43 @@ function parseCode() {
 
 var gameRunning = false;
 var execbtn = document.getElementById('exec-button');
+
 function stepCode() {
-  try {
-    var ok = interprete.step();
-  } finally {
-    if (!ok) {
-      //document.getElementById('stepButton').disabled = 'disabled';
-      //personaje.estado == "muerto";
-      gameRunning = false;
-      execbtn.innerHTML = 'Reiniciar';
-      execbtn.className = '';
-      personaje.estado = "finalizando";
-      return;
-    }
-    else{
-      if(personaje.estado == "muerto"){
-	gameRunning = false;
-	execbtn.innerHTML = 'Reiniciar';
-	execbtn.className = '';
-	return;
-      }
-    }
-  }
-  if (highlightPause) {
-    highlightPause = false;
-  } else {
-    //stepCode();
-    //console.log("rec");
+	try {
+		var ok = interprete.step();
+	} finally {
+		if (!ok) {
+		  //document.getElementById('stepButton').disabled = 'disabled';
+		  //personaje.estado == "muerto";
+		  gameRunning = false;
+		  execbtn.innerHTML = 'Reiniciar';
+		  execbtn.className = '';
+		  personaje.estado = "finalizando";
+		  return;
+		}
+		else {
+			if(personaje.estado == "muerto") {
+				gameRunning = false;
+				execbtn.innerHTML = 'Reiniciar';
+				execbtn.className = '';
+				return;
+			}
+		}
+	}
+	if (highlightPause) {
+		highlightPause = false;
+	} else {
+		stepCode();
+		//console.log("rec");
+	}
+}
+/*
+function stepCode() {
+  if (interprete.step()) {
+    window.setTimeout(stepCode, 500);
   }
 }
+*/
 
 function hay_bloques_sueltos() {
   return (Blockly.mainWorkspace.getTopBlocks().length >= 2);
@@ -175,7 +183,7 @@ function mostrar_mensaje_bloques_faltantes_derrota() {
 */
 function mostrar_javascript() {
   if (hay_bloques_sueltos()) {
-  	unconnectedBlocks();
+    unconnectedBlocks();
     return;
   }
   
@@ -192,7 +200,6 @@ function mostrar_javascript() {
   jsModal.modalCodeDisplay(getAllBlocks() , stagesCompleted());
   lastLevelMessage();
 }
-
 
 function ejecutar_javascript() {		
   if (hay_bloques_sueltos()) {

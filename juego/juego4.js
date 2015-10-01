@@ -7,7 +7,8 @@ var caca, indiceCacaEn, cacasRecogidas, cacasRequeridas;
 var stackeable, stackeableEn;
 var bloquesNecesarios;
 var s = 45;
-var duracionAnim = 500;
+var duracionAnim = 400;
+var duracionPausa = 100;
 
 var sepAnimChoque = 0.7;
 var dgridMaxAnimChoque = 0.5;
@@ -429,9 +430,13 @@ function go() {
 					}
 					
 					if (!condicion_de_victoria_inmediata())
-						this.estado = "listo";
+						this.estado = "pausaAnimacion";
 					else
 						this.estado = "celebrando";
+					break;
+				case "pausaAnimacion":
+					if (Date.now() - this.inicioAnimacion >= this.duracionAnimacion + duracionPausa)
+						this.estado = "listo";
 					break;
 				case "listo":
 					stepCode();
