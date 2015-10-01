@@ -26,3 +26,11 @@
 .modal-title {
     color: #ca3600;
 }
+
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    z-index: -255;
+    color: gray;
+}

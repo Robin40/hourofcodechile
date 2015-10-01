@@ -219,3 +219,39 @@
     </div><!-- /.modal-content --> 
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+<!-- Codigo vacio -->
+<div id="copyrightModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title text-center">Copyright</h3>
+      </div>
+      <div class="modal-body" style="font-size: 14px">
+        <p>
+          Agradecemos a todos quienes han colaborado con el desarrollo
+          y diseño de este juego, además de la producción y edición de
+          los vídeos tutoriales.
+        </p>
+        <p>
+          Personaje Mario Hugo pertenece a <span class="glyphicon
+          glyphicon-copyright-mark"></span> Producciones Aplaplac Ltda.
+          Todos los derechos reservados.
+        </p>
+        <p>
+          Juego desarrollado
+          en <a href="https://developers.google.com/blockly/">Blockly</a>
+          y <a href="http://craftyjs.com/">Crafty</a>.
+        </p>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar esta ventana</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+

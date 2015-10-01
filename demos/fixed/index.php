@@ -20,44 +20,53 @@
       <div class="row">
         <?php include_once 'include/header.php'; ?>
 
-          <div class="col-xs-5 top-space">
-            <?php include_once 'include/game_content.php'; ?>
+        <div class="col-xs-5 top-space">
+          <?php include_once 'include/game_content.php'; ?>
+        </div>
+        
+        <div class="col-xs-7 top-space">
+          <div class="col-xs-4" style="padding-left: 0;
+                                       padding-right: 0">
+            <h5>Acciones disponibles</h5>
           </div>
-          
-          <div class="col-xs-7 top-space">
-            <div class="col-xs-4" style="padding-left: 0;
-                                         padding-right: 0">
-              <h5>Acciones disponibles</h5>
-            </div>
-            <div class="col-xs-8" style="padding-left: 0;
-                                         padding-right: 0">
-              <h5>Acciones a realizar </h5>
-            </div>
-	    <?php include_once 'include/block_content.php'; ?>          
+          <div class="col-xs-8" style="padding-left: 0;
+                                       padding-right: 0">
+            <h5>Acciones a realizar </h5>
           </div>
+	  <?php include_once 'include/block_content.php'; ?>          
+        </div>
       </div>
 
 
       
-    <?php $a = 'include/game_header.php'; ?>    
-    <?php
-       /*Bloques disponibles e iniciales para $level*/
-       include_once "level/block/block_$level.php";
-       
-       /*Mensajes utilizados para $level*/
-       include_once "level/modal/modal_$level.php";
-       ?>
-    <?php include_once "include/modals.php"; ?>
-    
-    <!--<script src="js/modalPlugin.js"></script>-->
-    
-    <script src="level/json/level_<?= $level ?>.js"></script>
-    <script src="js/content.js"></script>
-    <script src="../../crafty/crafty-min.js"></script>
-    <script src="../../juego/juego4.js"></script>
-    <script src="js/blockInit.js"></script>
+      <?php $a = 'include/game_header.php'; ?>    
+      <?php
+         /*Bloques disponibles e iniciales para $level*/
+         include_once "level/block/block_$level.php";
+         
+         /*Mensajes utilizados para $level*/
+         include_once "level/modal/modal_$level.php";
+         ?>
+      <?php include_once "include/modals.php"; ?>
+      
+      <!--<script src="js/modalPlugin.js"></script>-->
+      
+      <script src="level/json/level_<?= $level ?>.js"></script>
+      <script src="js/content.js"></script>
+      <script src="../../crafty/crafty-min.js"></script>
+      <script src="../../juego/juego4.js"></script>
+      <script src="js/blockInit.js"></script>
 
-    <script src="js/highlight.pack.js"></script>
+      <script src="js/highlight.pack.js"></script>
+
+
+      
+      <div id="footer" class="col-xs-12">
+        <p><a href="#" data-toggle="modal" data-target="#copyrightModal"><small>Copyright</small></a> &nbsp;
+        &nbsp; <small>Juego creado para
+        funcionar en <a href="http://google.com/chrome">Google Chrome</a>
+        o <a href="http://mozilla.org/firefox">Mozilla Firefox</a></small></p>
+      </div>
     </div>
 
   </body>
