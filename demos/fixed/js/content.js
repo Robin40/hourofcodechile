@@ -150,8 +150,16 @@ $("#game-info-desc").html(HOC_LEVEL.descripcion);
 $(".welcome-image img").attr('src', 'media/welcome/'+HOC_LEVEL.imagen_inicial);
 
 if("tutorial" in HOC_LEVEL) {
-  $("#video-tutorial").attr("src", HOC_LEVEL.tutorial + "?rel=0");
   $('#video').removeClass('invisible');
+  
+  $("#videoModal").on('hide.bs.modal', function(e) {
+    $('#video-tutorial').remove();
+  });
+
+  $("#videoModal").on('show.bs.modal', function(e) {
+    $('#video-modal-body').append('<iframe id="video-tutorial" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>');
+    $("#video-tutorial").attr("src", HOC_LEVEL.tutorial + "?rel=0");
+  });
 }
 
 $("#welcome-message").html(HOC_LEVEL.mensaje_inicial);

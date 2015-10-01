@@ -210,8 +210,8 @@
 <div id="videoModal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-body">
-        <iframe id="video-tutorial" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+      <div id="video-modal-body" class="modal-body">
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar esta ventana</button>
@@ -221,7 +221,7 @@
 </div><!-- /.modal -->
 
 
-<!-- Codigo vacio -->
+<!-- Copyright -->
 <div id="copyrightModal" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -236,8 +236,7 @@
           los vídeos tutoriales.
         </p>
         <p>
-          Personaje Mario Hugo pertenece a <span class="glyphicon
-          glyphicon-copyright-mark"></span> Producciones Aplaplac Ltda.
+          Personaje Mario Hugo pertenece a &copy; Producciones Aplaplac Ltda.
           Todos los derechos reservados.
         </p>
         <p>
