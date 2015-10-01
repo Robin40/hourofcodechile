@@ -21,6 +21,7 @@ $user = $_SESSION['user_id'];
 
 $sql = "UPDATE hoc_user SET fail_count='$fails' WHERE id=$user LIMIT 1;";
 $db->query($sql);
+$db->close();
 echo "{status: 'ok'}";
 session_write_close();
 ?>
