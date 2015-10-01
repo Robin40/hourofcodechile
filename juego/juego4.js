@@ -11,6 +11,20 @@ var duracionAnim = 500;
 
 var sepAnimChoque = 0.7;
 var dgridMaxAnimChoque = 0.5;
+
+var gameDiv = document.getElementById("gameDiv");
+var width = parseInt($('#gameDiv').css('width'), 10);
+var height = width;
+s = width / 10;
+
+$('#blocklyDiv').css('height', width + 100);
+
+$(document).ready(function() {
+  Crafty.init(width, height, gameDiv);
+  Crafty.load(assetsObj, go);
+})
+
+
 function dgrid_animacion_choque(t) {
 	var m = dgridMaxAnimChoque;
 	var s = sepAnimChoque;
@@ -101,11 +115,6 @@ var assetsObj = {
 		"masomenos":["masomenos.wav"]
 	}
 };
-
-window.onload = function() {
-	Crafty.init(450, 450, document.getElementById("gameDiv"));
-	Crafty.load(assetsObj, go);
-}
 
 var simbolosMurallasAltas = new Set("M?".split(''));
 var simbolosMurallasBajas = new Set("RSFTUGJqwasuijk".split(''));

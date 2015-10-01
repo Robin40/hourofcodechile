@@ -7,29 +7,38 @@
                                                                        }
                                                                        ?>
 <html>
+  <script src="js/jquery-2.1.4.min.js" type="text/javascript"></script>
+  <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
   <?php include_once 'include/head.php'; ?> 
   <body>
-    <input id="i-level" type="hidden" value="<?= $level ?>" />
-    <input id="i-maxlevel" type="hidden" value="<?= $GLOBALS['LEVEL_COUNT'] ?>" />
-    <div id="wrap">
-      <?php include_once 'include/header.php'; ?>
-      <div class="game_content">
-        <?php include_once 'include/game_content.php'; ?>
+    <div id="container" class="container-fluid">
+      <input id="i-level" type="hidden" value="<?= $level ?>" />
+      <input id="i-maxlevel" type="hidden"
+             value="<?= $GLOBALS['LEVEL_COUNT'] ?>" />
+      
+      <div class="row">
+        <?php include_once 'include/header.php'; ?>
+
+          <div class="col-xs-5 top-space">
+            <?php include_once 'include/game_content.php'; ?>
+          </div>
+          
+          <div class="col-xs-7 top-space">
+            <div class="col-xs-4" style="padding-left: 0;
+                                         padding-right: 0">
+              <h5>Acciones disponibles</h5>
+            </div>
+            <div class="col-xs-8" style="padding-left: 0;
+                                         padding-right: 0">
+              <h5>Acciones a realizar </h5>
+            </div>
+	    <?php include_once 'include/block_content.php'; ?>          
+          </div>
       </div>
-      <div class="block_content">
-	<?php include_once 'include/block_content.php'; ?>
-      </div>
-    </div>
-    
-    <?php $a = 'include/game_header.php'; ?>
-    
-    <?php
-       /*Bloques y mensajes para el modo prueba*/
-       //include_once 'level/block/test.php';
-       //include_once 'level/modal/test.php';
-       ?>
-    
-    
+
+
+      
+    <?php $a = 'include/game_header.php'; ?>    
     <?php
        /*Bloques disponibles e iniciales para $level*/
        include_once "level/block/block_$level.php";
@@ -37,22 +46,18 @@
        /*Mensajes utilizados para $level*/
        include_once "level/modal/modal_$level.php";
        ?>
-    <?php include_once "include/static_modal.php"; ?>
+    <?php include_once "include/modals.php"; ?>
     
-    <script src="js/jquery.min.js"></script>
-    <script src="js/modalPlugin.js"></script>
+    <!--<script src="js/modalPlugin.js"></script>-->
     
-    <!-- 
-	 IMPORTANTE: Para Robinson
-	 Json del nivel actual  -->
     <script src="level/json/level_<?= $level ?>.js"></script>
-    <!--<script src="level/json/test.js"></script>--!>
-	
-	<!-- 
-	     IMPORTANTE: Para Robinson
-	     Funciones e inicializador de la API del videojuego -->
-	<script src="js/blockInit.js"></script>
-	
-	<script src="js/content.js"></script>
+    <script src="js/content.js"></script>
+    <script src="../../crafty/crafty-min.js"></script>
+    <script src="../../juego/juego4.js"></script>
+    <script src="js/blockInit.js"></script>
+
+    <script src="js/highlight.pack.js"></script>
+    </div>
+
   </body>
 </html>

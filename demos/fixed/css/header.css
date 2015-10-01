@@ -1,48 +1,16 @@
-*{
-	margin: 0px;
-	padding: 0px;
-	border: 0px;
+.logo-container{
+    width: 120px;
+    height: 120px;
+    padding: 0;
+    background-image:url(../media/hoc-logo.png);
 }
 
-header{
-	width: 100%;
-}
-
-
-
-#logo-container{
-	width: 120px;
-	height: 120px;
-	padding: 0;
-	background-image:url(../media/hoc-logo.png);
-	
-}
-
-#reset-level-btn button{
-	padding: 7px 28px;
-	border-radius: 2px;
-	background-color: #ff0000;
-	color: #ffffff;
-	background-color: #47E01E;
-	font-weight: bold;
-	font-size: 14px;
-}
-
-.l-title{
-	font-size: 20px;
-	display: inline-block;
-	vertical-align: middle;
-}
-
-
-#levels-bar{
-	text-align: center;
-	font-weight: bold;
-	color: #ffffff;
-	font-size: 20px;
-	cursor: default;
-	background-color: #0094CA;
-        height: 40px;
+.levels-bar {
+    text-align: center;
+    color: #ffffff;
+    cursor: default;
+    background-color: #0094CA;
+    height: 40px;
 }
 
 @media screen and (max-width: 600px) {
@@ -52,78 +20,51 @@ header{
     }
 }
 
-
-#levels-bar ul{
-	display: inline-block;
-	vertical-align: middle;
-}
-
-#lines-info{
-	background-color: #AF3E24;
-}
-
-#levels-bar li{
-	height: 10px;
-	width: 10px;
-	margin: 3px;
-	text-align: center;
-	display: inline-block;
-	vertical-align: middle;
-	border: solid 2px #ccc;
-	background: #333;
-	border-radius: 10px;
-}
-
-#levels-bar li:not(.current-level):hover{
-	height: 12px;
-	width: 12px;
-	margin-left: 2px;
-	margin-right: 2px;
-	margin-top: 4px;
-	cursor: pointer;
-}
-
-#levels-bar li.current-level{
-	height: 22px;
-	width: 22px;
-	font-size: 11px;
-	border-radius: 20px;
-	font-weight: bold;
-	line-height: 20px;
-}
-
-#levels-bar li.lcolor0{
+.levels-bar li.lcolor0{
 	
 }
 
-#levels-bar li.lcolor2{
-	background-color: #28BB14;
+.levels-bar li.lcolor2{
+    background-color: #28BB14;
 }
 
-#levels-bar li.lcolor1{
-	background-color: #1470BB;
+.levels-bar li.lcolor1{
+    background-color: #1470BB;
 }
 
-#lines-count{
-	font-size: 30px;
-	
+.levels {
+    padding: 5px;
+    display: inline;
 }
 
-.niveles {
-    position:absolute;
-    width: 100%;
-    top: 5px;
+.levels>li {
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    margin: 4px;
+    text-align: center;
+    vertical-align: middle;
+    border: solid 2px #ccc;
+    background: #333;
+    border-radius: 10px;
 }
 
-.logo {
-    position: absolute;
-    top: 2px;
-    float:left;
-    left: 15%;
+.levels>li:not(.current-level):hover{
+    height: 17px;
+    width: 17px;
+    cursor: pointer;
 }
 
-.options {
-    float:right;
-    padding-right: 100px;
-    padding-top: 5px;
+.levels>.current-level {
+    height: 23px;
+    width: 23px;
+    font-size: 11px;
+    border-radius: 20px;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+
+.hdc-title {
+    font-family: 'Comfortaa', sans-serif;
 }

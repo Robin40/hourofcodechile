@@ -1,26 +1,27 @@
 <header>
-  <div id="levels-bar">
-    <div class="logo">
-      <img src="media/hoc-logo.png" width="60" />
+  <div class="row levels-bar">
+    <!-- logo -->
+    <div class="col-xs-3" style="padding-top:10px;">
+      <p class="hdc-title">La Hora del Código Chile </p>
     </div>
-    <div class="niveles">
-      <div class="l-title">Nivel </div>
-      <ul>
+
+    <!-- niveles -->
+    <div class="col-xs-6" style="padding-top: 5px">
+      <strong>Nivel</strong>
+      <ul class="levels">
 	<?php
-	   for ($i=1; $i <= $GLOBALS['LEVEL_COUNT']; $i++) {
-			    echo $i==$GLOBALS['level']?"<li class='current-level'>$i</li>":"<li></li>";
-			    }
-			    ?>
-	   </ul>
+   for ($i=1; $i <= $GLOBALS['LEVEL_COUNT']; $i++) {
+     echo $i==$GLOBALS['level']?"<li class='current-level'>$i</li>":"<li></li>";
+   }?>
+      </ul>
     </div>
-    <div class="options">
-      <div id="reset-level-btn"><button>Resetear nivel</button></div>
+
+
+    <!-- opciones -->
+    <div class="col-xs-3" style="padding-top: 4px">
+      <button id="game-tutorial" class="btn btn-sm btn-warning">¿Necesitas ayuda?</button>
+      <button id="reset-level-btn" class="btn btn-sm btn-info">Reiniciar nivel</button>
     </div>
+    
   </div>
-  <!--<div id="lines-info">
-      <div>Llevas</div>
-      <div id="lines-count">0</div>
-      <div>lineas de c&oacute;digo</div>
-  </div>
-  <div id="logo-container"></div>-->
 </header>
