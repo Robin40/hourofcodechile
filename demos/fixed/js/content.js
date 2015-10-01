@@ -228,7 +228,6 @@ function semiCompletedStage(n){
 }
 
 function incompletedStage(n){
-<<<<<<< HEAD
   $("#incompletedModal").modal();
   $(".completed-repeat-btn").click(function(){
     resetear_nivel();
