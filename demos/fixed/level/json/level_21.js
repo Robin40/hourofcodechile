@@ -1,11 +1,11 @@
 var HOC_LEVEL = {
 	"nombre": "",
-	"descripcion": "Recoge toda la caca usando solo 7 bloques",
+	"descripcion": "Recoge toda la caca usando solo 8 bloques",
 	"imagen_inicial": "caca.png",
 	"titulo_ayuda": "Â¡Tu puedes hacerlo!",
 	"comentario_ayuda": "Tienes todos los conocimientos para lograrlo.",
-	"mensaje_inicial": "Recoge toda la caca usando solo 7 bloques",
-	"maximoBloques": 7,
+	"mensaje_inicial": "Recoge toda la caca usando solo 8 bloques",
+	"maximoBloques": 8,
 	"grid": {
 		"filas": 10,
 		"columnas": 10,
