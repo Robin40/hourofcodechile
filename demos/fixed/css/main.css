@@ -19,7 +19,14 @@ body{
 
 #blocklyDiv{
 	height: 480px;
-	width: 480px;
+	width: 100%;
+        left: 500px;
+        top: 100px;
+        
+}
+
+#blocklyArea {
+    height: 500px;
 }
 
 #gameContainer{

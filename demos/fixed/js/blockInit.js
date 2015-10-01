@@ -1,7 +1,7 @@
 var maximoBloques = Infinity;
 /*if (typeof HOC_LEVEL.maximoBloques !== 'undefined')
 	maximoBloques = HOC_LEVEL.maximoBloques + 1;*/
-
+var blocklyArea = document.getElementById('blocklyArea');
 var workspace = Blockly.inject('blocklyDiv', {
   media: '../../media/',
   toolbox: document.getElementById('toolbox'),
@@ -86,7 +86,7 @@ function parseCode() {
   Blockly.JavaScript.STATEMENT_PREFIX = "";
   var codigo = Blockly.JavaScript.workspaceToCode(workspace);
   if (codigo == "") {
-    $("#codigoVacioModal").modalDisplay();
+    $("#codigoVacioModal").modal();
     return "codigoVacio";
   }
   
@@ -105,44 +105,40 @@ function parseCode() {
 }
 
 var gameRunning = false;
-var execbtn = document.getElementById('exec-button');
 
+var execbtn = $('#exec-button');
 function stepCode() {
-	try {
-		var ok = interprete.step();
-	} finally {
-		if (!ok) {
-		  //document.getElementById('stepButton').disabled = 'disabled';
-		  //personaje.estado == "muerto";
-		  gameRunning = false;
-		  execbtn.innerHTML = 'Reiniciar';
-		  execbtn.className = '';
-		  personaje.estado = "finalizando";
-		  return;
-		}
-		else {
-			if(personaje.estado == "muerto") {
-				gameRunning = false;
-				execbtn.innerHTML = 'Reiniciar';
-				execbtn.className = '';
-				return;
-			}
-		}
-	}
-	if (highlightPause) {
-		highlightPause = false;
-	} else {
-		stepCode();
-		//console.log("rec");
-	}
-}
-/*
-function stepCode() {
-  if (interprete.step()) {
-    window.setTimeout(stepCode, 500);
+  try {
+    var ok = interprete.step();
+  } finally {
+    if (!ok) {
+      //document.getElementById('stepButton').disabled = 'disabled';
+      //personaje.estado == "muerto";
+      gameRunning = false;
+      execbtn.html('Reiniciar');
+      execbtn.toggleClass("btn-danger btn-success");
+      //execbtn.className = '';
+      personaje.estado = "finalizando";
+      return;
+    }
+    else{
+      if(personaje.estado == "muerto"){
+	gameRunning = false;
+	execbtn.html('Reiniciar');
+        execbtn.toggleClass("btn-danger btn-success");
+	//execbtn.className = '';
+	return;
+      }
+    }
+  }
+  if (highlightPause) {
+    highlightPause = false;
+  } else {
+    stepCode();
+    //console.log("rec");
   }
 }
-*/
+
 
 function hay_bloques_sueltos() {
   return (Blockly.mainWorkspace.getTopBlocks().length >= 2);
@@ -183,6 +179,7 @@ function mostrar_mensaje_bloques_faltantes_derrota() {
 */
 function mostrar_javascript() {
   if (hay_bloques_sueltos()) {
+    $("#errorModal").modal();
     unconnectedBlocks();
     return;
   }
@@ -191,18 +188,26 @@ function mostrar_javascript() {
   var codigo = Blockly.JavaScript.workspaceToCode(workspace);
   
   if (codigo == "") {
-    $("#codigoVacioModal").modalDisplay();
+    $("#codigoVacioModal").modal();
     return;
   }
   
   var jsModal = $('#jsModal');
-  jsModal.html(codigo);
-  jsModal.modalCodeDisplay(getAllBlocks() , stagesCompleted());
-  lastLevelMessage();
+  var codigoJs = $('#codigoJS');
+  codigoJs.html(codigo);
+
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+  
+  jsModal.modal()
+  //  jsModal.modalCodeDisplay(getAllBlocks() , stagesCompleted());
+  //  lastLevelMessage();
 }
 
 function ejecutar_javascript() {		
   if (hay_bloques_sueltos()) {
+    $("#errorModal").modal();
     unconnectedBlocks();
     return;
   }
@@ -216,8 +221,9 @@ function ejecutar_javascript() {
     resetear_nivel();
     personaje.estado = 'listo';
     //document.getElementById('js-button').disabled = 'disabled';
-    execbtn.innerHTML = 'Detener';
-    execbtn.className = 'running';
+    execbtn.html('Detener');
+    //execbtn.className = 'running';
+    execbtn.toggleClass("btn-success btn-danger");
 
 
     stepCode();
@@ -228,8 +234,9 @@ function ejecutar_javascript() {
   }
   else{
     gameRunning = false;
-    execbtn.innerHTML = 'Reiniciar';
-    execbtn.className = '';
+    execbtn.html('Reiniciar');
+    execbtn.toggleClass("btn-danger btn-success");
+//    execbtn.className = '';
     personaje.estado = 'muerto';
     
   }
