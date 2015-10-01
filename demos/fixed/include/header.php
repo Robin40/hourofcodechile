@@ -6,7 +6,7 @@
     </div>
 
     <!-- niveles -->
-    <div class="col-xs-6" style="padding-top: 5px">
+    <div class="col-xs-6" style="padding-top: 7px">
       <strong>Nivel</strong>
       <ul class="levels">
 	<?php
@@ -19,7 +19,7 @@
     <!-- opciones -->
     <div class="col-xs-3" style="padding-top: 4px">
       <button id="video" class="btn btn-sm btn-success invisible" data-toggle="modal" data-target="#videoModal">Vídeo</button>
-      <button id="game-tutorial" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#helpModal">¿Necesitas ayuda?</button>
+      <button id="game-tutorial" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#helpModal">Pista</button>
       <button id="reset-level-btn" class="btn btn-sm btn-info">Reiniciar nivel</button>
     </div>
 

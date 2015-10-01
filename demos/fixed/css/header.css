@@ -32,8 +32,8 @@
 
 .levels>li {
     display: inline-block;
-    height: 12px;
-    width: 12px;
+    height: 11px;
+    width: 11px;
     margin: 4px;
     text-align: center;
     vertical-align: middle;
@@ -43,18 +43,17 @@
 }
 
 .levels>li:not(.current-level):hover{
-    height: 17px;
-    width: 17px;
+    height: 11px;
+    width: 11px;
     cursor: pointer;
 }
 
 .levels>.current-level {
-    height: 23px;
-    width: 23px;
-    font-size: 11px;
+    height: 15px;
+    width: 15px;
+    font-size: 9px;
     border-radius: 20px;
-    font-weight: bold;
-    line-height: 20px;
+    line-height: 12px;
 }
 
 

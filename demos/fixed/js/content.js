@@ -284,6 +284,7 @@ function wallCrash(){
   
   execbtn.html('Reiniciar');
   execbtn.toggleClass("btn-danger btn-success");
+  
   var lv = parseInt($('#i-level').val());
   localStorage[crashStorage+lv] = 1+parseInt(localStorage[crashStorage+lv]);
   $.post( "ajax/updateCrash.php", { level_crash: getLevelCrashs()}).done(function( data ) { });
