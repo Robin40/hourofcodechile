@@ -3,7 +3,7 @@
    include_once 'config.php';
    include_once 'db/session.php';
    $level = 1;
-   if(isset($_GET['level']) && $_GET['level'] > 0 && $_GET['level'] <= $GLOBALS['LEVEL_COUNT']){
+   if(isset($_GET['level']) && $_GET['level'] > 0) { //&& $_GET['level'] <= $GLOBALS['LEVEL_COUNT']){
 	                                                               $level = $_GET['level'];
                                                                        }
                                                                        ?>
