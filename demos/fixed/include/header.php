@@ -3,6 +3,9 @@
     <div class="logo">
       <img src="media/hoc-logo.png" width="60" />
     </div>
+    <div class="options">
+      <div id="reset-level-btn"><button>Resetear nivel</button></div>
+    </div>
     <div class="niveles">
       <div class="l-title">Nivel </div>
       <ul>
@@ -12,9 +15,6 @@
 			    }
 			    ?>
 	   </ul>
-    </div>
-    <div class="options">
-      <div id="reset-level-btn"><button>Resetear nivel</button></div>
     </div>
   </div>
   <!--<div id="lines-info">

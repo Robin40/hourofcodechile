@@ -114,8 +114,10 @@ header{
 }
 
 .niveles {
-    position:absolute;
-    width: 100%;
+	width: 500px;
+    float: right;
+    margin-right: 170px;
+    position: relative;
     top: 5px;
 }
 
