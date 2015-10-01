@@ -9,11 +9,18 @@ html{
 }
 
 body{
+	font-family: 'Century Gothic';
 	min-height: 100%;
-	background-color: #3F92D6;
 	color: #ffffff;
 	font-size: 30px;
 	text-align: center;
+	background: #00d0ff;
+	background: -moz-radial-gradient(center, ellipse cover, #00d0ff 0%, #00b2da 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#00d0ff), color-stop(100%,#00b2da));
+	background: -webkit-radial-gradient(center, ellipse cover, #00d0ff 0%,#00b2da 100%);
+	background: -o-radial-gradient(center, ellipse cover, #00d0ff 0%,#00b2da 100%);
+	background: -ms-radial-gradient(center, ellipse cover, #00d0ff 0%,#00b2da 100%);
+	background: radial-gradient(ellipse at center, #00d0ff 0%,#00b2da 100%);
 }
 
 #f-title{
@@ -31,4 +38,17 @@ body{
 	display: table-cell;
 	vertical-align: middle;
 	height: 100%;
+	text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+	cursor: default;
+}
+
+#logo-container{
+	
+}
+
+#logo-container > div{
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	background-image: url(../media/hoc-logo-medium.png);
 }

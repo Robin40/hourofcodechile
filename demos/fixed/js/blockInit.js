@@ -78,8 +78,8 @@ function initApi(interpreter, scope) {
 
 var highlightPause = false;
 function highlightBlock(id) {
-  workspace.highlightBlock(id);
-  //highlightPause = true;
+	workspace.highlightBlock(id);
+	highlightPause = true;
 }
 
 function parseCode() {
@@ -105,6 +105,7 @@ function parseCode() {
 }
 
 var gameRunning = false;
+
 var execbtn = $('#exec-button');
 function stepCode() {
   try {
@@ -133,10 +134,11 @@ function stepCode() {
   if (highlightPause) {
     highlightPause = false;
   } else {
-    //stepCode();
+    stepCode();
     //console.log("rec");
   }
 }
+
 
 function hay_bloques_sueltos() {
   return (Blockly.mainWorkspace.getTopBlocks().length >= 2);
@@ -178,6 +180,7 @@ function mostrar_mensaje_bloques_faltantes_derrota() {
 function mostrar_javascript() {
   if (hay_bloques_sueltos()) {
     $("#errorModal").modal();
+    unconnectedBlocks();
     return;
   }
   
@@ -202,10 +205,10 @@ function mostrar_javascript() {
   //  lastLevelMessage();
 }
 
-
 function ejecutar_javascript() {		
   if (hay_bloques_sueltos()) {
     $("#errorModal").modal();
+    unconnectedBlocks();
     return;
   }
   

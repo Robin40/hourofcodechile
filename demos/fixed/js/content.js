@@ -1,6 +1,10 @@
 var completeStorage = 'hoc-stage';
 var incompleteStorage = 'hoc-istage';
 var linesStorage = 'hoc-lns';
+var failStorage = 'hoc-fail';
+var crashStorage = 'hoc-crash';
+var incompleteAttempsStorage = 'hoc-incomplete';
+var connectedStorage = 'hoc-connected';
 var htmlLevelPrefix = 'index';
 function initLevels(i){
   var clean = localStorage[completeStorage];
@@ -10,6 +14,10 @@ function initLevels(i){
     
     for(var i = 1; i <= 20; i++){
       localStorage[linesStorage+i] = 0;
+      localStorage[failStorage+i] = 0;
+      localStorage[crashStorage+i] = 0;
+      localStorage[incompleteAttempsStorage+i] = 0;
+      localStorage[connectedStorage+i] = 0;
     }
   }
 }
@@ -26,7 +34,52 @@ function isLevelCompleted(i){
   return (data&1)*2+(idata&1);
 }
 
+function getLevelBlocks(){
+	var str = "";
+	for (var i=1; i < 20; i++) {
+	  str = str+localStorage[linesStorage+i]+",";
+	};
+	return str+localStorage[linesStorage+20];
+}
+
+function getLevelFails(){
+	var str = "";
+	for (var i=1; i < 20; i++) {
+	  str = str+localStorage[failStorage+i]+",";
+	};
+	return str+localStorage[failStorage+20];
+}
+
+function getLevelCrashs(){
+	var str = "";
+	for (var i=1; i < 20; i++) {
+	  str = str+localStorage[crashStorage+i]+",";
+	};
+	return str+localStorage[crashStorage+20];
+}
+
+function getLevelIncompletedAttemps(){
+	var str = "";
+	for (var i=1; i < 20; i++) {
+	  str = str+localStorage[incompleteAttempsStorage+i]+",";
+	};
+	return str+localStorage[incompleteAttempsStorage+20];
+}
+
+function getLevelConnected(){
+	var str = "";
+	for (var i=1; i < 20; i++) {
+	  str = str+localStorage[connectedStorage+i]+",";
+	};
+	return str+localStorage[connectedStorage+20];
+}
+
+var hoc_completed = false;
 function setLevelAsCompleted(i){
+  if(hoc_completed){
+    return;
+  }
+  hoc_completed = true;
   var mask = 1;
   var level = i;
   while(i > 1){
@@ -36,6 +89,11 @@ function setLevelAsCompleted(i){
   localStorage[completeStorage] = mask | localStorage[completeStorage];
   localStorage[incompleteStorage] = ~mask & localStorage[incompleteStorage];
   localStorage[linesStorage+level] = bloques_usados()-1;
+  
+  $.post( "ajax/updateCompletedLevels.php", { level_completed: localStorage[completeStorage]}).done(function( data ) {
+  });
+  $.post( "ajax/updateBlocks.php", { level_block: getLevelBlocks()}).done(function( data ) {
+  });
 }
 
 function setLevelAsIncompleted(i){
@@ -48,6 +106,11 @@ function setLevelAsIncompleted(i){
   localStorage[incompleteStorage] = mask | localStorage[incompleteStorage];
   localStorage[completeStorage] = ~mask & localStorage[completeStorage];
   localStorage[linesStorage+level] = bloques_usados()-1;
+  
+  $.post( "ajax/updateCompletedLevels.php", { level_completed: localStorage[completeStorage]}).done(function( data ) {
+  });
+  $.post( "ajax/updateBlocks.php", { level_block: getLevelBlocks()}).done(function( data ) {
+  });
 }
 
 function getAllBlocks(){
@@ -165,6 +228,7 @@ function semiCompletedStage(n){
 }
 
 function incompletedStage(n){
+<<<<<<< HEAD
   $("#incompletedModal").modal();
   $(".completed-repeat-btn").click(function(){
     resetear_nivel();
@@ -174,6 +238,10 @@ function incompletedStage(n){
     $('#incompletedModal').modal('hide');
     showHelp();
   });
+
+  var lv = parseInt($('#i-level').val());
+  localStorage[incompleteAttempsStorage+lv] = 1+parseInt(localStorage[incompleteAttempsStorage+lv]);
+  $.post( "ajax/updateIncompletedAttempt.php", { level_incompleted: getLevelIncompletedAttemps()}).done(function( data ) { });
 }
 
 function failedStage(block){
@@ -189,6 +257,11 @@ function failedStage(block){
   });
   
   $('.incompleted-block').html(block);
+  
+  var lv = parseInt($('#i-level').val());
+  localStorage[failStorage+lv] = 1+parseInt(localStorage[failStorage+lv]);
+  $.post( "ajax/updateFail.php", { level_fail: getLevelFails()}).done(function( data ) { });
+
 }
 
 function wallCrash(){
@@ -205,6 +278,10 @@ function wallCrash(){
   
   execbtn.html('Reiniciar');
   execbtn.toggleClass("btn-danger btn-success");
+  var lv = parseInt($('#i-level').val());
+  localStorage[crashStorage+lv] = 1+parseInt(localStorage[crashStorage+lv]);
+  $.post( "ajax/updateCrash.php", { level_crash: getLevelCrashs()}).done(function( data ) { });
+
 }
 
 function forModal(){
@@ -223,6 +300,14 @@ function forModal(){
 
 function welcomeWindow(){
   $('#welcomeModal').modal();
+}
+
+function unconnectedBlocks(){
+	var lv = parseInt($('#i-level').val());
+	localStorage[connectedStorage+lv] = 1+parseInt(localStorage[connectedStorage+lv]);
+	$.post( "ajax/updateConnected.php", { level_connected: getLevelConnected()}).done(function( data ) {
+	});
+	$("#errorModal").modalDisplay();
 }
 
 welcomeWindow();

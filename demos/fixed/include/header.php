@@ -10,18 +10,17 @@
       <strong>Nivel</strong>
       <ul class="levels">
 	<?php
-   for ($i=1; $i <= $GLOBALS['LEVEL_COUNT']; $i++) {
-     echo $i==$GLOBALS['level']?"<li class='current-level'>$i</li>":"<li></li>";
-   }?>
-      </ul>
+           for ($i=1; $i <= $GLOBALS['LEVEL_COUNT']; $i++) {
+                            echo $i==$GLOBALS['level']?"<li class='current-level'>$i</li>":"<li></li>";
+                            }?>
+           </ul>
     </div>
-
 
     <!-- opciones -->
     <div class="col-xs-3" style="padding-top: 4px">
       <button id="game-tutorial" class="btn btn-sm btn-warning">¿Necesitas ayuda?</button>
       <button id="reset-level-btn" class="btn btn-sm btn-info">Reiniciar nivel</button>
     </div>
-    
+
   </div>
 </header>

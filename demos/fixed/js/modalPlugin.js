@@ -142,7 +142,7 @@ $.fn.modalCodeDisplay = function(lines, levels) {
 	}
 	var ac = $('#hoc-fm-accept');
 	ac.show();
-	var htmlCode = "<div class='showCodeHeader'><div>Hasta ahora llevas</div><ul><li>"+lines+" Bloques de c&oacute;digo</li><li>"+levels+" Niveles completados</li></ul></div>";
+	var htmlCode = "<div class='showCodeHeader'><div>Hasta ahora llevas:</div><ul><li>"+lines+" Bloques de c&oacute;digo</li><li>"+levels+" Niveles completados</li></ul></div>";
 	htmlCode += "<div class='showCodeBody'><div>Tu c&oacute;digo actual:</div>";
     $('#hoc-fm-content').html(htmlCode+'<pre>'+this.text()+'</pre></div>');
 };
