@@ -5,7 +5,6 @@ var HOC_LEVEL = {
 	"comentario_ayuda": "En este escenario debes girar al menos dos veces. Posiblemente sea más fácil solo avanzar para recoger primero las dos cacas que están al frente tuyo.",
 	"mensaje_inicial": "Tus perros han dejado más caca en la plaza. Esfuérzate un poco más y recógela toda.",
 	"descripcion": "Tus perros han dejado más caca en la plaza. Esfuérzate un poco más y recógela toda.",
-	"tutorial": "https://www.youtube.com/embed/injrqPi050I",
 	"maximoBloques": 8,
 	"grid": {
 		"filas": 10,

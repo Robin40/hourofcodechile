@@ -4,7 +4,6 @@ var HOC_LEVEL = {
 	"comentario_ayuda": "Avanza, avanza y gira cuando lo necesites. Tu puedes hacerlo, sólo necesitas 7 bloques.",
 	"mensaje_inicial": "Sé un buen dueño y recoge toda la caca que han dejado tus perros en la plaza. Sólo debes pasar por el lugar donde está para recogerla.",
 	"descripcion": "Recoge toda la caca que han dejado tus perros. Sólo debes pasar por el lugar donde está para recogerla.",
-	"tutorial": "https://www.youtube.com/embed/injrqPi050I",
 	"maximoBloques": 7,
 	"imagen_inicial": "caca.png",
 	"grid": {

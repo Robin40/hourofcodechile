@@ -1,5 +1,5 @@
 <header>
-  <div class="row levels-bar">
+  <div class="col-xs-12 levels-bar">
     <!-- logo -->
     <div class="col-xs-3" style="padding-top:10px;">
       <p class="hdc-title">La Hora del Código Chile </p>
@@ -18,9 +18,10 @@
 
     <!-- opciones -->
     <div class="col-xs-3" style="padding-top: 4px">
-      <button id="game-tutorial" class="btn btn-sm btn-warning">¿Necesitas ayuda?</button>
+      <button id="video" class="btn btn-sm btn-success invisible" data-toggle="modal" data-target="#videoModal">Vídeo</button>
+      <button id="game-tutorial" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#helpModal">¿Necesitas ayuda?</button>
       <button id="reset-level-btn" class="btn btn-sm btn-info">Reiniciar nivel</button>
     </div>
 
   </div>
-</header>
+</header> 

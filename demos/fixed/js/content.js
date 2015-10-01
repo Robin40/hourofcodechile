@@ -149,6 +149,11 @@ $('.levels li').each(function (i){
 $("#game-info-desc").html(HOC_LEVEL.descripcion);
 $(".welcome-image img").attr('src', 'media/welcome/'+HOC_LEVEL.imagen_inicial);
 
+if("tutorial" in HOC_LEVEL) {
+  $("#video-tutorial").attr("src", HOC_LEVEL.tutorial + "?rel=0");
+  $('#video').removeClass('invisible');
+}
+
 $("#welcome-message").html(HOC_LEVEL.mensaje_inicial);
 $(".help-title").html(HOC_LEVEL.titulo_ayuda);
 $(".help-message").html(HOC_LEVEL.comentario_ayuda);
@@ -190,6 +195,8 @@ function completedStage(){
   var lv = parseInt($('#i-level').val());
   setLevelAsCompleted(lv);
 
+  $('.completed-next-btn').removeClass('invisible');
+  
   $(".completed-repeat-btn").click(function(){
     resetear_nivel();
     $('#completedModal').modal('hide');
@@ -298,6 +305,10 @@ function forModal(){
 }
 
 function welcomeWindow(){
+  if("tutorial" in HOC_LEVEL) {
+    $("#videoModal").modal();
+  }
+
   $('#welcomeModal').modal();
 }
 
@@ -306,7 +317,7 @@ function unconnectedBlocks(){
 	localStorage[connectedStorage+lv] = 1+parseInt(localStorage[connectedStorage+lv]);
 	$.post( "ajax/updateConnected.php", { level_connected: getLevelConnected()}).done(function( data ) {
 	});
-	$("#errorModal").modalDisplay();
+	$("#errorModal").modal();
 }
 
 welcomeWindow();

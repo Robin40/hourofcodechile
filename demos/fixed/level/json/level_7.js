@@ -5,7 +5,8 @@ var HOC_LEVEL = {
 	"imagen_inicial": "perro.png",
 	"mensaje_inicial": "Tu perro está lejos, pero puedes llegar a él usando sólo dos bloques (recuerda utilizar el bloque repetir). ",
 	"maximoBloques": 2,
-	"titulo_ayuda": "Repetir y repetir",
+  "titulo_ayuda": "Repetir y repetir",
+  "tutorial": "https://www.youtube.com/embed/TOdjWfgt_vc",
 	"grid": {
 		"filas": 10,
 		"columnas": 10,

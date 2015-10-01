@@ -199,6 +199,9 @@ function mostrar_javascript() {
   $('pre code').each(function(i, block) {
     hljs.highlightBlock(block);
   });
+
+  $('#codelines').html(workspace.getAllBlocks().length);
+  $('#nlevels').html(stagesCompleted());
   
   jsModal.modal()
   //  jsModal.modalCodeDisplay(getAllBlocks() , stagesCompleted());

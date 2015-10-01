@@ -3,7 +3,7 @@ var HOC_LEVEL = {
 	"descripcion": "Avanza lo necesario para llegar donde el perro.",
 	"mensaje_inicial": "Avanza lo necesario para llegar donde el perro.",
 	"imagen_inicial": "perro.png",
-	"tutorial": "https://www.youtube.com/embed/injrqdPi050I",
+	"tutorial": "https://www.youtube.com/embed/OYOCgQ8FvX0",
 	"titulo_ayuda": "Usa el bloque 'avanzar'.",
 	"imagen_ayuda": "test.jpg",
 	"comentario_ayuda": "Sólo necesitas unir dos bloques 'avanzar' bajo el bloque 'al inicio'.",

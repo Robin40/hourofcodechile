@@ -6,11 +6,11 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h3 class="modal-title text-center">Nivel <?=$level;?></h3>
       </div>
-      <div class="modal-body" style="height: 150px">
-        <div class="col-xs-4">
-          <div class="welcome-image"><img src="" style="width:100%"/></div>
+      <div class="modal-body" style="height: 120px">
+        <div class="col-xs-2">
+          <div class="welcome-image"><img src="" width="64"/></div>
         </div>
-        <div class="col-xs-8">
+        <div class="col-xs-10">
           <p id="welcome-message">One fine body&hellip;</p>
         </div>
       </div>
@@ -27,11 +27,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title text-center">¿Necesitas ayuda?</h3>
+        <h3 class="modal-title text-center help-title">¿Necesitas ayuda?</h3>
       </div>
       <div class="modal-body">
-        <p id="welcome-message">One fine body&hellip;</p>
-        <div class="welcome-image"><img src="" /></div>
+        <p class="help-message">One fine body&hellip;</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar esta ventana</button>
@@ -108,11 +107,19 @@
         <h3 class="modal-title text-center">Código generado</h3>
       </div>
       <div class="modal-body">
+        <div class="col-xs-6">
+          <p class="text-left">Llevas <strong id="codelines"></strong> líneas de código.</p>
+        </div>
+        <div class="col-xs-6">
+          <p class="text-right">Has
+          completado <strong id="nlevels"></strong> niveles.</p>
+        </div>
         <p>
           <pre><code id="codigoJS" class="javascript"></code></pre>
         </p>
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-success completed-next-btn invisible">Siguiente Nivel &nbsp;<span class="glyphicon glyphicon-play"></span></button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar esta ventana</button>
       </div>
     </div><!-- /.modal-content -->
@@ -151,8 +158,7 @@
         <p class="completedExtra">Este nivel pudo ser completado utilizando solamente <span class="blockNumber"></span> bloques. Puedes volver a intentarlo.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success
-        completed-next-btn">Siguiente Nivel &nbsp;<span class="glyphicon glyphicon-play"></span></button>
+        <button type="button" class="btn btn-success completed-next-btn">Siguiente Nivel &nbsp;<span class="glyphicon glyphicon-play"></span></button>
         <button type="button" class="btn btn-primary completed-repeat-btn">Repetir nivel</button>
         <button type="button" class="btn btn-info completed-code-btn">Ver código</button>
       </div>
@@ -198,3 +204,18 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
+
+<!-- video -->
+<div id="videoModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <iframe id="video-tutorial" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar esta ventana</button>
+      </div>
+    </div><!-- /.modal-content --> 
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

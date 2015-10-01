@@ -11,7 +11,8 @@ var HOC_LEVEL = {
 	"titulo_ayuda": "Sólo debes girar.",
 	"comentario_ayuda": "Para completar el código, sólo debes girar. Mira la condición del bloque \"si\", para decidir en qué dirección debes girar.",
 	"mensaje_inicial": "Completa el código para poder recoger la caca.",
-	"descripcion": "Completa el código para poder recoger la caca.",
+  "descripcion": "Completa el código para poder recoger la caca.",
+  "tutorial": "https://www.youtube.com/embed/-9qLri22fz8",
 	"grid": {
 		"filas": 10,
 		"columnas": 10,

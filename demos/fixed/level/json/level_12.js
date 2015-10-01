@@ -5,7 +5,8 @@ var HOC_LEVEL = {
 	"comentario_ayuda": "Sólo debes avanzar hasta llegar al perro. Pon los bloques de esa forma y lo lograrás.",
 	"mensaje_inicial": "Usando el bloque \"repetir hasta\"  puedes llegar al perro sin importar cuántos pasos debes dar.",
 	"descripcion": "Usa el bloque \"repetir hasta\" para llegar a tu perro.",
-	"maximoBloques": 2,
+  "maximoBloques": 2,
+  "tutorial": "https://www.youtube.com/embed/LgfcGIRns6w",
 	"grid": {
 		"filas": 10,
 		"columnas": 10,
