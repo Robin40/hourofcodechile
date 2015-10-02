@@ -5,7 +5,8 @@ var HOC_LEVEL = {
 	"imagen_inicial": "perro.png",
 	"titulo_ayuda": "Avanzar y girar",
 	"comentario_ayuda": "Usa el bloque 'avanzar' combinado con 'girar a la derecha'.",
-	"mensaje_inicial": "Avanza y gira para llegar donde el perro.",
+  "mensaje_inicial": "Avanza y gira para llegar donde el perro.",
+  "tutorial": "https://www.youtube.com/embed/9tcICfNp0gI",
 	"grid": {
 		"filas": 10,
 		"columnas": 10,
