@@ -200,7 +200,7 @@ function mostrar_javascript() {
     hljs.highlightBlock(block);
   });
 
-  $('#codelines').html(workspace.getAllBlocks().length - 1);
+  $('#codelines').html(getAllBlocks());
   $('#nlevels').html(stagesCompleted());
   
   jsModal.modal()
