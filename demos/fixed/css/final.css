@@ -27,9 +27,14 @@ body{
 	font-size: 45px;
 }
 
+a, a:link, a:hover, a:visited a:active {
+                        decoration: none;
+                    }
+
 #f-message-container{
-	width: 600px;
-	height: 100vh;
+    width: 100%;
+    padding-top: 20px;
+/*	height: 100vh;*/
 	margin: 0 auto;
 	display: table;
 }
