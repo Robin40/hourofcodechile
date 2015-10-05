@@ -187,12 +187,20 @@ function linkReference(){
   return lv<max?htmlLevelPrefix+'.php?level='+(lv+1):'felicitaciones.php';
 }
 
+var last_attempt = new Date();
 function attemptPost(res){
-	$.post( "ajax/runAttempt.php", {
-		level: $('#i-maxlevel').val(),
+	var time = new Date();
+	var dif = time.getTime() - last_attempt.getTime();
+	last_attempt = time;
+ 	var seconds = dif / 1000;
+ 	if(seconds>1){
+ 		$.post( "ajax/runAttempt.php", {
+		level: $('#i-level').val(),
 		blocks: bloques_usados()-1, 
 		result: res
 		}).done(function( data ) { });
+ 	}
+
 }
 
 
@@ -204,6 +212,7 @@ function showHelp(){
   // 		$('#hoc-fullmodal').hide();
   // 	});
 }
+
 
 function completedStage(){
   $("#completedModal").modal();

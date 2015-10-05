@@ -9,10 +9,10 @@ if(
 }
 session_start();
 
-if(!isset($_SESSION['user_id'])){
+if(!isset($_SESSION['USER'])){
 	exit("{status: 'fail'}");
 }
-$user = $_SESSION['user_id'];
+$user = $_SESSION['USER'];
 $db = DbConfig::getConnection();
 
 if(
