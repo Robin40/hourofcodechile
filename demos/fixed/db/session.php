@@ -118,17 +118,16 @@ function insertNewUser($db){
 	// // if you want to show one by one information then try showInfo() function
 	
 	// get browser
-	$name = mysql_real_escape_string($obj->showInfo('browser'));
+	$name = $obj->showInfo('browser');
 	
 	// get browser version
-	$version = mysql_real_escape_string($obj->showInfo('version'));
+	$version = $obj->showInfo('version');
 	
 	// get Operating system
-	$so = mysql_real_escape_string($obj->showInfo('os'));
+	$so = $obj->showInfo('os');
 	
-	$ip = mysql_real_escape_string(getIP());
+	$ip = getIP();
 	$sql = "INSERT INTO user (browser_name, browser_version, operating_system, ip) VALUES ('$name', '$version', '$so', '$ip');";
-	echo $sql;
 	$db->query($sql);
 	$sql = "SELECT count(*) as last_id FROM user;";
 	$res = $db->query($sql);
@@ -144,7 +143,6 @@ if (session_status() == PHP_SESSION_NONE) {
 	session_regenerate_id();
 	if(!isset($_SESSION['USER'])){
 		$db = DbConfig::getConnection();
-		echo "inserting <br />";
 		$USER_ID = insertNewUser($db);
 		$_SESSION['USER'] = $USER_ID;
 		$db->close();

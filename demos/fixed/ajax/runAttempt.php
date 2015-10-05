@@ -26,7 +26,7 @@ if(
 $result = $_POST['result'];
 $blocks = $_POST['blocks'];
 $level = $_POST['level'];
-$sql = "INSERT INTO attempt_registry (used_blocks, level, result) VALUES ('$blocks', '$level', '$result');";
+$sql = "INSERT INTO attempt_registry (user, used_blocks, level, result) VALUES ('$user', '$blocks', '$level', '$result');";
 $db->query($sql);
 $db->close();
 echo "{status: 'ok'}";
