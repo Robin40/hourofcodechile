@@ -3,6 +3,7 @@
 if(isset($_POST['nombre'])) {
 
   $nombre = $_POST['nombre'];
+  $nombre = iconv('UTF-8', 'windows-1252', html_entity_decode($nombre));
 
 // http://www.setasign.com/products/fpdi/demos/simple-demo/
 

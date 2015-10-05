@@ -29,9 +29,13 @@
                                        padding-right: 0">
             <h5>Acciones disponibles</h5>
           </div>
-          <div class="col-xs-8" style="padding-left: 0;
+          <div class="col-xs-4" style="padding-left: 0;
                                        padding-right: 0">
             <h5>Acciones a realizar </h5>
+          </div>
+          <div class="col-xs-4" style="padding-left: 0;
+                                       padding-right: 0">
+            <a href="felicitaciones.php"><h5 class="text-right">Termin&eacute; la Hora del C&oacute;digo</h5></a>
           </div>
 	  <?php include_once 'include/block_content.php'; ?>          
         </div>

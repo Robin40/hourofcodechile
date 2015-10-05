@@ -8,7 +8,7 @@
   </div>
   
   <div class="col-xs-6" style="padding: 5px 0 5px 5px">
-    <button class="btn btn-lg btn-info btn-block" id="js-button" onclick="mostrar_javascript()">Mostrar C&oacute;digo</button>
+    <button class="btn btn-lg btn-info btn-block" id="js-button" onclick="mostrar_javascript()">Mostrar c&oacute;digo</button>
   </div>
 </div>
 
