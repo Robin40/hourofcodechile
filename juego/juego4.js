@@ -109,11 +109,11 @@ var assetsObj = {
 		}
 	},
 	"audio": {
-		"beep": ["beep4.wav"],
-		"achieve": ["achieve.wav"],
-		"mal":["mal.wav"],
-		"ladrido":["guau.wav"],
-		"masomenos":["masomenos.wav"]
+		"beep": ["beep4.wav","beep4.ogg","beep4.mp3"],
+		"achieve": ["achieve.wav","achieve.mp3","achieve.ogg"],
+		"mal":["mal.wav","mal.ogg","mal.mp3"],
+		"ladrido":["guau.wav","guau.ogg","guau.mp3"],
+		"masomenos":["masomenos.wav","masomenos.ogg","masomenos.mp3"]
 	}
 };
 
